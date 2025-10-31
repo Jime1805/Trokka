@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Trokka</string>
+    <string name="logo">Logo</string>
+    <string name="tittle_app">Titulo de la app</string>
+    <string name="init_session">INICIAR SESIÓN</string>
+    <string name="registrarse">¿No tienes cuenta? Regístrate</string>
+
+
 </resources>
