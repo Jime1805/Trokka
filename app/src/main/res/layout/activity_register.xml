@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:padding="18dp"
+    android:layout_height="match_parent"
+    android:background="@drawable/degradado_fondo"
+    tools:context=".RegisterActivity">
+    
+    <LinearLayout
+        android:id="@+id/tittle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="18dp">
+
+        <ImageView
+            android:contentDescription="@string/logo"
+            android:layout_marginTop="10dp"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:src="@drawable/ic_trooka_tittle">
+        </ImageView>
+
+        <ImageView
+            android:contentDescription="@string/tittle_app"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_trooka_tittle_op2"
+            app:tint="@color/trooka_tittle">
+        </ImageView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cuestionarioDades"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="80dp"
+        app:layout_constraintTop_toBottomOf="@id/tittle">
+
+        <EditText
+            android:id="@+id/etUser"
+            android:autofillHints="Nombre de usuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:layout_marginBottom="13dp"
+            tools:hint="Nombre de usuario"
+            android:background="@android:color/white"/>
+        <EditText
+            android:id="@+id/etCorreo"
+            android:autofillHints="Correo electrònico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:layout_marginBottom="13dp"
+            tools:hint="Correo electrònico"
+            android:background="@android:color/white"/>
+        <EditText
+            android:id="@+id/etPass"
+            android:autofillHints="Contraseña"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:layout_marginBottom="13dp"
+            tools:hint="Contraseña"
+            android:background="@android:color/white"/>
+        <EditText
+            android:id="@+id/etRePass"
+            android:autofillHints="Repetir contraseña"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:layout_marginBottom="13dp"
+            tools:hint="Repetir contraseña"
+            android:background="@android:color/white"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/cuestionarioDades">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/enviar"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/init_session"
+            android:textSize="18sp"
+            android:paddingVertical="12dp"/>
+
+        <TextView
+            android:id="@+id/tvIniciarSesion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/iniciar_sesion"
+            android:textColor="@color/enlaces"
+            android:textSize="16sp"
+            android:clickable="true"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

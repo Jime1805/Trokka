@@ -4,6 +4,9 @@
     <string name="tittle_app">Titulo de la app</string>
     <string name="init_session">INICIAR SESIÓN</string>
     <string name="registrarse">¿No tienes cuenta? Regístrate</string>
+    <string name="iniciar_sesion">¿Tienes cuenta? Inicia sesión</string>
+
+    <string name="enviar">Enviar</string>
 
 
 </resources>

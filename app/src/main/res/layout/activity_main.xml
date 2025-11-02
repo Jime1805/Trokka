@@ -61,7 +61,7 @@
             android:textSize="18sp"
             android:paddingVertical="12dp"
             android:backgroundTint="@color/init_session"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="8dp"/>
         <TextView
             android:id="@+id/tv_registrarse"
             android:layout_width="wrap_content"
