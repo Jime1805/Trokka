@@ -47,40 +47,44 @@
         app:layout_constraintTop_toBottomOf="@id/tittle">
 
         <EditText
-            android:id="@+id/etUser"
+            android:id="@+id/etUserReg"
             android:autofillHints="Nombre de usuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="12dp"
             android:layout_marginBottom="13dp"
-            tools:hint="Nombre de usuario"
+            android:hint="@string/nombre_usuario"
+            android:inputType="text"
             android:background="@android:color/white"/>
         <EditText
-            android:id="@+id/etCorreo"
+            android:id="@+id/etCorreoReg"
             android:autofillHints="Correo electrònico"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="12dp"
             android:layout_marginBottom="13dp"
-            tools:hint="Correo electrònico"
+            android:hint="@string/correo_electronico"
+            android:inputType="textEmailAddress"
             android:background="@android:color/white"/>
         <EditText
-            android:id="@+id/etPass"
+            android:id="@+id/etPassReg"
             android:autofillHints="Contraseña"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="12dp"
             android:layout_marginBottom="13dp"
-            tools:hint="Contraseña"
+            android:hint="@string/contraseña"
+            android:inputType="text"
             android:background="@android:color/white"/>
         <EditText
-            android:id="@+id/etRePass"
+            android:id="@+id/etRePassReg"
             android:autofillHints="Repetir contraseña"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="12dp"
             android:layout_marginBottom="13dp"
-            tools:hint="Repetir contraseña"
+            android:hint="@string/repetir_contraseña"
+            android:inputType="text"
             android:background="@android:color/white"/>
 
     </LinearLayout>
@@ -94,6 +98,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cuestionarioDades">
 
         <Button
+            android:id="@+id/btnEnviar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/enviar"
