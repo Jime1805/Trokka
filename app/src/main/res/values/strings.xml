@@ -11,5 +11,8 @@
     <string name="repetir_contraseña">Repetir contraseña</string>
     <string name="enviar">Enviar</string>
 
+    <string name="user">Usuario</string>
+    <string name="producte">Producte</string>
+
 
 </resources>
