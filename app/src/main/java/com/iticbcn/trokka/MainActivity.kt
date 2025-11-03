@@ -1,8 +1,10 @@
 package com.iticbcn.trokka
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -14,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var etCorreoInit: EditText
     private lateinit var etPassInit: EditText
     private lateinit var btnIniciarSesion: Button
+    private lateinit var tvRegistrarse: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,13 +24,22 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         initComponents()
         initListeners()
-        initUi()
+    }
+    private fun navigateToRegister(){
+        val intent = Intent(this, RegisterActivity::class.java)
+        startActivity(intent)
     }
 
+    private fun initListeners(){
+        tvRegistrarse.setOnClickListener {
+            navigateToRegister()
+        }
+    }
     private fun initComponents(){
         etNombreUsuario = findViewById(R.id.etNombreUsuario)
         etCorreoInit = findViewById(R.id.etCorreoInit)
         etPassInit = findViewById(R.id.etPassInit)
         btnIniciarSesion = findViewById(R.id.btnIniciarSesion)
+        tvRegistrarse = findViewById(R.id.tvRegistrarse)
     }
 }
