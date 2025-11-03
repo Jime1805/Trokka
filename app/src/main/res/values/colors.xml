@@ -2,8 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="background_main">#E48A06</color>
     <color name="trooka_tittle">#176158</color>
     <color name="init_session">#4CAF50</color>
     <color name="enlaces">#2196F3</color>
+
+    <color name="menu_bajo">#F0B967</color>
+    <color name="cd_ventas">#E6B319</color>
+    <color name="borde">#B67A22</color>
 </resources>
