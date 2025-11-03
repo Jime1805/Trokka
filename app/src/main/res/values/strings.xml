@@ -3,13 +3,13 @@
     <string name="logo">Logo</string>
     <string name="tittle_app">Titulo de la app</string>
     <string name="init_session">INICIAR SESIÓN</string>
-    <string name="registrarse">¿No tienes cuenta? Regístrate</string>
+    <string name="crear_cuenta">¿No tienes cuenta? Regístrate</string>
     <string name="iniciar_sesion">¿Tienes cuenta? Inicia sesión</string>
     <string name="nombre_usuario">Nombre de usuario</string>
     <string name="correo_electronico">Correo electrónico</string>
     <string name="contraseña">Contraseña</string>
     <string name="repetir_contraseña">Repetir contraseña</string>
-    <string name="enviar">Enviar</string>
+    <string name="registrarse">Resgistrarse</string>
 
     <string name="user">Usuario</string>
     <string name="producte">Producte</string>

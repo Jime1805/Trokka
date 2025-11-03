@@ -93,6 +93,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:cardBackgroundColor="@color/menu_bajo">
 
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
