@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnIniciarSesion: Button
     private lateinit var tvRegistrarse: TextView
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

@@ -101,7 +101,7 @@
             android:id="@+id/btnEnviar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/enviar"
+            android:text="@string/registrarse"
             android:textColor="@color/white"
             android:backgroundTint="@color/init_session"
             android:textSize="18sp"
