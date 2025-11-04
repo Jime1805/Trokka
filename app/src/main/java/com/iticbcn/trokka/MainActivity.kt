@@ -18,6 +18,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnIniciarSesion: Button
     private lateinit var tvRegistrarse: TextView
 
+    companion object{
+        const val LOBY = "init_session"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -29,9 +33,18 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    private fun navigateToLoby(){
+        val intent = Intent(this, Loby_Activity::class.java)
+        intent.putExtra(LOBY, etNombreUsuario.text.toString())
+        startActivity(intent)
+    }
+
     private fun initListeners(){
         tvRegistrarse.setOnClickListener {
             navigateToRegister()
+        }
+        btnIniciarSesion.setOnClickListener {
+            navigateToLoby()
         }
     }
     private fun initComponents(){
