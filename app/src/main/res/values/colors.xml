@@ -9,4 +9,6 @@
     <color name="menu_bajo">#F0B967</color>
     <color name="cd_ventas">#E6B319</color>
     <color name="borde">#B67A22</color>
+
+    <color name="info_user">#FFB997</color> <!-- Naranja pastel: FFB997 | Dorado suave: FFD54F | -->
 </resources>
