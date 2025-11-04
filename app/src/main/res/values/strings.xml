@@ -5,14 +5,20 @@
     <string name="init_session">INICIAR SESIÓN</string>
     <string name="crear_cuenta">¿No tienes cuenta? Regístrate</string>
     <string name="iniciar_sesion">¿Tienes cuenta? Inicia sesión</string>
+    <string name="registrarse">Resgistrarse</string>
+
     <string name="nombre_usuario">Nombre de usuario</string>
+    <string name="descripcion">Descripcion</string>
+    <string name="valoracion">Valoracion</string>
+
     <string name="correo_electronico">Correo electrónico</string>
     <string name="contraseña">Contraseña</string>
     <string name="repetir_contraseña">Repetir contraseña</string>
-    <string name="registrarse">Resgistrarse</string>
 
     <string name="user">Usuario</string>
     <string name="producte">Producte</string>
+
+    <string name="edit_perfil">Editar perfil</string>
 
 
 </resources>
