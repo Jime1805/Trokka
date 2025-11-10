@@ -21,7 +21,6 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_marginTop="20dp"
                 android:contentDescription="@string/tittle_app"
                 android:src="@drawable/ic_trooka_tittle"
                 app:tint="@color/trooka_tittle">
