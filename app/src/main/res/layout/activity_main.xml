@@ -28,6 +28,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
+                app:tint="@color/trooka_tittle"
                 android:src="@drawable/ic_trooka_tittle">
             </ImageView>
 
@@ -36,7 +37,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:src="@drawable/ic_trooka_tittle_op2"
+                android:src="@drawable/ic_trooka_tittle"
                 app:tint="@color/trooka_tittle">
             </ImageView>
 
