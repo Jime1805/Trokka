@@ -24,6 +24,7 @@
     <string name="tornar_enrere">Tornar enrere</string>
     <string name="map_button">Map button</string>
     <string name="boton_lupa">Boton lupa</string>
+    <string name="title_activity_maps">MapsActivity</string>
 
 
 </resources>
