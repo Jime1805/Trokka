@@ -106,7 +106,7 @@
             android:src="@drawable/ic_mapa"
             android:contentDescription="mapa"
             app:tint="@color/white"
-            />
+            android:background="?attr/selectableItemBackground"/>
 
         <ImageView
             android:id="@+id/btn_lupa"
@@ -117,7 +117,7 @@
             android:layout_marginEnd="60dp"
             android:layout_marginStart="60dp"
             app:tint="@color/white"
-            />
+            android:background="?attr/selectableItemBackground"/>
 
         <ImageView
             android:id="@+id/btn_profile"
@@ -126,7 +126,7 @@
             android:contentDescription="perfil"
             android:src="@drawable/ic_profile2"
             app:tint="@color/white"
-            />
+            android:background="?attr/selectableItemBackground"/>
 
     </LinearLayout>
 
