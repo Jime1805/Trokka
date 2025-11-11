@@ -16,12 +16,13 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/menu_alto"
-            >
+            app:cardBackgroundColor="@color/menu_alto">
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="30dp">
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp">
 
                 <ImageView
                     android:id="@+id/imgFlechita"
@@ -55,12 +56,16 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:backgroundTint="@color/configuracio_user"
                 android:layout_marginHorizontal="30dp"
                 android:layout_gravity="center"
                 app:cardCornerRadius="200dp">
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    android:contentDescription="logo_perfil"
+                    android:src="@drawable/ic_profile2"
+                    app:tint="@color/logo_perfil"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -79,9 +84,11 @@
                     app:cardCornerRadius="20dp">
 
                     <TextView
+                        android:id="@+id/tvNombreUsuario"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/nombre_usuario"
+                        tools:text="@string/nombre_usuario"
+                        android:textColor="@color/black"
                         android:textSize="20sp"
                         android:gravity="center"/>
                 </androidx.cardview.widget.CardView>
@@ -135,12 +142,24 @@
         android:layout_marginTop="20dp">
 
         <Button
-            android:id="@+id/editarPerfil"
+            android:id="@+id/btnEditarPerfil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/info_user"
+            android:backgroundTint="@color/configuracio_user"
             android:layout_marginStart="20dp"
             android:text="@string/edit_perfil"
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:id="@+id/btnCanviarUsuari"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/configuracio_user"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:text="@string/canviar_compta"
+            android:textSize="16sp"
             android:textColor="@color/black"/>
     </LinearLayout>
 
@@ -168,25 +187,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center"
         android:orientation="horizontal"
-        android:padding="20dp"
+        android:padding="15dp"
         android:layout_marginBottom="10dp"
         >
 
         <ImageView
             android:id="@+id/btn_mapa"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:src="@drawable/ic_mapa"
-            android:contentDescription="@string/map_button"
+            android:contentDescription="mapa"
             app:tint="@color/white"
             />
 
         <ImageView
             android:id="@+id/btn_lupa"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:src="@drawable/ic_lupa"
-            android:contentDescription="@string/boton_lupa"
+            android:contentDescription="lupa"
             android:layout_marginEnd="60dp"
             android:layout_marginStart="60dp"
             app:tint="@color/white"
@@ -194,8 +213,9 @@
 
         <ImageView
             android:id="@+id/btn_profile"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:contentDescription="perfil"
             android:src="@drawable/ic_profile2"
             app:tint="@color/white"
             />
