@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Trokka">
         <activity
+            android:name=".MyObjectsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UploadObjectsActivity"
+            android:exported="false" />
+        <activity
             android:name=".MapActivity"
             android:exported="false" />
         <activity

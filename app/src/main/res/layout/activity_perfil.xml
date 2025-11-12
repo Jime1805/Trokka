@@ -141,24 +141,53 @@
         android:orientation="vertical"
         android:layout_marginTop="20dp">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnEditarPerfil"
+            app:strokeColor="@color/bordes"
+            app:strokeWidth="1dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/configuracio_user"
             android:layout_marginStart="20dp"
-            android:text="@string/edit_perfil"
+            android:text="@string/move_to_edit_perfil"
             android:textSize="16sp"
             android:textColor="@color/black"/>
 
-        <Button
-            android:id="@+id/btnCanviarUsuari"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSubirObjetos"
+            app:strokeColor="@color/bordes"
+            app:strokeWidth="1dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/configuracio_user"
             android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"
-            android:text="@string/canviar_compta"
+            android:text="@string/move_to_upload_objects"
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMisObjetos"
+            app:strokeColor="@color/bordes"
+            app:strokeWidth="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/configuracio_user"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:text="@string/move_to_my_objects"
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCanviarUsuari"
+            app:strokeColor="@color/bordes"
+            app:strokeWidth="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/configuracio_user"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:text="@string/move_to_canviar_compta"
             android:textSize="16sp"
             android:textColor="@color/black"/>
     </LinearLayout>
