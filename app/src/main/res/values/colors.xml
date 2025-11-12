@@ -13,5 +13,7 @@
 
     <color name="logo_perfil">#3F51B5</color>
     <color name="info_user">#FFB997</color> <!-- Naranja pastel: FFB997 | Dorado suave: FFD54F | -->
-    <color name="configuracio_user">#F89C6F</color>
+    <color name="configuracio_user">#FB8E59</color>
+    <color name="bordes">#FD7C3E</color>
+
 </resources>

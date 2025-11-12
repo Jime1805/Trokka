@@ -18,8 +18,10 @@
     <string name="user">Usuario</string>
     <string name="producte">Producte</string>
 
-    <string name="edit_perfil">Editar perfil</string>
-    <string name="canviar_compta">Canviar compte</string>
+    <string name="move_to_edit_perfil">Editar perfil</string>
+    <string name="move_to_canviar_compta">Canviar compte</string>
+    <string name="move_to_upload_objects">Subir objetos</string>
+    <string name="move_to_my_objects">Ver mis objetos</string>
 
 
     <string name="tornar_enrere">Tornar enrere</string>
