@@ -9,6 +9,7 @@
     tools:context=".PerfilActivity">
 
     <LinearLayout
+        android:id="@+id/llHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent">
@@ -44,8 +45,8 @@
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginVertical="80dp"
+        app:layout_constraintTop_toBottomOf="@id/llHeader"
+        android:layout_marginVertical="40dp"
         android:layout_marginHorizontal="30dp">
 
         <LinearLayout
@@ -132,65 +133,91 @@
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvEditarObjetos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/info_user"
         app:layout_constraintTop_toBottomOf="@id/llinfoUser"
-        android:layout_marginHorizontal="30dp"
-        android:orientation="vertical"
-        android:layout_marginTop="20dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cvSubirObjetos"
+        app:layout_constraintBottom_toTopOf="@+id/cvVerMisObjetos"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="40dp"
+        app:cardCornerRadius="20dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/imgLapiz"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_lapiz"/>
+            <TextView
+                android:id="@+id/tvLapiz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:text="Editar objeto"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnEditarPerfil"
-            app:strokeColor="@color/bordes"
-            app:strokeWidth="1dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/configuracio_user"
-            android:layout_marginStart="20dp"
-            android:text="@string/move_to_edit_perfil"
-            android:textSize="16sp"
-            android:textColor="@color/black"/>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvSubirObjetos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/info_user"
+        app:layout_constraintTop_toBottomOf="@id/llinfoUser"
+        app:layout_constraintStart_toEndOf="@id/cvEditarObjetos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/cvCanviarCompta"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        app:cardCornerRadius="20dp">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSubirObjetos"
-            app:strokeColor="@color/bordes"
-            app:strokeWidth="1dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/configuracio_user"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp"
-            android:text="@string/move_to_upload_objects"
-            android:textSize="16sp"
-            android:textColor="@color/black"/>
+    </androidx.cardview.widget.CardView>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnMisObjetos"
-            app:strokeColor="@color/bordes"
-            app:strokeWidth="1dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/configuracio_user"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp"
-            android:text="@string/move_to_my_objects"
-            android:textSize="16sp"
-            android:textColor="@color/black"/>
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCanviarUsuari"
-            app:strokeColor="@color/bordes"
-            app:strokeWidth="1dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/configuracio_user"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp"
-            android:text="@string/move_to_canviar_compta"
-            android:textSize="16sp"
-            android:textColor="@color/black"/>
-    </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvVerMisObjetos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/info_user"
+        app:layout_constraintTop_toBottomOf="@id/cvEditarObjetos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cvCanviarCompta"
+        app:layout_constraintBottom_toTopOf="@id/vLinea"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="30dp"
+        app:cardCornerRadius="20dp">
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvCanviarCompta"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="@color/info_user"
+        app:layout_constraintTop_toBottomOf="@id/cvSubirObjetos"
+        app:layout_constraintStart_toEndOf="@id/cvVerMisObjetos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/vLinea"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="30dp"
+        app:cardCornerRadius="20dp">
+
+    </androidx.cardview.widget.CardView>
+
+
 
 
 
@@ -201,6 +228,7 @@
     <!-- Menu de abajo para todas las activities -->
 
     <View
+        android:id="@+id/vLinea"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@color/borde"
