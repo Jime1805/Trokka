@@ -64,7 +64,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:contentDescription="logo_perfil"
+                    android:contentDescription="@string/userPicture"
                     android:src="@drawable/ic_profile2"
                     app:tint="@color/logo_perfil"/>
 
@@ -156,6 +156,7 @@
                 android:id="@+id/imgLapiz"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:contentDescription="@string/imagePencil"
                 android:src="@drawable/ic_lapiz"/>
             <TextView
                 android:id="@+id/tvLapiz"
@@ -165,7 +166,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:gravity="center"
-                android:text="Editar objeto"/>
+                android:text="@string/move_to_edit_perfil"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -181,7 +182,27 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="40dp"
         app:cardCornerRadius="20dp">
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/imgUpload"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_subir_objetos"/>
+            <TextView
+                android:id="@+id/tvUpload"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:text="@string/move_to_upload_objects"/>
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -198,7 +219,28 @@
         android:layout_marginStart="40dp"
         android:layout_marginBottom="30dp"
         app:cardCornerRadius="20dp">
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/imgMisObjetos"
+                android:contentDescription="@string/imageMyObjects"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_objetos"/>
+            <TextView
+                android:id="@+id/tvMisObjetos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:text="@string/move_to_my_objects"/>
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -214,7 +256,28 @@
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="30dp"
         app:cardCornerRadius="20dp">
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/imgCanvioUsuaio"
+                android:contentDescription="@string/imageChangeAccount"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_canvio_usuario"/>
+            <TextView
+                android:id="@+id/tvCanvioUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:text="@string/move_to_canviar_compta"/>
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 
 
@@ -253,7 +316,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/ic_mapa"
-            android:contentDescription="mapa"
+            android:contentDescription="@string/map"
             app:tint="@color/white"
             android:background="?attr/selectableItemBackground"/>
 
@@ -262,7 +325,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/ic_lupa"
-            android:contentDescription="lupa"
+            android:contentDescription="@string/lupa"
             android:layout_marginEnd="60dp"
             android:layout_marginStart="60dp"
             app:tint="@color/white"
@@ -272,7 +335,7 @@
             android:id="@+id/btn_profile"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:contentDescription="perfil"
+            android:contentDescription="@string/perfil"
             android:src="@drawable/ic_profile2"
             app:tint="@color/white"
             android:background="?attr/selectableItemBackground"/>
