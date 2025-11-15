@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.iticbcn.trokka.Loby_Activity.Companion.PERFIL
@@ -18,8 +19,11 @@ class PerfilActivity : AppCompatActivity() {
     private lateinit var btn_mapa: ImageView
     private lateinit var btn_lupa: ImageView
     private lateinit var btn_profile: ImageView
-    private lateinit var btnCanviarUsuari: Button
 
+    private lateinit var cvEditarObjetos: CardView //Falta por hacer
+    private lateinit var cvSubirObjetos: CardView //Falta por hacer
+    private lateinit var cvVerMisObjetos: CardView //Falta por hacer
+    private lateinit var cvCanviarCompta: CardView // Hehco
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,7 +70,7 @@ class PerfilActivity : AppCompatActivity() {
         btn_profile.setOnClickListener {
             navigateToProfile()
         }
-        btnCanviarUsuari.setOnClickListener {
+        cvCanviarCompta.setOnClickListener {
             navigateToMain()
         }
 
@@ -78,6 +82,10 @@ class PerfilActivity : AppCompatActivity() {
         btn_lupa = findViewById(R.id.btn_lupa)
         btn_profile = findViewById(R.id.btn_profile)
         tvNombreUsuario = findViewById(R.id.tvNombreUsuario)
-        btnCanviarUsuari = findViewById(R.id.btnCanviarUsuari)
+
+        cvEditarObjetos = findViewById(R.id.cvEditarObjetos)
+        cvSubirObjetos = findViewById(R.id.cvSubirObjetos)
+        cvVerMisObjetos = findViewById(R.id.cvVerMisObjetos)
+        cvCanviarCompta = findViewById(R.id.cvCanviarCompta)
     }
 }

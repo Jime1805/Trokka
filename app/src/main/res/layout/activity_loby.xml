@@ -104,7 +104,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/ic_mapa"
-            android:contentDescription="mapa"
+            android:contentDescription="@string/map"
             app:tint="@color/white"
             android:background="?attr/selectableItemBackground"/>
 
@@ -113,7 +113,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/ic_lupa"
-            android:contentDescription="lupa"
+            android:contentDescription="@string/lupa"
             android:layout_marginEnd="60dp"
             android:layout_marginStart="60dp"
             app:tint="@color/white"
@@ -123,7 +123,7 @@
             android:id="@+id/btn_profile"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:contentDescription="perfil"
+            android:contentDescription="@string/perfil"
             android:src="@drawable/ic_profile2"
             app:tint="@color/white"
             android:background="?attr/selectableItemBackground"/>

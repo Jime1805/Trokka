@@ -18,10 +18,20 @@
     <string name="user">Usuario</string>
     <string name="producte">Producte</string>
 
-    <string name="move_to_edit_perfil">Editar perfil</string>
-    <string name="move_to_canviar_compta">Canviar compte</string>
+    <string name="userPicture">Foto perfil</string>
+    <string name="imagePencil">Foto lapiz</string>
+    <string name="imageMyObjects">Foto mis objetos</string>
+    <string name="imageChangeAccount">Foto canviar cuenta</string>
+
+    <!-- Menu bajo -->
+    <string name="map">Mapa</string>
+    <string name="lupa">lupa</string>
+    <string name="perfil">Perfil</string>
+
+    <string name="move_to_edit_perfil">Editar Objetos</string>
+    <string name="move_to_canviar_compta">Canviar cuenta</string>
     <string name="move_to_upload_objects">Subir objetos</string>
-    <string name="move_to_my_objects">Ver mis objetos</string>
+    <string name="move_to_my_objects">Mis objetos</string>
 
 
     <string name="tornar_enrere">Tornar enrere</string>

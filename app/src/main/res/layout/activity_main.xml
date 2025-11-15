@@ -9,24 +9,17 @@
     android:background="@drawable/degradado_fondo"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <ImageView
         android:id="@+id/tittle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/info_user"
-        android:layout_marginTop="20dp">
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:contentDescription="@string/tittle_app"
+        android:src="@drawable/ic_trooka_tittle"
+        android:layout_marginTop="20dp"
+        app:tint="@color/trooka_tittle"/>
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:contentDescription="@string/tittle_app"
-                android:src="@drawable/ic_trooka_tittle"
-                app:tint="@color/trooka_tittle">
-            </ImageView>
-
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/info_user"
