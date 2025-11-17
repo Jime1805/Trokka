@@ -230,7 +230,7 @@
                 android:contentDescription="@string/imageMyObjects"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/ic_objetos"/>
+                android:src="@drawable/ic_favorito_vacio"/>
             <TextView
                 android:id="@+id/tvMisObjetos"
                 android:layout_width="match_parent"
@@ -239,7 +239,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:gravity="center"
-                android:text="@string/move_to_my_objects"/>
+                android:text="@string/move_to_my_favorites"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

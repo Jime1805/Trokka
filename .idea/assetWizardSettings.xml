@@ -19,8 +19,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_objetos" />
-                            <entry key="sourceFile" value="C:\Users\18eji\Dam\2n\DSAM\Actv5\imagenes\variante-de-balon-de-futbol.svg" />
+                            <entry key="outputName" value="ic_favorito_lleno" />
+                            <entry key="sourceFile" value="C:\Users\18eji\Dam\2n\DSAM\Actv5\imagenes\favorito_lleno.svg" />
                           </map>
                         </option>
                       </PersistentState>
