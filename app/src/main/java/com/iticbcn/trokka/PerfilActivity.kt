@@ -60,6 +60,11 @@ class PerfilActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    private fun navigateToUploadObject() {
+        val intent = Intent(this, UploadObjectActivity::class.java)
+        startActivity(intent)
+    }
+
     private fun initListeners() {
         imgFlechita.setOnClickListener {
             navigateToLoby()
@@ -72,6 +77,10 @@ class PerfilActivity : AppCompatActivity() {
         }
         cvCanviarCompta.setOnClickListener {
             navigateToMain()
+        }
+
+        cvSubirObjetos.setOnClickListener {
+            navigateToUploadObject()
         }
 
     }

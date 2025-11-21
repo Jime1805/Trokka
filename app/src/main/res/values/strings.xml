@@ -36,6 +36,8 @@
 
     <string name="tornar_enrere">Tornar enrere</string>
     <string name="subir_objetos">Subir objetos</string>
+    <string name="imatge_del_nou_objecte">Imatge del nou objecte</string>
+    <string name="boto_per_afegir_nou_objecte">Boto per afegir nou objecte</string>
 
 
 </resources>
