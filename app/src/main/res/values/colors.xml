@@ -15,5 +15,7 @@
     <color name="info_user">#29F83434</color> <!-- Naranja pastel: FFB997 | Dorado suave: FFD54F | -->
     <color name="configuracio_user">#FB8E59</color>
     <color name="bordes">#FD7C3E</color>
+    <color name="descripcion_objeto">#58FF0000</color>
+    <color name="flechita">#6E000000</color>
 
 </resources>
