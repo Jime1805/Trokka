@@ -33,6 +33,9 @@
     <string name="move_to_upload_objects">Subir objetos</string>
     <string name="move_to_my_favorites">Favoritos</string>
     <string name="tornar_enrere">Tornar enrere</string>
+    <string name="subir_objetos">Subir objetos</string>
+    <string name="imatge_del_nou_objecte">Imatge del nou objecte</string>
+    <string name="boto_per_afegir_nou_objecte">Boto per afegir nou objecte</string>
 
 
 </resources>
