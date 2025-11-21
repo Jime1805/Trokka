@@ -15,10 +15,10 @@
             android:name=".UploadObjectActivity"
             android:exported="false" />
         <activity
-            android:name=".MyObjectsActivity"
+            android:name=".FavoritosActivity"
             android:exported="false" />
         <activity
-            android:name=".UploadObjectsActivity"
+            android:name=".MyObjectsActivity"
             android:exported="false" />
         <activity
             android:name=".MapActivity"
