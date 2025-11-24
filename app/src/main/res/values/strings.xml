@@ -23,6 +23,7 @@
     <string name="imageMyObjects">Foto mis objetos</string>
     <string name="imageChangeAccount">Foto canviar cuenta</string>
     <string name="imageObject">Imagen del objeto</string>
+    <string name="imageFavorite">Me gusta</string>
 
     <!-- Menu bajo -->
     <string name="map">Mapa</string>
