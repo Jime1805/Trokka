@@ -56,14 +56,14 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rFavObj"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@+id/cvHeader"
         app:layout_constraintBottom_toTopOf="@+id/vLinea"
         android:layout_marginTop="10dp"
         android:orientation="vertical"
-        tools:listitem="@layout/cv_fav_obj"
-        />
+        tools:listitem="@layout/cv_fav_obj"/>
 
     <View
         android:id="@+id/vLinea"
