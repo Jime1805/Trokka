@@ -141,7 +141,7 @@
         app:layout_constraintTop_toBottomOf="@id/llinfoUser"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/cvSubirObjetos"
-        app:layout_constraintBottom_toTopOf="@+id/cvVerMisObjetos"
+        app:layout_constraintBottom_toTopOf="@+id/cvFavs"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="30dp"
         android:layout_marginStart="40dp"
@@ -206,7 +206,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cvVerMisObjetos"
+        android:id="@+id/cvFavs"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:backgroundTint="@color/info_user"
@@ -249,7 +249,7 @@
         android:layout_height="0dp"
         android:backgroundTint="@color/info_user"
         app:layout_constraintTop_toBottomOf="@id/cvSubirObjetos"
-        app:layout_constraintStart_toEndOf="@id/cvVerMisObjetos"
+        app:layout_constraintStart_toEndOf="@id/cvFavs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/vLinea"
         android:layout_marginTop="40dp"
