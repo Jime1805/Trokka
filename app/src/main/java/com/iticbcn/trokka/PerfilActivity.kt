@@ -22,7 +22,7 @@ class PerfilActivity : AppCompatActivity() {
 
     private lateinit var cvEditarObjetos: CardView //Falta por hacer
     private lateinit var cvSubirObjetos: CardView //Falta por hacer
-    private lateinit var cvVerMisObjetos: CardView //Falta por hacer
+    private lateinit var cvFavs: CardView //Falta por hacer
     private lateinit var cvCanviarCompta: CardView // Hehco
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,6 +65,11 @@ class PerfilActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    private fun navigateToFavs() {
+        val intent = Intent(this, FavoritosActivity::class.java)
+        startActivity(intent)
+    }
+
     private fun initListeners() {
         imgFlechita.setOnClickListener {
             navigateToLoby()
@@ -78,9 +83,11 @@ class PerfilActivity : AppCompatActivity() {
         cvCanviarCompta.setOnClickListener {
             navigateToMain()
         }
-
         cvSubirObjetos.setOnClickListener {
             navigateToUploadObject()
+        }
+        cvFavs.setOnClickListener {
+            navigateToFavs()
         }
 
     }
@@ -94,7 +101,7 @@ class PerfilActivity : AppCompatActivity() {
 
         cvEditarObjetos = findViewById(R.id.cvEditarObjetos)
         cvSubirObjetos = findViewById(R.id.cvSubirObjetos)
-        cvVerMisObjetos = findViewById(R.id.cvVerMisObjetos)
+        cvFavs = findViewById(R.id.cvFavs)
         cvCanviarCompta = findViewById(R.id.cvCanviarCompta)
     }
 }

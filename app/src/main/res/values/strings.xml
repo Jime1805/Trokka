@@ -22,6 +22,7 @@
     <string name="imagePencil">Foto lapiz</string>
     <string name="imageMyObjects">Foto mis objetos</string>
     <string name="imageChangeAccount">Foto canviar cuenta</string>
+    <string name="imageObject">Imagen del objeto</string>
 
     <!-- Menu bajo -->
     <string name="map">Mapa</string>
