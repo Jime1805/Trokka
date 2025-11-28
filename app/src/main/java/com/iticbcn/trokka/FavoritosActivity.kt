@@ -24,11 +24,6 @@ class FavoritosActivity : AppCompatActivity() {
         initListeners()
     }
 
-    private fun navigateToLoby(){
-        val intent = Intent(this, Loby_Activity::class.java)
-        startActivity(intent)
-    }
-
     private fun navigateToMapa(){
         val intent = Intent(this, MapActivity::class.java)
         startActivity(intent)
@@ -41,15 +36,12 @@ class FavoritosActivity : AppCompatActivity() {
 
     private fun initListeners() {
         imgFlechita.setOnClickListener {
-            navigateToLoby()
+            navigateToProfile()
         }
         btn_mapa.setOnClickListener {
             navigateToMapa()
         }
         btn_profile.setOnClickListener {
-            navigateToProfile()
-        }
-        rFavObj.setOnClickListener {
             navigateToProfile()
         }
     }

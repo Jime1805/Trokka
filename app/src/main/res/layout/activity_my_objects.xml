@@ -3,8 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@drawable/degradado_fondo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MyObjectsActivity">
 
+    <ActionMenuView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_mapa"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_mapa"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            />
+    </ActionMenuView>
 </androidx.constraintlayout.widget.ConstraintLayout>
