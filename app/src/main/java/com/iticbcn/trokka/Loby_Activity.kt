@@ -16,6 +16,7 @@ class Loby_Activity : AppCompatActivity() {
     private lateinit var btn_mapa: ImageView
     private lateinit var btn_lupa: ImageView
     private lateinit var btn_profile: ImageView
+    private lateinit var iv_ImagenObjeto: ImageView
 
     companion object{
         const val PERFIL = "perfil"
@@ -37,6 +38,14 @@ class Loby_Activity : AppCompatActivity() {
         btn_profile.setOnClickListener {
             navigateToProfile(usuario)
         }
+        iv_ImagenObjeto.setOnClickListener {
+            navigateToObject()
+        }
+    }
+
+    private fun  navigateToObject() {
+        val intent = Intent(this, ObjectActivity::class.java)
+        startActivity(intent)
     }
 
     private fun navigateToProfile(usuario: String){
@@ -62,5 +71,6 @@ class Loby_Activity : AppCompatActivity() {
         btn_mapa = findViewById(R.id.btn_mapa)
         btn_lupa = findViewById(R.id.btn_lupa)
         btn_profile = findViewById(R.id.btn_profile)
+        iv_ImagenObjeto = findViewById(R.id.ivImagenObjeto)
     }
 }

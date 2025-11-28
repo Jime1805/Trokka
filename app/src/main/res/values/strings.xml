@@ -38,6 +38,7 @@
     <string name="subir_objetos">Subir objetos</string>
     <string name="imatge_del_nou_objecte">Imatge del nou objecte</string>
     <string name="boto_per_afegir_nou_objecte">Boto per afegir nou objecte</string>
+    <string name="username">Username</string>
 
 
 </resources>
