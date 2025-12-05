@@ -18,4 +18,6 @@
     <color name="descripcion_objeto">#58FF0000</color>
     <color name="flechita">#6E000000</color>
 
+    <color name="red">#FFFF0000</color>
+
 </resources>

@@ -43,6 +43,8 @@
     <string name="prefer_ncias">Preferéncias</string>
     <string name="mode_app">Mode clar/obscur</string>
     <string name="grandaria_texts">Grandaria texts</string>
+    <string name="cerca_un_punt_de_trobada">Cerca un punt de trobada</string>
+    <string name="mapa">Mapa</string>
 
 
 </resources>
