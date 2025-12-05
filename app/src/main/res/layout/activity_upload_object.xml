@@ -8,11 +8,11 @@
     android:background="@drawable/degradado_fondo"
     tools:context=".UploadObjectActivity">
 
-    <androidx.cardview.widget.CardView
+    <Toolbar
         android:id="@+id/so_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/menu_alto"
+        android:background="@color/menu_alto"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -52,7 +52,7 @@
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
+    </Toolbar>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
