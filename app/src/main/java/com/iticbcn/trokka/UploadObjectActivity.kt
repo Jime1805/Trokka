@@ -48,7 +48,7 @@ class UploadObjectActivity : AppCompatActivity() {
 
     private fun initListeners() {
         imgFlechita.setOnClickListener {
-            navigateToLoby()
+            navigateToProfile()
         }
         btn_mapa.setOnClickListener {
             navigateToMapa()
