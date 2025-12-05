@@ -83,10 +83,13 @@ class PerfilActivity : AppCompatActivity() {
 
     private fun initListeners() {
         imgFlechita.setOnClickListener {
-            navigateToLoby()
+            finish()
         }
         btn_mapa.setOnClickListener {
             navigateToMapa()
+        }
+        btn_lupa.setOnClickListener {
+            navigateToLoby()
         }
         btn_profile.setOnClickListener {
             navigateToProfile()
