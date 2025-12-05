@@ -19,6 +19,7 @@ class PerfilActivity : AppCompatActivity() {
     private lateinit var btn_mapa: ImageView
     private lateinit var btn_lupa: ImageView
     private lateinit var btn_profile: ImageView
+    private lateinit var btn_preferencias: ImageView
 
     private lateinit var cvEditarObjetos: CardView //Hecho
     private lateinit var cvSubirObjetos: CardView //Hecho
@@ -60,6 +61,11 @@ class PerfilActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    private fun navigateToPreferencies() {
+        val intent = Intent(this, PreferenciasAcrivity::class.java)
+        startActivity(intent)
+    }
+
     private fun navigateToUploadObject() {
         val intent = Intent(this, UploadObjectActivity::class.java)
         startActivity(intent)
@@ -77,13 +83,19 @@ class PerfilActivity : AppCompatActivity() {
 
     private fun initListeners() {
         imgFlechita.setOnClickListener {
-            navigateToLoby()
+            finish()
         }
         btn_mapa.setOnClickListener {
             navigateToMapa()
         }
+        btn_lupa.setOnClickListener {
+            navigateToLoby()
+        }
         btn_profile.setOnClickListener {
             navigateToProfile()
+        }
+        btn_preferencias.setOnClickListener {
+            navigateToPreferencies()
         }
         cvCanviarCompta.setOnClickListener {
             navigateToMain()
@@ -106,6 +118,7 @@ class PerfilActivity : AppCompatActivity() {
         btn_lupa = findViewById(R.id.btn_lupa)
         btn_profile = findViewById(R.id.btn_profile)
         tvNombreUsuario = findViewById(R.id.tvNombreUsuario)
+        btn_preferencias = findViewById(R.id.btn_preferencias)
 
         cvEditarObjetos = findViewById(R.id.cvEditarObjetos)
         cvSubirObjetos = findViewById(R.id.cvSubirObjetos)

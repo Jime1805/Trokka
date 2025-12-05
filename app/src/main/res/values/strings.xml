@@ -39,6 +39,10 @@
     <string name="imatge_del_nou_objecte">Imatge del nou objecte</string>
     <string name="boto_per_afegir_nou_objecte">Boto per afegir nou objecte</string>
     <string name="username">Username</string>
+    <string name="boton_preferencias">boton preferencias</string>
+    <string name="prefer_ncias">Preferéncias</string>
+    <string name="mode_app">Mode clar/obscur</string>
+    <string name="grandaria_texts">Grandaria texts</string>
 
 
 </resources>

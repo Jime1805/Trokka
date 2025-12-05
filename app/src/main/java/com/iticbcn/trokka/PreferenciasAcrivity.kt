@@ -7,21 +7,26 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.RecyclerView
 
-class FavoritosActivity : AppCompatActivity() {
-    lateinit var imgFlechita: ImageView // Hecho
-    lateinit var btn_mapa: ImageView // Hecho
-    lateinit var btn_lupa: ImageView
-    lateinit var btn_profile: ImageView //Hecho
-    lateinit var rFavObj: RecyclerView // Mirar como hacer
+class PreferenciasAcrivity : AppCompatActivity() {
 
+    private lateinit var imgFlechita: ImageView
+    private lateinit var btn_mapa: ImageView
+    private lateinit var btn_lupa: ImageView
+    private lateinit var btn_profile: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_favoritos)
+        setContentView(R.layout.activity_preferencias_acrivity)
+
         initComponents()
         initListeners()
+        /*initUi(perfil)*/
+    }
+
+    private fun navigateToLoby(){
+        val intent = Intent(this, Loby_Activity::class.java)
+        startActivity(intent)
     }
 
     private fun navigateToMapa(){
@@ -44,12 +49,15 @@ class FavoritosActivity : AppCompatActivity() {
         btn_profile.setOnClickListener {
             navigateToProfile()
         }
+        btn_lupa.setOnClickListener {
+            navigateToLoby()
+        }
     }
+
     private fun initComponents(){
         imgFlechita = findViewById(R.id.imgFlechita)
         btn_mapa = findViewById(R.id.btn_mapa)
         btn_lupa = findViewById(R.id.btn_lupa)
         btn_profile = findViewById(R.id.btn_profile)
-        rFavObj = findViewById(R.id.rFavObj)
     }
 }
