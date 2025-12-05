@@ -36,7 +36,7 @@ class FavoritosActivity : AppCompatActivity() {
 
     private fun initListeners() {
         imgFlechita.setOnClickListener {
-            navigateToProfile()
+            finish()
         }
         btn_mapa.setOnClickListener {
             navigateToMapa()
