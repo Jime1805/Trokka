@@ -7,28 +7,112 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MyObjectsActivity">
-
-    <ActionMenuView
+    <Toolbar
+        android:id="@+id/cvHeader"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:background="@color/menu_alto"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/so_header"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="15dp"
+            >
+
+            <ImageView
+                android:id="@+id/imgFlechita"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:contentDescription="@string/tornar_enrere"
+                android:src="@drawable/ic_flechita"
+                app:tint="@color/white"
+                android:layout_marginStart="10dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="@string/move_to_edit_perfil"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rFavObj"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/cvHeader"
+        app:layout_constraintBottom_toTopOf="@+id/vLinea"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        tools:listitem="@layout/cv_my_objects"/>
+
+    <View
+        android:id="@+id/vLinea"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/borde"
+        app:layout_constraintBottom_toTopOf="@+id/menuBottom"
+        />
+
+    <LinearLayout
+        android:id="@+id/menuBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:layout_marginBottom="10dp"
+        >
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_mapa"
-            />
-        <ImageView
-            android:layout_width="wrap_content"
+            android:id="@+id/btn_mapa"
+            android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/ic_mapa"
-            />
+            android:contentDescription="@string/map"
+            app:tint="@color/white"
+            android:background="?attr/selectableItemBackground"/>
+
         <ImageView
-            android:layout_width="wrap_content"
+            android:id="@+id/btn_lupa"
+            android:layout_width="60dp"
             android:layout_height="60dp"
-            />
-    </ActionMenuView>
+            android:src="@drawable/ic_lupa"
+            android:contentDescription="@string/lupa"
+            android:layout_marginEnd="60dp"
+            android:layout_marginStart="60dp"
+            app:tint="@color/white"
+            android:background="?attr/selectableItemBackground"/>
+
+        <ImageView
+            android:id="@+id/btn_profile"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:contentDescription="@string/perfil"
+            android:src="@drawable/ic_profile2"
+            app:tint="@color/white"
+            android:background="?attr/selectableItemBackground"/>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
