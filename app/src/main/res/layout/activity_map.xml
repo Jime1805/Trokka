@@ -63,7 +63,7 @@
         android:contentDescription="@string/mapa"
         android:scaleType="centerCrop"
         android:src="@drawable/map"
-        app:layout_constraintBottom_toTopOf="@id/menuBottom"
+        app:layout_constraintBottom_toTopOf="@id/vLinea"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cvHeader" />
@@ -73,11 +73,11 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/ic_mapa"
-        android:tint="@color/red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/red" />
 
     <!-- Menu de abajo para todas las activities -->
     <View
@@ -85,49 +85,20 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@color/borde"
-        app:layout_constraintBottom_toTopOf="@+id/menuBottom" />
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation" />
 
-    <LinearLayout
-        android:id="@+id/menuBottom"
-        android:layout_width="match_parent"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:padding="15dp"
+        app:itemActiveIndicatorStyle="@style/Theme.BottomNavigationView.ActiveIndicator"
+        app:itemIconGravity="top"
+        app:itemIconSize="40dp"
+        app:itemIconTint="@color/white"
+        app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageView
-            android:id="@+id/btn_mapa"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="?attr/selectableItemBackground"
-            android:contentDescription="@string/map"
-            android:src="@drawable/ic_mapa"
-            app:tint="@color/white" />
-
-        <ImageView
-            android:id="@+id/btn_lupa"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginEnd="60dp"
-            android:background="?attr/selectableItemBackground"
-            android:contentDescription="@string/lupa"
-            android:src="@drawable/ic_lupa"
-            app:tint="@color/white" />
-
-        <ImageView
-            android:id="@+id/btn_profile"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="?attr/selectableItemBackground"
-            android:contentDescription="@string/perfil"
-            android:src="@drawable/ic_profile2"
-            app:tint="@color/white" />
-
-    </LinearLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
