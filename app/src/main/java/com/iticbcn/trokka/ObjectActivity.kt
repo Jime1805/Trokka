@@ -1,6 +1,7 @@
 package com.iticbcn.trokka
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
@@ -8,16 +9,15 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.iticbcn.trokka.Loby_Activity.Companion.PERFIL
 import com.iticbcn.trokka.MainActivity.Companion.LOBY
 
 class ObjectActivity : AppCompatActivity() {
 
     private lateinit var imgFlechita: ImageView
-    private lateinit var btn_mapa: ImageView
-    private lateinit var btn_lupa: ImageView
-    private lateinit var btn_profile: ImageView
     private lateinit var btn_initChat: TextView
+    private lateinit var bottomNav: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,17 +31,16 @@ class ObjectActivity : AppCompatActivity() {
         imgFlechita.setOnClickListener {
             finish()
         }
-        btn_mapa.setOnClickListener {
-            navigateToMaps()
-        }
-        btn_profile.setOnClickListener {
-            navigateToProfile()
-        }
-        btn_lupa.setOnClickListener {
-            navigateToLoby()
-        }
         btn_initChat.setOnClickListener {
             navigateToChat()
+        }
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.mapa_fragment -> navigateToMaps()
+                R.id.loby_fragment -> navigateToLoby()
+                R.id.perfil_fragment -> navigateToProfile()
+            }
+            true
         }
     }
 
@@ -66,9 +65,8 @@ class ObjectActivity : AppCompatActivity() {
 
     private fun initComponents() {
         imgFlechita = findViewById(R.id.imgFlechita)
-        btn_lupa = findViewById(R.id.btn_lupa)
-        btn_mapa = findViewById(R.id.btn_mapa)
-        btn_profile = findViewById(R.id.btn_profile)
         btn_initChat = findViewById(R.id.btn_initChat)
+        bottomNav = findViewById(R.id.bottom_navigation)
+        bottomNav.setBackgroundColor(Color.TRANSPARENT)
     }
 }

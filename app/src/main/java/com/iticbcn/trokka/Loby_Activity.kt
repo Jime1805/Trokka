@@ -1,6 +1,7 @@
 package com.iticbcn.trokka
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
@@ -8,15 +9,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.iticbcn.trokka.MainActivity.Companion.LOBY
 
 class Loby_Activity : AppCompatActivity() {
 
     private lateinit var tvUser: TextView
-    private lateinit var btn_mapa: ImageView
-    private lateinit var btn_lupa: ImageView
-    private lateinit var btn_profile: ImageView
     private lateinit var iv_ImagenObjeto: ImageView
+    private lateinit var bottomNav: BottomNavigationView
 
     companion object{
         const val PERFIL = "perfil"
@@ -32,14 +32,15 @@ class Loby_Activity : AppCompatActivity() {
     }
 
     private fun initListeners(usuario: String){
-        btn_mapa.setOnClickListener {
-            navigateToMaps()
-        }
-        btn_profile.setOnClickListener {
-            navigateToProfile(usuario)
-        }
         iv_ImagenObjeto.setOnClickListener {
             navigateToObject()
+        }
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.mapa_fragment -> navigateToMaps()
+                R.id.perfil_fragment -> navigateToProfile(usuario)
+            }
+            true
         }
     }
 
@@ -68,9 +69,8 @@ class Loby_Activity : AppCompatActivity() {
 
     private fun initComponents(){
         tvUser = findViewById(R.id.tvUser)
-        btn_mapa = findViewById(R.id.btn_mapa)
-        btn_lupa = findViewById(R.id.btn_lupa)
-        btn_profile = findViewById(R.id.btn_profile)
         iv_ImagenObjeto = findViewById(R.id.ivImagenObjeto)
+        bottomNav = findViewById(R.id.bottom_navigation)
+        bottomNav.setBackgroundColor(Color.TRANSPARENT)
     }
 }

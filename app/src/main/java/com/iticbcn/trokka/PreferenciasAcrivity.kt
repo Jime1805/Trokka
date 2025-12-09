@@ -1,19 +1,19 @@
 package com.iticbcn.trokka
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class PreferenciasAcrivity : AppCompatActivity() {
 
     private lateinit var imgFlechita: ImageView
-    private lateinit var btn_mapa: ImageView
-    private lateinit var btn_lupa: ImageView
-    private lateinit var btn_profile: ImageView
+    private lateinit var bottomNav: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,21 +43,19 @@ class PreferenciasAcrivity : AppCompatActivity() {
         imgFlechita.setOnClickListener {
             finish()
         }
-        btn_mapa.setOnClickListener {
-            navigateToMapa()
-        }
-        btn_profile.setOnClickListener {
-            navigateToProfile()
-        }
-        btn_lupa.setOnClickListener {
-            navigateToLoby()
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.mapa_fragment -> navigateToMapa()
+                R.id.loby_fragment -> navigateToLoby()
+                R.id.perfil_fragment -> navigateToProfile()
+            }
+            true
         }
     }
 
     private fun initComponents(){
         imgFlechita = findViewById(R.id.imgFlechita)
-        btn_mapa = findViewById(R.id.btn_mapa)
-        btn_lupa = findViewById(R.id.btn_lupa)
-        btn_profile = findViewById(R.id.btn_profile)
+        bottomNav = findViewById(R.id.bottom_navigation)
+        bottomNav.setBackgroundColor(Color.TRANSPARENT)
     }
 }
