@@ -1,6 +1,7 @@
 package com.iticbcn.trokka
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
@@ -70,5 +71,6 @@ class Loby_Activity : AppCompatActivity() {
         tvUser = findViewById(R.id.tvUser)
         iv_ImagenObjeto = findViewById(R.id.ivImagenObjeto)
         bottomNav = findViewById(R.id.bottom_navigation)
+        bottomNav.setBackgroundColor(Color.TRANSPARENT)
     }
 }
