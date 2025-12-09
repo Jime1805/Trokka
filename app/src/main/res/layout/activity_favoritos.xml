@@ -8,16 +8,14 @@
     android:background="@drawable/degradado_fondo"
     tools:context=".FavoritosActivity">
 
-    <Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/cvHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/menu_alto"
+        android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        >
-
+        android:background="@color/menu_alto"
+        app:layout_constraintBottom_toTopOf="@id/rFavObj">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/so_header"
             android:layout_width="match_parent"
@@ -51,9 +49,20 @@
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </Toolbar>
+            <ImageView
+                android:id="@+id/btn_preferencias"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="@string/boton_preferencias"
+                android:src="@drawable/ic_engranaje"
+                app:tint="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="25dp"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rFavObj"
