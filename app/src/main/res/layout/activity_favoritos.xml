@@ -8,7 +8,7 @@
     android:background="@drawable/degradado_fondo"
     tools:context=".FavoritosActivity">
 
-    <androidx.appcompat.widget.Toolbar
+    <Toolbar
         android:id="@+id/cvHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
                 android:layout_marginEnd="25dp"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.appcompat.widget.Toolbar>
+    </Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rFavObj"
