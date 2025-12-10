@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/language"
+            android:id="@+id/iIdioma"
             android:icon="@drawable/ic_idioma"
-            android:title="Idioma"/>
+            android:title="Idioma"
+            app:showAsAction="withText"/>
+        <item
+            android:id="@+id/iTema"
+            android:icon="@drawable/ic_idioma"
+            android:title="Tema"
+            app:showAsAction="withText"/>
+        <item
+            android:id="@+id/iPrivacidad"
+            android:icon="@drawable/ic_idioma"
+            android:title="Privacidad"
+            app:showAsAction="withText"/>
+        <item
+            android:id="@+id/iAmigos"
+            android:icon="@drawable/ic_idioma"
+            android:title="Amigos"
+            app:showAsAction="withText"/>
     </group>
 </menu>
