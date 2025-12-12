@@ -4,22 +4,22 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/iIdioma"
-            android:icon="@drawable/ic_idioma"
+            android:icon="@drawable/ic_globo"
             android:title="Idioma"
             app:showAsAction="withText"/>
         <item
             android:id="@+id/iTema"
-            android:icon="@drawable/ic_idioma"
+            android:icon="@drawable/ic_paleta"
             android:title="Tema"
             app:showAsAction="withText"/>
         <item
             android:id="@+id/iPrivacidad"
-            android:icon="@drawable/ic_idioma"
+            android:icon="@drawable/ic_candado"
             android:title="Privacidad"
             app:showAsAction="withText"/>
         <item
             android:id="@+id/iAmigos"
-            android:icon="@drawable/ic_idioma"
+            android:icon="@drawable/ic_amigos"
             android:title="Amigos"
             app:showAsAction="withText"/>
     </group>
