@@ -1,6 +1,7 @@
 package com.iticbcn.trokka
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -11,15 +12,14 @@ import androidx.appcompat.widget.Toolbar
 import androidx.cardview.widget.CardView
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.iticbcn.trokka.Loby_Activity.Companion.PERFIL
 
 class PerfilActivity : AppCompatActivity() {
 
     private lateinit var tvNombreUsuario: TextView
-    private lateinit var btn_mapa: ImageView
-    private lateinit var btn_lupa: ImageView
-    private lateinit var btn_profile: ImageView
+    private lateinit var bottomNav: BottomNavigationView
 
     private lateinit var cvEditarObjetos: CardView
     private lateinit var cvSubirObjetos: CardView
@@ -57,10 +57,12 @@ class PerfilActivity : AppCompatActivity() {
                 finish()
                 true
             }
+
             R.id.iConfiguracio -> {
                 drawerLayout.openDrawer(GravityCompat.END)
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -116,20 +118,21 @@ class PerfilActivity : AppCompatActivity() {
     }
 
     private fun initListeners() {
-        btn_mapa.setOnClickListener { navigateToMapa() }
-        btn_lupa.setOnClickListener { navigateToLoby() }
-        btn_profile.setOnClickListener { navigateToProfile() }
-
         cvCanviarCompta.setOnClickListener { navigateToMain() }
         cvSubirObjetos.setOnClickListener { navigateToUploadObject() }
         cvFavs.setOnClickListener { navigateToFavs() }
         cvEditarObjetos.setOnClickListener { navigateToMyObjects() }
+
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.loby_fragment -> navigateToLoby()
+                R.id.mapa_fragment -> navigateToMapa()
+            }
+            true
+        }
     }
 
     private fun initComponents() {
-        btn_mapa = findViewById(R.id.btn_mapa)
-        btn_lupa = findViewById(R.id.btn_lupa)
-        btn_profile = findViewById(R.id.btn_profile)
         tvNombreUsuario = findViewById(R.id.tvNombreUsuario)
 
         cvEditarObjetos = findViewById(R.id.cvEditarObjetos)
@@ -140,5 +143,8 @@ class PerfilActivity : AppCompatActivity() {
         toolbar = findViewById(R.id.cvHeader)
         navView = findViewById(R.id.navView)
         drawerLayout = findViewById(R.id.main)
+
+        bottomNav = findViewById(R.id.bottom_navigation)
+        bottomNav.setBackgroundColor(Color.TRANSPARENT)
     }
 }
