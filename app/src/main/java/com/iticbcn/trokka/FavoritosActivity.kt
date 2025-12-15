@@ -4,10 +4,8 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.ImageView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -15,6 +13,8 @@ class FavoritosActivity : AppCompatActivity() {
     lateinit var imgFlechita: ImageView // Hecho
     lateinit var rFavObj: RecyclerView // Mirar como hacer
     private lateinit var bottomNav: BottomNavigationView
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: MyAdapterFav
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,9 +53,33 @@ class FavoritosActivity : AppCompatActivity() {
         }
     }
     private fun initComponents(){
+        initRecycler()
         imgFlechita = findViewById(R.id.imgFlechita)
         rFavObj = findViewById(R.id.rFavObj)
         bottomNav = findViewById(R.id.bottom_navigation)
         bottomNav.setBackgroundColor(Color.TRANSPARENT)
+    }
+
+    private fun initRecycler() {
+        // 1. Obtenir referència al RecyclerView del layout
+        recyclerView = findViewById(R.id.rFavObj)
+
+        // 2. Configurar LayoutManager (com es col·loquen les files)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        // 3. Crear llista de dades (des de DataSource o directament)
+        val items = DataSource.items
+
+        // 4. Crear l'Adapter passant les dades + funció de callback per clics
+        adapter = MyAdapterFav(
+            items = items,
+            onItemClick = { item ->
+                // AQUÍ gestionem el clic: mostrem un Toast amb el títol
+                print("He fet clic al item: " + item.titol)
+            }
+        )
+
+        // 5. Assignar l'Adapter al RecyclerView
+        recyclerView.adapter = adapter
     }
 }
