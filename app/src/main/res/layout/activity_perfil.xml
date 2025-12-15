@@ -375,9 +375,9 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="end"
+        android:background="@color/menu_lado_cuerpo"
         app:menu="@menu/menu_costat"
         app:headerLayout="@layout/layout_menu_lado_perfil"/>
-        <!--app:headerLayout="" -->
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
