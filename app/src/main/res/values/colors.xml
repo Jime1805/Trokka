@@ -8,6 +8,8 @@
 
     <color name="menu_bajo">#F0B967</color>
     <color name="menu_alto">#E97065</color>
+    <color name="menu_lado_cuerpo">#FDF5A6</color>
+
     <color name="cd_ventas">#E6B319</color>
     <color name="borde">#B67A22</color>
 
@@ -17,6 +19,8 @@
     <color name="bordes">#FD7C3E</color>
     <color name="descripcion_objeto">#58FF0000</color>
     <color name="flechita">#6E000000</color>
+
+    <color name="views">#B7FFFFFF</color>
 
     <color name="red">#FFFF0000</color>
 
