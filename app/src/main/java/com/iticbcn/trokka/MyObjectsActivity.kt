@@ -15,7 +15,7 @@ class MyObjectsActivity : AppCompatActivity() {
     lateinit var imgFlechita: ImageView
     private lateinit var bottomNav: BottomNavigationView
     private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: MyAdapterFav
+    private lateinit var adapter: MyAdapterMYObjects
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,7 +72,7 @@ class MyObjectsActivity : AppCompatActivity() {
         val items = DataSource.items
 
         // 4. Crear l'Adapter passant les dades + funció de callback per clics
-        adapter = MyAdapterFav(
+        adapter = MyAdapterMYObjects(
             items = items,
             onItemClick = { item ->
                 // AQUÍ gestionem el clic: mostrem un Toast amb el títol
