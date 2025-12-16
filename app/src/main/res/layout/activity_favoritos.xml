@@ -65,10 +65,10 @@
         android:id="@+id/rFavObj"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="10dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/vLinea"
-        app:layout_constraintTop_toBottomOf="@+id/cvHeader" />
+        app:layout_constraintTop_toBottomOf="@+id/cvHeader"
+        tools:listitem="@layout/cv_fav_obj" />
 
     <View
         android:id="@+id/vLinea"
