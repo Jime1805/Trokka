@@ -2,8 +2,10 @@ package com.iticbcn.trokka
 
 import android.content.Intent
 import android.graphics.Color
+import android.health.connect.datatypes.units.Length
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -73,7 +75,11 @@ class FavoritosActivity : AppCompatActivity() {
             items = items,
             onItemClick = { item ->
                 // AQUÍ gestionem el clic: mostrem un Toast amb el títol
-                print("He fet clic al item: " + item.titol)
+                Toast.makeText(
+                    this,
+                    "Has fet clic a " + item.titol,
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         )
 
