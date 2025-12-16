@@ -10,8 +10,9 @@
         <item
             android:id="@+id/iTema"
             android:icon="@drawable/ic_paleta"
-            android:title="Tema"
+            android:title="Mode obscur"
             app:showAsAction="withText"/>
+        <!-- Implementar el modo oscuro-->
         <item
             android:id="@+id/iPrivacidad"
             android:icon="@drawable/ic_candado"
@@ -21,6 +22,11 @@
             android:id="@+id/iAmigos"
             android:icon="@drawable/ic_amigos"
             android:title="Amigos"
+            app:showAsAction="withText"/>
+        <item
+            android:id="@+id/iInicio"
+            android:icon="@drawable/ic_casa"
+            android:title="Inicio"
             app:showAsAction="withText"/>
     </group>
 </menu>
