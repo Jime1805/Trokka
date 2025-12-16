@@ -11,7 +11,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class FavoritosActivity : AppCompatActivity() {
     lateinit var imgFlechita: ImageView // Hecho
-    lateinit var rFavObj: RecyclerView // Mirar como hacer
     private lateinit var bottomNav: BottomNavigationView
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: MyAdapterFav
@@ -55,7 +54,6 @@ class FavoritosActivity : AppCompatActivity() {
     private fun initComponents(){
         initRecycler()
         imgFlechita = findViewById(R.id.imgFlechita)
-        rFavObj = findViewById(R.id.rFavObj)
         bottomNav = findViewById(R.id.bottom_navigation)
         bottomNav.setBackgroundColor(Color.TRANSPARENT)
     }
