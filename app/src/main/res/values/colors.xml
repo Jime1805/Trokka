@@ -26,5 +26,7 @@
     <color name="views">#B7FFFFFF</color>
 
     <color name="red">#FFFF0000</color>
+    <color name="logout_red">#EF4444</color>
+
 
 </resources>
