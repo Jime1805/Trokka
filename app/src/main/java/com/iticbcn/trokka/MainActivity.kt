@@ -42,13 +42,11 @@ class MainActivity : AppCompatActivity() {
     private fun splashScreenConditions(){
         splashScreen.setOnExitAnimationListener { splashView ->
             splashView.iconView?.animate()
-                ?.scaleX(0f)
-                ?.scaleY(0f)
+                ?.scaleX(0.85f)
+                ?.scaleY(0.85f)
                 ?.alpha(0f)
                 ?.setDuration(600)
-                ?.withEndAction {
-                    splashView.remove()
-                }
+                ?.withEndAction { splashView.remove() }
                 ?.start()
         }
     }
