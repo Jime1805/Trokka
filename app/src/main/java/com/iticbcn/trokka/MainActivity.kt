@@ -28,8 +28,29 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        splashScreen.setKeepOnScreenCondition {
+            false
+        }
+
+        splashScreenConditions()
+
         initComponents()
         initListeners()
+    }
+
+    private fun splashScreenConditions(){
+        splashScreen.setOnExitAnimationListener { splashView ->
+            splashView.iconView?.animate()
+                ?.scaleX(0f)
+                ?.scaleY(0f)
+                ?.alpha(0f)
+                ?.setDuration(600)
+                ?.withEndAction {
+                    splashView.remove()
+                }
+                ?.start()
+        }
     }
     private fun navigateToRegister(){
         val intent = Intent(this, RegisterActivity::class.java)
