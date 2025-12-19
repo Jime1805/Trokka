@@ -29,4 +29,15 @@
             android:title="Inicio"
             app:showAsAction="withText"/>
     </group>
+    <item
+        android:id="@+id/nav_divider"
+        android:title=""
+        android:enabled="false" />
+
+    <!-- CERRAR SESIÓN -->
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Cerrar sesión"
+        android:icon="@drawable/ic_logout"
+        android:titleTextColor="@color/logout_red" />
 </menu>
