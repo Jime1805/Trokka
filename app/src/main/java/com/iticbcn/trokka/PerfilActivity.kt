@@ -71,6 +71,8 @@ class PerfilActivity : AppCompatActivity() {
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.iIdioma, R.id.iTema, R.id.iPrivacidad, R.id.iAmigos -> navigateToPreferencies()
+                R.id.iInicio -> navigateToLoby()
+                R.id.nav_logout -> navigateToMain()
             }
             drawerLayout.closeDrawer(GravityCompat.END)
             true

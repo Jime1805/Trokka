@@ -6,6 +6,9 @@
     <color name="init_session">#4CAF50</color>
     <color name="enlaces">#2196F3</color>
 
+    <!-- Splash screen -->
+    <color name="splash_background">#0F172A</color>
+
     <color name="menu_bajo">#F0B967</color>
     <color name="menu_alto">#E97065</color>
     <color name="menu_lado_cuerpo">#FDF5A6</color>
@@ -23,5 +26,7 @@
     <color name="views">#B7FFFFFF</color>
 
     <color name="red">#FFFF0000</color>
+    <color name="logout_red">#EF4444</color>
+
 
 </resources>
