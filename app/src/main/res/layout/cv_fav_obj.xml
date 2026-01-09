@@ -29,7 +29,8 @@
                 android:layout_marginVertical="10dp"
                 android:layout_marginHorizontal="10dp"
                 android:src="@drawable/ic_imagen_vacia"
-                android:contentDescription="@string/imageObject" />
+                android:contentDescription="@string/imageObject"
+                app:tint="@color/white"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -58,7 +59,8 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="end|bottom"
-                    android:src="@drawable/ic_favorito_vacio"/>
+                    android:src="@drawable/ic_favorito_vacio"
+                    app:tint="@color/white"/>
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
