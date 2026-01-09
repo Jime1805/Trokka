@@ -191,14 +191,15 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:contentDescription="@string/imagePencil"
-                    android:src="@drawable/ic_lapiz"/>
+                    android:src="@drawable/ic_lapiz"
+                    app:tint="@color/white"/>
                 <TextView
                     android:id="@+id/tvLapiz"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:textStyle="bold"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:gravity="center"
                     android:text="@string/move_to_edit_perfil"/>
             </LinearLayout>
@@ -226,14 +227,15 @@
                     android:id="@+id/imgUpload"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/ic_subir_objetos"/>
+                    android:src="@drawable/ic_subir_objetos"
+                    app:tint="@color/white"/>
                 <TextView
                     android:id="@+id/tvUpload"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:textStyle="bold"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:gravity="center"
                     android:text="@string/move_to_upload_objects"/>
             </LinearLayout>
@@ -264,14 +266,15 @@
                     android:contentDescription="@string/imageMyObjects"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/ic_favorito_vacio"/>
+                    android:src="@drawable/ic_favorito_vacio"
+                    app:tint="@color/white"/>
                 <TextView
                     android:id="@+id/tvMisObjetos"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:textStyle="bold"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:gravity="center"
                     android:text="@string/move_to_my_favorites"/>
             </LinearLayout>
@@ -301,14 +304,15 @@
                     android:contentDescription="@string/imageChangeAccount"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/ic_canvio_usuario"/>
+                    android:src="@drawable/ic_canvio_usuario"
+                    app:tint="@color/white"/>
                 <TextView
                     android:id="@+id/tvCanvioUsuario"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:textStyle="bold"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:gravity="center"
                     android:text="@string/move_to_canviar_compta"/>
             </LinearLayout>
