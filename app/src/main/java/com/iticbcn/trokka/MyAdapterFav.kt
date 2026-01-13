@@ -9,6 +9,12 @@ class MyAdapterFav(
     private val onItemClick: (Producte) -> Unit
 ) : RecyclerView.Adapter<MyViewHolderFav>() {
 
+    private val itemsFiltrat = mutableListOf<Producte>()
+
+    init{
+        itemsFiltrat.addAll(items)
+    }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -19,11 +25,29 @@ class MyAdapterFav(
     }
 
     override fun onBindViewHolder(holder: MyViewHolderFav, position: Int) {
-        val item = items[position]
+        val item = itemsFiltrat[position]
         holder.bind(item)
     }
 
-    override fun getItemCount(): Int = items.size
+    override fun getItemCount(): Int = itemsFiltrat.size
 
-
+    fun filtrar(text: String) {
+        itemsFiltrat.clear()
+        if (text.isEmpty()) {
+            itemsFiltrat.addAll(items)
+        } else {
+            val textoLower = text.lowercase()
+            items.forEach { producte ->
+                if(
+                    producte.titol.lowercase().contains(textoLower) ||
+                    producte.user.lowercase().contains(textoLower) ||
+                    producte.descripcion.lowercase().contains(textoLower) ||
+                    producte.aCanvi.lowercase().contains(textoLower)
+                ) {
+                    itemsFiltrat.add(producte)
+                }
+            }
+        }
+        notifyDataSetChanged()
+    }
 }

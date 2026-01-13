@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:background="@color/menu_alto"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/rFavObj"
+        app:layout_constraintBottom_toTopOf="@id/sFavs"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -60,6 +60,15 @@
                 app:tint="@color/white" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </Toolbar>
+    <SearchView
+        android:id="@+id/sFavs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/cvHeader"
+        app:layout_constraintBottom_toTopOf="@+id/rFavObj"
+        android:queryHint="Buscar en favoritos"
+        android:iconifiedByDefault="false"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rFavObj"
@@ -67,7 +76,7 @@
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/vLinea"
-        app:layout_constraintTop_toBottomOf="@+id/cvHeader"
+        app:layout_constraintTop_toBottomOf="@+id/sFavs"
         tools:listitem="@layout/cv_fav_obj" />
 
     <View
