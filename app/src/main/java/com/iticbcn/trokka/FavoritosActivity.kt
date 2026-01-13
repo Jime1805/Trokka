@@ -2,9 +2,9 @@ package com.iticbcn.trokka
 
 import android.content.Intent
 import android.graphics.Color
-import android.health.connect.datatypes.units.Length
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,6 +16,8 @@ class FavoritosActivity : AppCompatActivity() {
     private lateinit var bottomNav: BottomNavigationView
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: MyAdapterFav
+    private lateinit var sFavs: SearchView
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +46,7 @@ class FavoritosActivity : AppCompatActivity() {
         imgFlechita.setOnClickListener {
             finish()
         }
+        itemSearchView()
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.mapa_fragment -> navigateToMapa()
@@ -53,11 +56,27 @@ class FavoritosActivity : AppCompatActivity() {
             true
         }
     }
+
+    private fun itemSearchView() {
+        sFavs.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                adapter.filtrar(query ?: "")
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                adapter.filtrar(newText ?: "")
+                return true
+            }
+        })
+    }
+
     private fun initComponents(){
         initRecycler()
         imgFlechita = findViewById(R.id.imgFlechita)
         bottomNav = findViewById(R.id.bottom_navigation)
         bottomNav.setBackgroundColor(Color.TRANSPARENT)
+        sFavs = findViewById(R.id.sFavs)
     }
 
     private fun initRecycler() {
