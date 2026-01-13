@@ -42,3 +42,47 @@ verificat l'usuari podra entrar a l'app i utulitzar-la de forma normal.
 En fer clic al botó de registrar-se et dirigeix a la **pantalla principal**.
 
 <img src="./img_docu/registrarse.png" alt="Imatge de la pantalla d'registre." height="500">
+
+#### Pantalla principal (loby)
+La pantalla de loby on es busquen tots els productes que vulgui l'usuari.
+Aquesta funcionalitat es realitza amb un RecycerView, és un element utilitzat
+per a repetir el mateix element, en aquest cas és un CardView, s'integra
+utilitzant dues classes, Holder i Adapter. L'adapter gestiona tota la llista
+d'ítems que es volen mostrar i el holder enllaça la informació dels productes
+amb el layout de la CardView. A la part superior hi ha un quadre de cerca
+per filtrar per títol o descripció de cada objecte.
+
+Aquestes funcions es repeteixen a l'apartat de **preferits** i **els meus objectes**
+
+<img src="./img_docu/loby.png" alt="Imatge de la pantalla del Loby." height="500">
+
+#### Mapa
+Not yet implemented.
+
+La idea es tenir una barra de cerca per poder buscar els punts de trobada mes 
+proprs a l'usuari o al carrer que s'indiqui. D'aquesta manera els usuaris podran 
+trobarse i veure els objectes en persona. Al fer clic en un lloc es mostrara 
+un desplegable amb la informació del lloc.
+
+<img src="./img_docu/mapa.png" alt="Imatge de la pantalla del Mapa." height="500">
+
+#### Perfil
+Aquesta pantalla permet la modificació de les dades de l'usuari. Amb un botó
+a la toolbar es desplegarà un NavigationView amb preferències de l'aplicació.
+
+Disposa de 4 botons:
+1. Editar els objectes de l'usuari.  
+    _Disposa dels mateixos elements, ReciclerView, Adapter i Holder, explicats en el **Loby**._ 
+2. Pujar un objecte nou.
+3. Veure els objectes guardats com a preferits per l'usuari.  
+   _Disposa dels mateixos elements, ReciclerView, Adapter i Holder, explicats en el **Loby**._
+4. Tancar la sessió i canviar de compte.
+
+<img src="./img_docu/perfil.png" alt="Imatge de la pantalla del perfil." height="500">
+<img src="./img_docu/preferencies.png" alt="Imatge de la pantalla de preferencies del perfil." height="500">
+
+#### Info general
+El **Mapa**, el **Perfil** i el **Loby** disposen d'un menú inferior, amb tres
+icones, per moure's a través de l'aplicació a les diferents pàgines.
+
+<img src="./img_docu/botomMenu.png" alt="Imatge del menu inferior.">
