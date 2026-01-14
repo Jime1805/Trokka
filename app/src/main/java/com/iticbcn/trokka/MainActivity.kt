@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                 ?.scaleX(0.85f)
                 ?.scaleY(0.85f)
                 ?.alpha(0f)
-                ?.setDuration(600)
+                ?.setDuration(3000)
                 ?.withEndAction { splashView.remove() }
                 ?.start()
         }
