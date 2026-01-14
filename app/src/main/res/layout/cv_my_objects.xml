@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
-        app:cardCornerRadius="30dp"
-        app:cardBackgroundColor="@color/configuracio_user">
+        app:cardBackgroundColor="@color/configuracio_user"
+        app:cardCornerRadius="30dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,15 +26,16 @@
                 android:id="@+id/img"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_marginVertical="10dp"
                 android:layout_marginHorizontal="10dp"
-                android:src="@drawable/ic_imagen_vacia"
+                android:layout_marginVertical="10dp"
                 android:contentDescription="@string/imageObject"
-                app:tint="@color/white"/>
+                android:src="@drawable/ic_imagen_vacia"
+                app:tint="@color/white" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="right"
                 android:orientation="vertical">
 
                 <TextView
@@ -53,14 +54,30 @@
                     android:layout_marginTop="10dp"
                     android:textColor="@color/white"
                     tools:text="Descripcion del objeto" />
-                <ImageView
-                    android:id="@+id/imgBasura"
-                    android:contentDescription="@string/imageFavorite"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="end|bottom"
-                    android:src="@drawable/ic_bin"
-                    app:tint="@color/white"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imgLlapis"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="end|bottom"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="@string/imageFavorite"
+                        android:src="@drawable/ic_lapiz"
+                        app:tint="@color/white" />
+
+                    <ImageView
+                        android:id="@+id/imgBasura"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="end|bottom"
+                        android:contentDescription="@string/imageFavorite"
+                        android:src="@drawable/ic_bin"
+                        app:tint="@color/white" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

@@ -14,7 +14,7 @@ object DataSource {
         Producte(
             "Taula",
             "img",
-            "Marc",
+            "Eric",
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             true
@@ -38,7 +38,7 @@ object DataSource {
         Producte(
             "Teclat",
             "img",
-            "Marc",
+            "Eric",
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             true
