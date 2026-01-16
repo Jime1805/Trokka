@@ -12,7 +12,11 @@ class MyAdapterFav(
     private val itemsFiltrat = mutableListOf<Producte>()
 
     init{
-        itemsFiltrat.addAll(items)
+        for (item in items){
+            if(item.isFav){
+                itemsFiltrat.add(item)
+            }
+        }
     }
 
     override fun onCreateViewHolder(
@@ -34,15 +38,20 @@ class MyAdapterFav(
     fun filtrar(text: String) {
         itemsFiltrat.clear()
         if (text.isEmpty()) {
-            itemsFiltrat.addAll(items)
+            for (item in items){
+                if(item.isFav){
+                    itemsFiltrat.add(item)
+                }
+            }
         } else {
             val textoLower = text.lowercase()
             items.forEach { producte ->
-                if(
+                if((
                     producte.titol.lowercase().contains(textoLower) ||
                     producte.user.lowercase().contains(textoLower) ||
                     producte.descripcion.lowercase().contains(textoLower) ||
-                    producte.aCanvi.lowercase().contains(textoLower)
+                    producte.aCanvi.lowercase().contains(textoLower) ) &&
+                    producte.isFav
                 ) {
                     itemsFiltrat.add(producte)
                 }
