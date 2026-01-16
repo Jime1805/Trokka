@@ -69,7 +69,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="end|bottom"
                     android:src="@drawable/ic_favorito_vacio"
-                    app:tint="@color/white"/>
+                    />
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
