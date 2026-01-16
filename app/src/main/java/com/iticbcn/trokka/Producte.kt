@@ -6,5 +6,5 @@ class Producte (
     val user: String,
     val descripcion: String,
     val aCanvi: String,
-    val isFav: Boolean
+    var isFav: Boolean
 )
