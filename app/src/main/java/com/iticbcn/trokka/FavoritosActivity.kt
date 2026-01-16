@@ -72,11 +72,11 @@ class FavoritosActivity : AppCompatActivity() {
     }
 
     private fun initComponents(){
-        initRecycler()
         imgFlechita = findViewById(R.id.imgFlechita)
         bottomNav = findViewById(R.id.bottom_navigation)
         bottomNav.setBackgroundColor(Color.TRANSPARENT)
         sFavs = findViewById(R.id.sFavs)
+        initRecycler()
     }
 
     private fun initRecycler() {

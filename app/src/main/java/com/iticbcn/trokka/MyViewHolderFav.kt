@@ -21,6 +21,12 @@ class MyViewHolderFav(
         tvTitle.text = producte.titol
         tvDescripcio.text = producte.descripcion
         img.contentDescription = producte.img
+        if(producte.isFav){
+            imgCorazon.setImageResource(R.drawable.ic_favorito_lleno)
+        }
+        else{
+            imgCorazon.setImageResource(R.drawable.ic_favorito_vacio)
+        }
 
         imgCorazon.setOnClickListener {
             onItemClick(producte)
