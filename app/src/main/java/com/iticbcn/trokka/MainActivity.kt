@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -69,8 +70,19 @@ class MainActivity : AppCompatActivity() {
             viewModel.state.observe(this) { estado ->
                 val (esCorrecte, msg) = estado
 
-                // TODO: Hacer toast del mensage, si es true hace login y muestra un toast de correcto, si es false, muestra toas d'error
+                Toast.makeText(
+                    this,
+                    msg,
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                if (esCorrecte) {
+                    navigateToLoby()
+                    finish()
+                }
             }
+
+            viewModel.login(etNombreUsuario.text.toString(), etPassInit.text.toString())
         }
     }
 

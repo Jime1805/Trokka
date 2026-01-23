@@ -7,7 +7,7 @@ import kotlin.io.path.Path
 
 class LoginViewModel : ViewModel() {
 
-    private val _state = MutableLiveData<Pair<Boolean, String>>(Pair(false, ""))
+    private val _state = MutableLiveData<Pair<Boolean, String>>()
     val state: LiveData<Pair<Boolean, String>> = _state
 
     fun login(username: String, pass: String) {
