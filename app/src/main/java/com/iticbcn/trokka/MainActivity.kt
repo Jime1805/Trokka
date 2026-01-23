@@ -5,21 +5,20 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
 
+    private val viewModel: LoginViewModel by viewModels()
     private lateinit var etNombreUsuario: EditText
-    private lateinit var etCorreoInit: EditText
     private lateinit var etPassInit: EditText
     private lateinit var btnIniciarSesion: Button
     private lateinit var tvRegistrarse: TextView
 
-    companion object{
+    companion object {
         const val LOBY = "init_session"
     }
 
@@ -39,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         initListeners()
     }
 
-    private fun splashScreenConditions(){
+    private fun splashScreenConditions() {
         splashScreen.setOnExitAnimationListener { splashView ->
             splashView.iconView?.animate()
                 ?.scaleX(0.85f)
@@ -50,28 +49,44 @@ class MainActivity : AppCompatActivity() {
                 ?.start()
         }
     }
-    private fun navigateToRegister(){
+
+    private fun navigateToRegister() {
         val intent = Intent(this, RegisterActivity::class.java)
         startActivity(intent)
     }
 
-    private fun navigateToLoby(){
+    private fun navigateToLoby() {
         val intent = Intent(this, Loby_Activity::class.java)
         intent.putExtra(LOBY, etNombreUsuario.text.toString())
         startActivity(intent)
     }
 
-    private fun initListeners(){
+    private fun initListeners() {
         tvRegistrarse.setOnClickListener {
             navigateToRegister()
         }
         btnIniciarSesion.setOnClickListener {
-            navigateToLoby()
+            viewModel.state.observe(this) { estado ->
+                val (esCorrecte, msg) = estado
+
+                Toast.makeText(
+                    this,
+                    msg,
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                if (esCorrecte) {
+                    navigateToLoby()
+                    finish()
+                }
+            }
+
+            viewModel.login(etNombreUsuario.text.toString(), etPassInit.text.toString())
         }
     }
-    private fun initComponents(){
+
+    private fun initComponents() {
         etNombreUsuario = findViewById(R.id.etNombreUsuario)
-        etCorreoInit = findViewById(R.id.etCorreoInit)
         etPassInit = findViewById(R.id.etPassInit)
         btnIniciarSesion = findViewById(R.id.btnIniciarSesion)
         tvRegistrarse = findViewById(R.id.tvRegistrarse)

@@ -27,6 +27,12 @@ Primera pantalla que s'obre en entrar a l'app. Aquí podràs iniciar sessió o,
 fent clic a un missatge, anar a la **pàgina de registrar** un usuari nou en
 el cas de no tenir-ne cap de creat.
 
+Per tal de realitzar l'inici de sessió es fa amb un ViewModel, per mantenir
+separades del comportament de l'aplicació. També s'utilitzen variables
+LiveData i MutableLiveData per les seves funcionalitats extres. Com la
+funció observe que permet programar una acció en el moment en el qual es
+modifica la variable.
+
 En fer clic al botó d'iniciar sessió, es comprova el teu usuari, i sí es
 Correcte, et dirigeix a la **pantalla principal**.
 
@@ -38,6 +44,12 @@ per error es pot tornar enrere fent clic al text de color blau.
 S'haura d'introduir un nom, un correu , una contrasenya i verificar la 
 contrasenya inserida, si no coincideixen no es registra l'usuari. Un cop
 verificat l'usuari podra entrar a l'app i utulitzar-la de forma normal.
+
+Per tal de realitzar le registre es fa amb un ViewModel, per mantenir
+separades del comportament de l'aplicació. També s'utilitzen variables
+LiveData i MutableLiveData per les seves funcionalitats extres. Com la
+funció observe que permet programar una acció en el moment en el qual es
+modifica la variable.
 
 En fer clic al botó de registrar-se et dirigeix a la **pantalla principal**.
 
