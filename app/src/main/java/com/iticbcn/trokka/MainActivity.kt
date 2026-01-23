@@ -14,7 +14,6 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel: LoginViewModel by viewModels()
     private lateinit var etNombreUsuario: EditText
-    private lateinit var etCorreoInit: EditText
     private lateinit var etPassInit: EditText
     private lateinit var btnIniciarSesion: Button
     private lateinit var tvRegistrarse: TextView
