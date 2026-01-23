@@ -88,7 +88,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun initComponents() {
         etNombreUsuario = findViewById(R.id.etNombreUsuario)
-        etCorreoInit = findViewById(R.id.etCorreoInit)
         etPassInit = findViewById(R.id.etPassInit)
         btnIniciarSesion = findViewById(R.id.btnIniciarSesion)
         tvRegistrarse = findViewById(R.id.tvRegistrarse)

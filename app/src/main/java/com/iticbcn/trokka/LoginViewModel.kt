@@ -11,19 +11,12 @@ class LoginViewModel : ViewModel() {
     val state: LiveData<Pair<Boolean, String>> = _state
 
     fun login(username: String, pass: String) {
-        if (username == UserLogin.username) {
+        if (username == UserLogin.username || username == UserLogin.email) {
             _state.value = proofPassword(pass)
+        } else {
+            _state.value = Pair(false, "Nom d'usuari o email incorrectes.")
         }
     }
-
-    /*private fun proofEmail(email: String): Boolean {
-        val emailPattern = android.util.Patterns.EMAIL_ADDRESS
-        if (!emailPattern.matcher(email).matches()) {
-            etCorreoReg.error = "Correo electrónico no valido"
-            return false
-        }
-        return true
-    }*/
 
     private fun proofPassword(password: String): Pair<Boolean, String> {
         if (password.length !in 6..16) {
