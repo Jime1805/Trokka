@@ -4,7 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class MyAdapterLoby(
+class
+MyAdapterLoby(
     private val items: List<Producte>,
     private val onItemClick: (Producte) -> Unit
 ) : RecyclerView.Adapter<MyViewHolderFav>() {
@@ -44,6 +45,26 @@ class MyAdapterLoby(
                     producte.descripcion.lowercase().contains(textoLower) ||
                     producte.aCanvi.lowercase().contains(textoLower)) &&
                     producte.isFav
+                ) {
+                    itemsFiltrat.add(producte)
+                }
+            }
+        }
+        notifyDataSetChanged()
+    }
+
+    fun filtrarNoFavs(text: String) {
+        itemsFiltrat.clear()
+        if (text.isEmpty()) {
+            itemsFiltrat.addAll(items)
+        } else {
+            val textoLower = text.lowercase()
+            items.forEach { producte ->
+                if (
+                    producte.titol.lowercase().contains(textoLower) ||
+                    producte.user.lowercase().contains(textoLower) ||
+                    producte.descripcion.lowercase().contains(textoLower) ||
+                    producte.aCanvi.lowercase().contains(textoLower)
                 ) {
                     itemsFiltrat.add(producte)
                 }

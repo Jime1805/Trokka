@@ -44,12 +44,12 @@ class Loby_Activity : AppCompatActivity() {
     private fun itemSearchView() {
         svSerch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                adapter.filtrar(query ?: "")
+                adapter.filtrarNoFavs(query ?: "")
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                adapter.filtrar(newText ?: "")
+                adapter.filtrarNoFavs(newText ?: "")
                 return true
             }
         })
