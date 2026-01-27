@@ -36,6 +36,12 @@ android {
 }
 
 dependencies {
+    // Retrofit Core
+    implementation(libs.retrofit)
+    // Converter per gestionar JSON (Generalment es fa servir GSON)
+    implementation(libs.converter.gson)
+    // (Opcional) Interceptor per poder veure els logs de les peticions (molt útil per a debug)
+    implementation(libs.logging.interceptor)
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
