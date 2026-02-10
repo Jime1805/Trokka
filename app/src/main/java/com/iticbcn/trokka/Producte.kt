@@ -1,6 +1,6 @@
 package com.iticbcn.trokka
 
-class Producte (
+data class Producte (
     val titol: String,
     val img: String,
     val user: String,
