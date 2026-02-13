@@ -13,7 +13,7 @@ import retrofit2.http.Path
 
 interface ProducteService {
 
-    @GET("/trokka/objecte")
+    @GET("/trokka/objecte/all")
     suspend fun getAllObjecte(): Response<List<Producte>>
 
     @GET("/trokka/objecte/{id}")
