@@ -21,6 +21,11 @@ interface ProducteService {
         @Path("id") id: Int
     ): Response<Producte>
 
+    @GET("/trokka/objecte?user={user}")
+    suspend fun getObjecteByUser(
+        @Path("user") user: String
+    ): Response<List<Producte>>
+
     @POST("/trokka/objecte")
     suspend fun createObject(
         @Body objecte: Producte
