@@ -5,10 +5,12 @@ import android.graphics.Color
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlin.getValue
 
 class MyObjectsActivity : AppCompatActivity() {
 
@@ -16,6 +18,7 @@ class MyObjectsActivity : AppCompatActivity() {
     private lateinit var bottomNav: BottomNavigationView
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: MyAdapterMYObjects
+    private val viewModel: MyObjectsViewModel by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,7 +72,11 @@ class MyObjectsActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         // 3. Crear llista de dades (des de DataSource o directament)
-        val items = DataSource.items
+        viewModel.getUserItems("Marc")
+
+        viewModel.items.observe(this) { items ->
+            // TODO: Guardar los items en algun lado para pasarlo al adapter.
+        }
 
         // 4. Crear l'Adapter passant les dades + funció de callback per clics
         adapter = MyAdapterMYObjects(
