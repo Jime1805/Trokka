@@ -1,0 +1,64 @@
+package com.iticbcn.trokka
+
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import retrofit2.HttpException
+import java.io.IOException
+
+class LobyViewModel : ViewModel() {
+
+    private val _items = MutableLiveData<MutableList<Producte>>()
+    val items: LiveData<MutableList<Producte>> = _items
+
+    private val _error = MutableLiveData<String?>()
+    val error: LiveData<String?> = _error
+
+    init {
+        loadProductes()
+    }
+
+    // Llamada a API usando coroutine
+    fun loadProductes() {
+        viewModelScope.launch {
+
+            try {
+                val response = withContext(Dispatchers.IO) {
+                    ProducteAPI.API().getAllObjecte()
+                }
+
+                if (response.isSuccessful) {
+                    val lista = response.body() ?: emptyList()
+                    _items.value = lista.toMutableList()
+                    _error.value = null
+                } else {
+                    _error.value = "Error ${response.code()}: ${response.message()}"
+                }
+
+            } catch (e: IOException) {
+                _error.value = "Error de red: ${e.localizedMessage}"
+            } catch (e: HttpException) {
+                _error.value = "Error HTTP: ${e.localizedMessage}"
+            } catch (e: Exception) {
+                _error.value = "Error desconocido: ${e.localizedMessage}"
+            }
+        }
+    }
+
+    fun toggleFav(producte: Producte) {
+        val list = _items.value ?: return
+        val index = list.indexOf(producte)
+        if (index != -1) {
+            list[index].isFav = !list[index].isFav
+            _items.value = list
+        }
+    }
+
+    fun getItems(): MutableList<Producte> {
+        return _items.value ?: mutableListOf()
+    }
+}

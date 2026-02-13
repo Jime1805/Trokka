@@ -42,6 +42,10 @@ dependencies {
     implementation(libs.converter.gson)
     // (Opcional) Interceptor per poder veure els logs de les peticions (molt útil per a debug)
     implementation(libs.logging.interceptor)
+    //noinspection NewerVersionAvailable
+    implementation(libs.kotlinx.coroutines.android)
+    //noinspection GradleDependency
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.okhttp)
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.core.ktx)
