@@ -1,5 +1,6 @@
 package com.iticbcn.trokka
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -37,14 +38,18 @@ class LobyViewModel : ViewModel() {
                     _error.value = null
                 } else {
                     _error.value = "Error ${response.code()}: ${response.message()}"
+                    Log.e("LobyViewModel", "Error ${response.code()}: ${response.message()}")
                 }
 
             } catch (e: IOException) {
                 _error.value = "Error de red: ${e.localizedMessage}"
+                Log.e("LobyViewModel", "Error de red: ${e.localizedMessage}", e)
             } catch (e: HttpException) {
                 _error.value = "Error HTTP: ${e.localizedMessage}"
+                Log.e("LobyViewModel", "Error HTTP: ${e.localizedMessage}", e)
             } catch (e: Exception) {
                 _error.value = "Error desconocido: ${e.localizedMessage}"
+                Log.e("LobyViewModel", "Error desconocido: ${e.localizedMessage}", e)
             }
         }
     }
