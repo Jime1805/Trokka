@@ -10,6 +10,7 @@ import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Part
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ProducteService {
 
@@ -23,7 +24,7 @@ interface ProducteService {
 
     @GET("/trokka/objecte?user={user}")
     suspend fun getObjecteByUser(
-        @Path("user") user: String
+        @Query("user") user: String
     ): Response<List<Producte>>
 
     @POST("/trokka/objecte")

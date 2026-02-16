@@ -5,58 +5,24 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 class MyAdapterFav(
-    private val items: List<Producte>,
+    private var items: List<Producte>,
     private val onItemClick: (Producte) -> Unit
 ) : RecyclerView.Adapter<MyViewHolderFav>() {
 
-    private val itemsFiltrat = mutableListOf<Producte>()
-
-    init{
-        for (item in items){
-            if(item.isFav){
-                itemsFiltrat.add(item)
-            }
-        }
-    }
-
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): MyViewHolderFav {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolderFav {
         val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(R.layout.cv_fav_obj, parent, false)
         return MyViewHolderFav(view, onItemClick)
     }
 
     override fun onBindViewHolder(holder: MyViewHolderFav, position: Int) {
-        val item = itemsFiltrat[position]
-        holder.bind(item)
+        holder.bind(items[position])
     }
 
-    override fun getItemCount(): Int = itemsFiltrat.size
+    override fun getItemCount(): Int = items.size
 
-    fun filtrar(text: String) {
-        itemsFiltrat.clear()
-        if (text.isEmpty()) {
-            for (item in items){
-                if(item.isFav){
-                    itemsFiltrat.add(item)
-                }
-            }
-        } else {
-            val textoLower = text.lowercase()
-            items.forEach { producte ->
-                if((
-                    producte.titol.lowercase().contains(textoLower) ||
-                    producte.user.lowercase().contains(textoLower) ||
-                    producte.descripcion.lowercase().contains(textoLower) ||
-                    producte.aCanvi.lowercase().contains(textoLower) ) &&
-                    producte.isFav
-                ) {
-                    itemsFiltrat.add(producte)
-                }
-            }
-        }
+    fun actualizarLista(nuevaLista: List<Producte>) {
+        items = nuevaLista
         notifyDataSetChanged()
     }
 }

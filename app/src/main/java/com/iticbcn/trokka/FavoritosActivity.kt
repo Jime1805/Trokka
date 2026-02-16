@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.SearchView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +18,8 @@ class FavoritosActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: MyAdapterFav
     private lateinit var sFavs: SearchView
+    private val viewModel: FavoritosViewModel by viewModels()
+
 
 
 
@@ -24,7 +27,15 @@ class FavoritosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favoritos)
         initComponents()
+        initRecycler()
+        initObservers()
         initListeners()
+    }
+
+    private fun initObservers() {
+        viewModel.favoritos.observe(this) { lista ->
+            adapter.actualizarLista(lista)
+        }
     }
 
     private fun navigateToMapa(){
@@ -60,12 +71,12 @@ class FavoritosActivity : AppCompatActivity() {
     private fun itemSearchView() {
         sFavs.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                adapter.filtrar(query ?: "")
+                viewModel.filtrar(query ?: "")
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                adapter.filtrar(newText ?: "")
+                viewModel.filtrar(newText ?: "")
                 return true
             }
         })
@@ -76,48 +87,31 @@ class FavoritosActivity : AppCompatActivity() {
         bottomNav = findViewById(R.id.bottom_navigation)
         bottomNav.setBackgroundColor(Color.TRANSPARENT)
         sFavs = findViewById(R.id.sFavs)
-        initRecycler()
+        recyclerView = findViewById(R.id.rFavObj)
     }
 
     private fun initRecycler() {
-        // 1. Obtenir referència al RecyclerView del layout
-        recyclerView = findViewById(R.id.rFavObj)
-
-        // 2. Configurar LayoutManager (com es col·loquen les files)
+        // 1. Configurar LayoutManager (com es col·loquen les files)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        // 3. Crear llista de dades (des de DataSource o directament)
+        // 2. Crear llista de dades (des de DataSource o directament)
         val items = DataSource.items
 
-        // 4. Crear l'Adapter passant les dades + funció de callback per clics
-        adapter = MyAdapterFav(
-            items = items,
-            onItemClick = { item ->
-                // AQUÍ gestionem el clic: mostrem un Toast amb el títol
+        // 3. Crear l'Adapter passant les dades + funció de callback per clics
+        adapter = MyAdapterFav(emptyList()){ item ->
+            viewModel.toggleFavorito(item)
 
-                if (item.isFav){
-                    item.isFav = false
-                    Toast.makeText(
-                        this,
-                        "Has eliminat de preferits: " + item.titol,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    initRecycler()
-                }
-                else{
-                    item.isFav = true
-                    Toast.makeText(
-                        this,
-                        "Has afegit a preferits: " + item.titol,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    initRecycler()
-                }
-
+            if (item.isFav){
+                Toast.makeText(this, "Has afegit a preferits: ${item.titol}",
+                Toast.LENGTH_SHORT).show()
             }
-        )
+            else{
+                Toast.makeText(this, "Has eliminat de preferits: ${item.titol}",
+                    Toast.LENGTH_SHORT).show()
+            }
+        }
 
-        // 5. Assignar l'Adapter al RecyclerView
+        // 4. Assignar l'Adapter al RecyclerView
         recyclerView.adapter = adapter
     }
 }
