@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 class MyAdapterFav(
-    private val items: List<Producte>,
+    private var items: List<Producte>,
     private val onItemClick: (Producte) -> Unit
 ) : RecyclerView.Adapter<MyViewHolderFav>() {
 
@@ -29,11 +29,10 @@ class MyAdapterFav(
     }
 
     override fun onBindViewHolder(holder: MyViewHolderFav, position: Int) {
-        val item = itemsFiltrat[position]
-        holder.bind(item)
+        holder.bind(items[position])
     }
 
-    override fun getItemCount(): Int = itemsFiltrat.size
+    override fun getItemCount(): Int = items.size
 
     fun filtrar(text: String) {
         itemsFiltrat.clear()
