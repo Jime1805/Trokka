@@ -35,20 +35,20 @@ class FavoritosViewModel : ViewModel() {
     }
 
     fun toggleFavorito(producte: Producte) {
-        producte.isFav = !producte.isFav
+        producte.fav = !producte.fav
         cargarFavoritos()
     }
 
     fun filtrar(text: String) {
         val listaFiltrada = if (text.isEmpty()) {
-            listaOriginal.filter { it.isFav }
+            listaOriginal.filter { it.fav }
         } else {
             val textoLower = text.lowercase()
             listaOriginal.filter {
-                it.isFav &&
-                    (it.titol.lowercase().contains(textoLower) ||
+                it.fav &&
+                    (it.titulo.lowercase().contains(textoLower) ||
                             it.user.lowercase().contains(textoLower) ||
-                            it.descripcion.lowercase().contains(textoLower) ||
+                            it.description.lowercase().contains(textoLower) ||
                             it.aCanvi.lowercase().contains(textoLower))
             }
         }

@@ -121,7 +121,7 @@ class FavoritosActivity : AppCompatActivity() {
                 }
 
             }
-        )
+
 
         // 4. Assignar l'Adapter al RecyclerView
         recyclerView.adapter = adapter
