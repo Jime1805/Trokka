@@ -34,28 +34,8 @@ class MyAdapterFav(
 
     override fun getItemCount(): Int = items.size
 
-    fun filtrar(text: String) {
-        itemsFiltrat.clear()
-        if (text.isEmpty()) {
-            for (item in items){
-                if(item.fav){
-                    itemsFiltrat.add(item)
-                }
-            }
-        } else {
-            val textoLower = text.lowercase()
-            items.forEach { producte ->
-                if((
-                    producte.titulo.lowercase().contains(textoLower) ||
-                    producte.user.lowercase().contains(textoLower) ||
-                    producte.description.lowercase().contains(textoLower) ||
-                    producte.aCanvi.lowercase().contains(textoLower) ) &&
-                    producte.fav
-                ) {
-                    itemsFiltrat.add(producte)
-                }
-            }
-        }
+    fun actualizarLista(nuevaLista: List<Producte>) {
+        items = nuevaLista
         notifyDataSetChanged()
     }
 }
