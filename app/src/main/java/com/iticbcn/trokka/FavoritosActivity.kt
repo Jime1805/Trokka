@@ -101,15 +101,27 @@ class FavoritosActivity : AppCompatActivity() {
         adapter = MyAdapterFav(emptyList()){ item ->
             viewModel.toggleFavorito(item)
 
-            if (item.isFav){
-                Toast.makeText(this, "Has afegit a preferits: ${item.titol}",
-                Toast.LENGTH_SHORT).show()
+                if (item.fav){
+                    item.fav = false
+                    Toast.makeText(
+                        this,
+                        "Has eliminat de preferits: " + item.titulo,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    initRecycler()
+                }
+                else{
+                    item.fav = true
+                    Toast.makeText(
+                        this,
+                        "Has afegit a preferits: " + item.titulo,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    initRecycler()
+                }
+
             }
-            else{
-                Toast.makeText(this, "Has eliminat de preferits: ${item.titol}",
-                    Toast.LENGTH_SHORT).show()
-            }
-        }
+        )
 
         // 4. Assignar l'Adapter al RecyclerView
         recyclerView.adapter = adapter

@@ -26,7 +26,7 @@ class ProducteAPI {
 
                 mItemAPI = Retrofit.Builder()
                     .addConverterFactory(GsonConverterFactory.create(gsondateformat))
-                    .baseUrl("https://150.136.106.185:8080/")
+                    .baseUrl("http://150.136.106.185:8080/")
                     .client(unsafeOkHttpClient) // Afegeix el client
                     .build()
                     .create(ProducteService::class.java)
