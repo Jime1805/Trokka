@@ -13,7 +13,7 @@ class MyAdapterFav(
 
     init{
         for (item in items){
-            if(item.isFav){
+            if(item.fav){
                 itemsFiltrat.add(item)
             }
         }
@@ -39,7 +39,7 @@ class MyAdapterFav(
         itemsFiltrat.clear()
         if (text.isEmpty()) {
             for (item in items){
-                if(item.isFav){
+                if(item.fav){
                     itemsFiltrat.add(item)
                 }
             }
@@ -47,11 +47,11 @@ class MyAdapterFav(
             val textoLower = text.lowercase()
             items.forEach { producte ->
                 if((
-                    producte.titol.lowercase().contains(textoLower) ||
+                    producte.titulo.lowercase().contains(textoLower) ||
                     producte.user.lowercase().contains(textoLower) ||
-                    producte.descripcion.lowercase().contains(textoLower) ||
+                    producte.description.lowercase().contains(textoLower) ||
                     producte.aCanvi.lowercase().contains(textoLower) ) &&
-                    producte.isFav
+                    producte.fav
                 ) {
                     itemsFiltrat.add(producte)
                 }

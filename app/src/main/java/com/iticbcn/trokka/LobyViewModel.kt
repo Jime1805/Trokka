@@ -58,7 +58,7 @@ class LobyViewModel : ViewModel() {
         val list = _items.value ?: return
         val index = list.indexOf(producte)
         if (index != -1) {
-            list[index].isFav = !list[index].isFav
+            list[index].fav = !list[index].fav
             _items.value = list
         }
     }

@@ -1,10 +1,10 @@
 package com.iticbcn.trokka
 
 data class Producte (
-    val titol: String,
-    val img: String,
+    val titulo: String,
+    val image_path: String,
     val user: String,
-    val descripcion: String,
+    val description: String,
     val aCanvi: String,
-    var isFav: Boolean
+    var fav: Boolean
 )

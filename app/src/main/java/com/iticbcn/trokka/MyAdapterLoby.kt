@@ -43,9 +43,9 @@ class MyAdapterLoby(
             val textoLower = text.lowercase()
             items.forEach { producte ->
                 if (
-                    producte.titol.lowercase().contains(textoLower) ||
+                    producte.titulo.lowercase().contains(textoLower) ||
                     producte.user.lowercase().contains(textoLower) ||
-                    producte.descripcion.lowercase().contains(textoLower) ||
+                    producte.description.lowercase().contains(textoLower) ||
                     producte.aCanvi.lowercase().contains(textoLower)
                 ) {
                     itemsFiltrat.add(producte)

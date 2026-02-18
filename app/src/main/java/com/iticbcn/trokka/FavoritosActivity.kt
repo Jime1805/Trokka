@@ -95,20 +95,20 @@ class FavoritosActivity : AppCompatActivity() {
             onItemClick = { item ->
                 // AQUÍ gestionem el clic: mostrem un Toast amb el títol
 
-                if (item.isFav){
-                    item.isFav = false
+                if (item.fav){
+                    item.fav = false
                     Toast.makeText(
                         this,
-                        "Has eliminat de preferits: " + item.titol,
+                        "Has eliminat de preferits: " + item.titulo,
                         Toast.LENGTH_SHORT
                     ).show()
                     initRecycler()
                 }
                 else{
-                    item.isFav = true
+                    item.fav = true
                     Toast.makeText(
                         this,
-                        "Has afegit a preferits: " + item.titol,
+                        "Has afegit a preferits: " + item.titulo,
                         Toast.LENGTH_SHORT
                     ).show()
                     initRecycler()

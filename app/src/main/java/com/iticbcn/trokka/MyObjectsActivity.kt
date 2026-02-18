@@ -20,6 +20,8 @@ class MyObjectsActivity : AppCompatActivity() {
     private lateinit var adapter: MyAdapterMYObjects
     private val viewModel: MyObjectsViewModel by viewModels()
 
+    private lateinit var items: List<Producte>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,7 +77,7 @@ class MyObjectsActivity : AppCompatActivity() {
         viewModel.getUserItems("Marc")
 
         viewModel.items.observe(this) { items ->
-            // TODO: Guardar los items en algun lado para pasarlo al adapter.
+            this.items = items
         }
 
         // 4. Crear l'Adapter passant les dades + funció de callback per clics
@@ -85,7 +87,7 @@ class MyObjectsActivity : AppCompatActivity() {
                 // AQUÍ gestionem el clic: mostrem un Toast amb el títol
                 Toast.makeText(
                     this,
-                    "Has fet clic a " + item.titol,
+                    "Has fet clic a " + item.titulo,
                     Toast.LENGTH_SHORT
                 ).show()
             }

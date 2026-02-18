@@ -17,9 +17,9 @@ class MyViewHolderMyObjects(
     private val imgBin: ImageView = itemView.findViewById(R.id.imgBasura)
 
     fun bind(producte: Producte) {
-        tvTitle.text = producte.titol
-        tvDescripcio.text = producte.descripcion
-        img.contentDescription = producte.img
+        tvTitle.text = producte.titulo
+        tvDescripcio.text = producte.description
+        img.contentDescription = producte.image_path
 
         imgLlapis.setOnClickListener {
             onItemClick(producte)

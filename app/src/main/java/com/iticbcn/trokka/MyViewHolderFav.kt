@@ -18,10 +18,10 @@ class MyViewHolderFav(
 
     fun bind(producte: Producte) {
         tvUsuari.text = producte.user
-        tvTitle.text = producte.titol
-        tvDescripcio.text = producte.descripcion
-        img.contentDescription = producte.img
-        if(producte.isFav){
+        tvTitle.text = producte.titulo
+        tvDescripcio.text = producte.description
+        img.contentDescription = producte.image_path
+        if(producte.fav){
             imgCorazon.setImageResource(R.drawable.ic_favorito_lleno)
         }
         else{
