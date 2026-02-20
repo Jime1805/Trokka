@@ -27,6 +27,9 @@ interface ProducteService {
         @Query("user") user: String
     ): Response<List<Producte>>
 
+    @GET("/trokka/favs")
+    suspend fun getObjecteFav(): Response<List<Producte>>
+
     @POST("/trokka/objecte")
     suspend fun createObject(
         @Body objecte: Producte
