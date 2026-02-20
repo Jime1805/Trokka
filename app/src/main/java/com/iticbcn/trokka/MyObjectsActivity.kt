@@ -19,8 +19,7 @@ class MyObjectsActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: MyAdapterMYObjects
     private val viewModel: MyObjectsViewModel by viewModels()
-
-    private lateinit var items: List<Producte>
+    private var items: List<Producte> = listOf()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,6 +77,7 @@ class MyObjectsActivity : AppCompatActivity() {
 
         viewModel.items.observe(this) { items ->
             this.items = items
+            adapter.updateData(items)
         }
 
         // 4. Crear l'Adapter passant les dades + funció de callback per clics

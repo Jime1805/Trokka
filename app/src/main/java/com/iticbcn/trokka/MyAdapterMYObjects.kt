@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 class MyAdapterMYObjects(
-    private val items: List<Producte>,
+    private var items: List<Producte>,
     private val onItemClick: (Producte) -> Unit
 ) : RecyclerView.Adapter<MyViewHolderMyObjects>() {
 
@@ -25,5 +25,8 @@ class MyAdapterMYObjects(
 
     override fun getItemCount(): Int = items.size
 
-
+    fun updateData(newItems: List<Producte>) {
+        this.items = newItems
+        notifyDataSetChanged()
+    }
 }

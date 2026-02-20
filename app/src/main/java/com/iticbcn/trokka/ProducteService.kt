@@ -22,7 +22,7 @@ interface ProducteService {
         @Path("id") id: Int
     ): Response<Producte>
 
-    @GET("/trokka/objecte?user={user}")
+    @GET("/trokka/objecte")
     suspend fun getObjecteByUser(
         @Query("user") user: String
     ): Response<List<Producte>>
