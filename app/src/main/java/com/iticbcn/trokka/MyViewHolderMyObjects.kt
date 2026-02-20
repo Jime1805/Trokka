@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MyViewHolderMyObjects(
     itemView: View,
-    private val onItemClick: (Producte) -> Unit
+    private val edit: (Producte) -> Unit,
+    private val delete: (Producte) -> Unit
 ) : RecyclerView.ViewHolder(itemView) {
 
     private val tvTitle: TextView = itemView.findViewById(R.id.tvTitol)
@@ -22,11 +23,11 @@ class MyViewHolderMyObjects(
         img.contentDescription = producte.image_path
 
         imgLlapis.setOnClickListener {
-            onItemClick(producte)
+            edit(producte)
         }
 
         imgBin.setOnClickListener {
-            onItemClick(producte)
+            delete(producte)
         }
     }
 }

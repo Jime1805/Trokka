@@ -4,6 +4,7 @@ object DataSource {
 
     val items: List<Producte> = listOf(
         Producte(
+            1,
             "Cadira",
             "img",
             "Marc",
@@ -12,6 +13,7 @@ object DataSource {
             false
         ),
         Producte(
+            2,
             "Taula",
             "img",
             "Eric",
@@ -20,6 +22,7 @@ object DataSource {
             false
         ),
         Producte(
+            3,
             "Esquís",
             "img",
             "Marc",
@@ -28,6 +31,7 @@ object DataSource {
             true
         ),
         Producte(
+            4,
             "Ratolí",
             "img",
             "Marc",
@@ -36,6 +40,7 @@ object DataSource {
             true
         ),
         Producte(
+            5,
             "Teclat",
             "img",
             "Eric",

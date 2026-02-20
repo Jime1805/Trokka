@@ -25,4 +25,10 @@ class MyObjectsViewModel : ViewModel() {
             }
         }
     }
+
+    fun deleteItem(itemId: Int) {
+        viewModelScope.launch {
+            ProducteAPI.API().deleteObjecteById(itemId)
+        }
+    }
 }

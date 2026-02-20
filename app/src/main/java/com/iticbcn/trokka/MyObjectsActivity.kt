@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlin.getValue
 
 class MyObjectsActivity : AppCompatActivity() {
@@ -83,17 +84,40 @@ class MyObjectsActivity : AppCompatActivity() {
         // 4. Crear l'Adapter passant les dades + funció de callback per clics
         adapter = MyAdapterMYObjects(
             items = items,
-            onItemClick = { item ->
-                // AQUÍ gestionem el clic: mostrem un Toast amb el títol
-                Toast.makeText(
-                    this,
-                    "Has fet clic a " + item.titulo,
-                    Toast.LENGTH_SHORT
-                ).show()
+            edit = { item ->
+                editObject(item)
+            },
+            delete = { item ->
+                deleteObjecte(item)
             }
         )
 
         // 5. Assignar l'Adapter al RecyclerView
         recyclerView.adapter = adapter
+    }
+
+    // Aquesta funcio elimina un objecte.
+    // Abans d'eliminar pregunta al usuari per assegurar-se.
+    private fun deleteObjecte(item: Producte) {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Eliminar objecte?")
+            .setMessage("Estas segur que vols borrar l'objecte?")
+            .setNeutralButton("Cancel·lar") { dialog, which ->
+                // Usuari cancela, no fem res.
+            }
+            .setPositiveButton("Eliminar") { dialog, which ->
+                viewModel.deleteItem(item.id)
+            }
+            .show()
+    }
+
+    // Aquesta funcio edita un objecte.
+    private fun editObject(item: Producte) {
+        // AQUÍ gestionem el clic: mostrem un Toast amb el títol
+        Toast.makeText(
+            this,
+            "Vols editar l'objecte: " + item.titulo,
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }
