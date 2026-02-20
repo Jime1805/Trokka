@@ -20,7 +20,7 @@ class FavoritosViewModel : ViewModel() {
     private fun cargarFavoritos() {
         viewModelScope.launch {
             try {
-                val response = ProducteAPI.API().getAllObjecte() // cambiar por la API que devuelve los favs
+                val response = ProducteAPI.API().getObjecteFav() // cambiar por la API que devuelve los favs
                 if (response.isSuccessful) {
                     _favoritos.value = response.body() ?: emptyList()
                 }
