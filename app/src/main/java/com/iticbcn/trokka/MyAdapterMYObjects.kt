@@ -5,8 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 class MyAdapterMYObjects(
-    private val items: List<Producte>,
-    private val onItemClick: (Producte) -> Unit
+    private var items: List<Producte>,
+    private val edit: (Producte) -> Unit,
+    private val delete: (Producte) -> Unit
 ) : RecyclerView.Adapter<MyViewHolderMyObjects>() {
 
     override fun onCreateViewHolder(
@@ -15,7 +16,7 @@ class MyAdapterMYObjects(
     ): MyViewHolderMyObjects {
         val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(R.layout.cv_my_objects, parent, false)
-        return MyViewHolderMyObjects(view, onItemClick)
+        return MyViewHolderMyObjects(view, edit, delete)
     }
 
     override fun onBindViewHolder(holder: MyViewHolderMyObjects, position: Int) {
@@ -25,5 +26,8 @@ class MyAdapterMYObjects(
 
     override fun getItemCount(): Int = items.size
 
-
+    fun updateData(newItems: List<Producte>) {
+        this.items = newItems
+        notifyDataSetChanged()
+    }
 }
