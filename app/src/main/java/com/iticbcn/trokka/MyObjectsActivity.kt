@@ -45,6 +45,12 @@ class MyObjectsActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    private fun navigateToEditObjecte(producteId: Int) {
+        val intent = Intent(this, EditObjectActivity::class.java)
+        intent.putExtra("productId", producteId)
+        startActivity(intent)
+    }
+
     private fun initListeners() {
         imgFlechita.setOnClickListener {
             navigateToPerfil()
@@ -113,11 +119,6 @@ class MyObjectsActivity : AppCompatActivity() {
 
     // Aquesta funcio edita un objecte.
     private fun editObject(item: Producte) {
-        // AQUÍ gestionem el clic: mostrem un Toast amb el títol
-        Toast.makeText(
-            this,
-            "Vols editar l'objecte: " + item.titulo,
-            Toast.LENGTH_SHORT
-        ).show()
+        navigateToEditObjecte(item.id)
     }
 }

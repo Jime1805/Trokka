@@ -55,7 +55,9 @@
     <string name="descripci">Descripció</string>
     <string name="que_busques_a_canvi">Que busques a canvi?</string>
     <string name="descriu_que_busques_a_canvi">Descriu que busques a canvi</string>
-    <string name="subir_objeto">Subir Objeto</string>
+    <string name="subir_objeto">Pujar Objecte</string>
+    <string name="editar_objeto">Editar Objecte</string>
+    <string name="modificar_objecto">Modificar Objecte</string>
 
 
 </resources>

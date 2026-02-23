@@ -1,6 +1,15 @@
 package com.iticbcn.trokka
 
 object DataSource {
+    val producteVuit = Producte(
+        0,
+        "",
+        "",
+        "",
+        "",
+        "",
+        false
+    )
 
     val items: List<Producte> = listOf(
         Producte(
