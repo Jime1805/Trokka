@@ -1,7 +1,5 @@
 package com.iticbcn.trokka
 
-import android.R
-
 data class Producte (
     val id: Int,
     val titulo: String,
