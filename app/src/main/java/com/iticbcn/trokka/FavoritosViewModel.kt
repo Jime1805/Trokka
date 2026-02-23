@@ -1,5 +1,6 @@
 package com.iticbcn.trokka
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,15 +21,20 @@ class FavoritosViewModel : ViewModel() {
     private fun cargarFavoritos() {
         viewModelScope.launch {
             try {
-                val response = ProducteAPI.API().getObjecteFav() // cambiar por la API que devuelve los favs
+                val response = ProducteAPI.API().getObjecteFav()
+
+                Log.d("FAVS_DEBUG", "Code = ${response.code()}")
+                Log.d("FAVS_DEBUG", "Body = ${response.body()}")
+                Log.e("FAVS_DEBUG", "ErrorBody = ${response.errorBody()?.string()}")
+
                 if (response.isSuccessful) {
-                    _favoritos.value = response.body() ?: emptyList()
-                }
-                else {
+                    listaOriginal = response.body() ?: emptyList()
+                    _favoritos.value = listaOriginal
+                } else {
                     _favoritos.value = emptyList()
                 }
-            }
-            catch (e: Exception) {
+
+            } catch (e: Exception) {
                 _favoritos.value = emptyList()
             }
         }
@@ -36,20 +42,23 @@ class FavoritosViewModel : ViewModel() {
 
     fun toggleFavorito(producte: Producte) {
         producte.fav = !producte.fav
-        cargarFavoritos()
+        _favoritos.value = listaOriginal.filter { it.fav }
     }
 
     fun filtrar(text: String) {
+
         val listaFiltrada = if (text.isEmpty()) {
             listaOriginal.filter { it.fav }
         } else {
             val textoLower = text.lowercase()
+
             listaOriginal.filter {
                 it.fav &&
-                    (it.titulo.lowercase().contains(textoLower) ||
+                        (it.titulo.lowercase().contains(textoLower) ||
                             it.user.lowercase().contains(textoLower) ||
                             it.description.lowercase().contains(textoLower) ||
-                            it.aCanvi.lowercase().contains(textoLower))
+                            it.aCanvi.lowercase().contains(textoLower)
+                        )
             }
         }
 

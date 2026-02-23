@@ -9,20 +9,7 @@ class MyAdapterFav(
     private val onItemClick: (Producte) -> Unit
 ) : RecyclerView.Adapter<MyViewHolderFav>() {
 
-    private val itemsFiltrat = mutableListOf<Producte>()
-
-    init{
-        for (item in items){
-            if(item.fav){
-                itemsFiltrat.add(item)
-            }
-        }
-    }
-
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): MyViewHolderFav {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolderFav {
         val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(R.layout.cv_fav_obj, parent, false)
         return MyViewHolderFav(view, onItemClick)

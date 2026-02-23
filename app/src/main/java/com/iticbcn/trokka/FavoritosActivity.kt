@@ -91,39 +91,23 @@ class FavoritosActivity : AppCompatActivity() {
     }
 
     private fun initRecycler() {
-        // 1. Configurar LayoutManager (com es col·loquen les files)
+
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        // 2. Crear llista de dades (des de DataSource o directament)
-        val items = DataSource.items
+        adapter = MyAdapterFav(emptyList()) { item ->
 
-        // 3. Crear l'Adapter passant les dades + funció de callback per clics
-        adapter = MyAdapterFav(emptyList()){ item ->
             viewModel.toggleFavorito(item)
 
-                if (item.fav){
-                    item.fav = false
-                    Toast.makeText(
-                        this,
-                        "Has eliminat de preferits: " + item.titulo,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    initRecycler()
-                }
-                else{
-                    item.fav = true
-                    Toast.makeText(
-                        this,
-                        "Has afegit a preferits: " + item.titulo,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    initRecycler()
-                }
+            Toast.makeText(
+                this,
+                if (item.fav)
+                    "Has afegit a preferits: ${item.titulo}"
+                else
+                    "Has eliminat de preferits: ${item.titulo}",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
 
-            }
-
-
-        // 4. Assignar l'Adapter al RecyclerView
         recyclerView.adapter = adapter
     }
 }
