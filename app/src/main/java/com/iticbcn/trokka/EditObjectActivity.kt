@@ -38,6 +38,6 @@ class EditObjectActivity : AppCompatActivity() {
     }
 
     private fun setData(producte: Producte) {
-        binding.etTitulo.text = producte.titulo
+        binding.etTitulo.setText(producte.titulo)
     }
 }
