@@ -49,6 +49,13 @@
 
     <string name="ajustes">Ajustes</string>
     <string name="titol_de_l_objecte">Titol de l\'objecte.</string>
+    <string name="titulo">Titulo</string>
+    <string name="titlo_de_l_objecte">Titlo de l\'objecte</string>
+    <string name="afegeix_una_descripci">Afegeix una descripció</string>
+    <string name="descripci">Descripció</string>
+    <string name="que_busques_a_canvi">Que busques a canvi?</string>
+    <string name="descriu_que_busques_a_canvi">Descriu que busques a canvi</string>
+    <string name="subir_objeto">Subir Objeto</string>
 
 
 </resources>
