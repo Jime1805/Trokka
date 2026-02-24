@@ -1,6 +1,7 @@
 package com.iticbcn.trokka
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -14,16 +15,13 @@ class EditObjectActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_object)
         binding = ActivityEditObjectBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        initObservers()
         initData()
     }
 
-    private fun initData() {
-        val producteId = intent.getStringExtra("productId")?.toInt()
-
-        viewModel.getItem(producteId)
-
+    private fun initObservers() {
         viewModel.error.observe(this) { error ->
             if (error != null) {
                 Toast.makeText(
@@ -31,13 +29,24 @@ class EditObjectActivity : AppCompatActivity() {
                     error,
                     Toast.LENGTH_LONG
                 )
+
             } else {
                 setData(viewModel.item.value ?: DataSource.producteVuit)
             }
         }
     }
 
+    private fun initData() {
+        val producteId = intent.getIntExtra("productId", 0)
+
+        viewModel.getItem(producteId)
+
+
+    }
+
     private fun setData(producte: Producte) {
         binding.etTitulo.setText(producte.titulo)
+        binding.etDescripcion.setText(producte.description)
+        binding.etAcanvi.setText(producte.aCanvi)
     }
 }
