@@ -17,14 +17,14 @@ interface ProducteService {
     @GET("/trokka/objecte/all")
     suspend fun getAllObjecte(): Response<List<Producte>>
 
-    @GET("/trokka/objecte/{id}")
+    @GET("/trokka/objecte/id/{id}")
     suspend fun getObjecteById(
         @Path("id") id: Int
     ): Response<Producte>
 
-    @GET("/trokka/objecte")
+    @GET("/trokka/objecte/user/{user}")
     suspend fun getObjecteByUser(
-        @Query("user") user: String
+        @Path("user") user: String
     ): Response<List<Producte>>
 
     @GET("/trokka/objecte/favs")
