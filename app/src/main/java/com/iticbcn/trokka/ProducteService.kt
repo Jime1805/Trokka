@@ -13,7 +13,6 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ProducteService {
-
     @GET("/trokka/objecte/all")
     suspend fun getAllObjecte(): Response<List<Producte>>
 
