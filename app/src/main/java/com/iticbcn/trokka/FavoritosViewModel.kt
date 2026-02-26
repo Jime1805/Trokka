@@ -21,7 +21,7 @@ class FavoritosViewModel : ViewModel() {
     private fun cargarFavoritos() {
         viewModelScope.launch {
             try {
-                val response = ProducteAPI.API().getObjecteFav()
+                val response = ClientAPI.ProducteAPI().getObjecteFav()
 
                 Log.d("FAVS_DEBUG", "Code = ${response.code()}")
                 Log.d("FAVS_DEBUG", "Body = ${response.body()}")

@@ -16,7 +16,7 @@ class MyObjectsViewModel : ViewModel() {
     fun getUserItems(user: String) {
         viewModelScope.launch {
             val items = withContext(Dispatchers.IO) {
-                ProducteAPI.API().getObjecteByUser(user)
+                ClientAPI.ProducteAPI().getObjecteByUser(user)
             }
 
             if (items.isSuccessful) {
@@ -28,7 +28,7 @@ class MyObjectsViewModel : ViewModel() {
 
     fun deleteItem(itemId: Int) {
         viewModelScope.launch {
-            ProducteAPI.API().deleteObjecteById(itemId)
+            ClientAPI.ProducteAPI().deleteObjecteById(itemId)
         }
     }
 }

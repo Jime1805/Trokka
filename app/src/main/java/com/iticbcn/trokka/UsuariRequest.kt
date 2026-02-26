@@ -1,7 +1,6 @@
 package com.iticbcn.trokka
 
-data class Usuari(
-    val id: Int,
+data class UsuariRequest(
     val nom: String,
     val email: String,
     val contrasenya: String

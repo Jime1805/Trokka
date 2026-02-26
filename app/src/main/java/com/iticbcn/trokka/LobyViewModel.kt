@@ -29,7 +29,7 @@ class LobyViewModel : ViewModel() {
 
             try {
                 val response = withContext(Dispatchers.IO) {
-                    ProducteAPI.API().getAllObjecte()
+                    ClientAPI.ProducteAPI().getAllObjecte()
                 }
 
                 if (response.isSuccessful) {
