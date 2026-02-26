@@ -18,7 +18,7 @@ class EditObjectViewModel : ViewModel() {
             if (itemId == null) {
                 _error.value = "Error, El id del producte es null."
             } else {
-                val response = ProducteAPI.API().getObjecteById(itemId)
+                val response = ClientAPI.ProducteAPI().getObjecteById(itemId)
 
                 if (response.isSuccessful) {
                     val producte = response.body() ?: DataSource.producteVuit

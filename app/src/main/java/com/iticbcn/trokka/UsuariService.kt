@@ -11,7 +11,7 @@ import retrofit2.http.Path
 interface UsuariService {
     @POST("/trokka/usuario")
     suspend fun postUsers(
-        @Body usuario: Usuari
+        @Body usuario: UsuariRequest
     ): Response<String>
 
     @GET("/trokka/usuario")
@@ -41,6 +41,6 @@ interface UsuariService {
 
     @DELETE("/trokka/usuario")
     suspend fun deleteUserById(
-        @Body usuario: Usuari
+        @Body usuario: UsuariRequest
     ): Response<String>
 }
