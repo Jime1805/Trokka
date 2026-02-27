@@ -31,6 +31,7 @@ class RegisterViewModel: ViewModel() {
             return false
         }
         val funciona = createUser(username, email, password)
+        Log.d("REGISTER", "Entra despues de funciona?")
         if (!funciona){
             return false
         }
@@ -55,9 +56,11 @@ class RegisterViewModel: ViewModel() {
                 Log.e("REGISTER", "ErrorBody = ${response.errorBody()?.string()}")
 
                 if (response.isSuccessful) {
+                    Log.d("REGISTER", "Entra en succesfull")
                     funciona = true;
                     _state.value = Pair(true, response.body() ?: "Registro correcto")
                 } else {
+                    Log.d("REGISTER", "Entra en errorBody")
                     _state.value = Pair(false, response.errorBody()?.string() ?: "Error servidor")
                 }
 
