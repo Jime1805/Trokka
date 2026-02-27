@@ -9,13 +9,14 @@ import javax.net.ssl.SSLContext
 import javax.net.ssl.TrustManager
 import javax.net.ssl.X509TrustManager
 
-class ProducteAPI {
+class ClientAPI {
     companion object {
-        private var mItemAPI: ProducteService? = null
+        private var mProducteAPI: ProducteService? = null
+        private var mUsuariAPI: UsuariService? = null
 
         @Synchronized
-        fun API(): ProducteService {
-            if (mItemAPI == null) {
+        fun ProducteAPI(): ProducteService {
+            if (mProducteAPI == null) {
 
                 val gsondateformat = GsonBuilder()
                     .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
@@ -24,14 +25,35 @@ class ProducteAPI {
                 // Client HTTP insegur (només per desenvolupament)
                 val unsafeOkHttpClient = getUnsafeOkHttpClient()
 
-                mItemAPI = Retrofit.Builder()
+                mProducteAPI = Retrofit.Builder()
                     .addConverterFactory(GsonConverterFactory.create(gsondateformat))
                     .baseUrl("http://150.136.106.185:8080/")
                     .client(unsafeOkHttpClient) // Afegeix el client
                     .build()
                     .create(ProducteService::class.java)
             }
-            return mItemAPI!!
+            return mProducteAPI!!
+        }
+
+        @Synchronized
+        fun UsuariAPI(): UsuariService {
+            if (mUsuariAPI == null) {
+
+                val gsondateformat = GsonBuilder()
+                    .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+                    .create()
+
+                // Client HTTP insegur (només per desenvolupament)
+                val unsafeOkHttpClient = getUnsafeOkHttpClient()
+
+                mUsuariAPI = Retrofit.Builder()
+                    .addConverterFactory(GsonConverterFactory.create(gsondateformat))
+                    .baseUrl("http://150.136.106.185:8080/")
+                    .client(unsafeOkHttpClient) // Afegeix el client
+                    .build()
+                    .create(UsuariService::class.java)
+            }
+            return mUsuariAPI!!
         }
 
         private fun getUnsafeOkHttpClient(): OkHttpClient {
