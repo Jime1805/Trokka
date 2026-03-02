@@ -4,6 +4,7 @@ import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.security.cert.X509Certificate
 import javax.net.ssl.SSLContext
 import javax.net.ssl.TrustManager
@@ -47,9 +48,10 @@ class ClientAPI {
                 val unsafeOkHttpClient = getUnsafeOkHttpClient()
 
                 mUsuariAPI = Retrofit.Builder()
-                    .addConverterFactory(GsonConverterFactory.create(gsondateformat))
                     .baseUrl("http://150.136.106.185:8080/")
-                    .client(unsafeOkHttpClient) // Afegeix el client
+                    .addConverterFactory(ScalarsConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create(gsondateformat))
+                    .client(unsafeOkHttpClient)
                     .build()
                     .create(UsuariService::class.java)
             }
