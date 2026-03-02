@@ -40,6 +40,8 @@ android {
 }
 
 dependencies {
+    //noinspection NewerVersionAvailable
+    implementation(libs.converter.scalars)
     // Retrofit Core
     implementation(libs.retrofit)
     // Converter per gestionar JSON (Generalment es fa servir GSON)

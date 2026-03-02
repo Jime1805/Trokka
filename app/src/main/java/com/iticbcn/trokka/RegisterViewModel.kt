@@ -46,7 +46,7 @@ class RegisterViewModel: ViewModel() {
                 if (response.isSuccessful) {
                     _state.value = Pair(true, response.body() ?: "Usuario creado con éxito")
                 } else {
-                    _state.value = Pair(false, response.errorBody()?.string() ?: "Error servidor")
+                    _state.value = Pair(false, response.errorBody()?.string() ?: "No se pudo crear el usuario")
                 }
 
             } catch (e: Exception) {
