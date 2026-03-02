@@ -21,7 +21,6 @@ class LoginViewModel : ViewModel() {
 
         viewModelScope.launch {
             try {
-
                 val response = ClientAPI.UsuariAPI().getUserByName(nombre)
 
                 if (response.isSuccessful) {
