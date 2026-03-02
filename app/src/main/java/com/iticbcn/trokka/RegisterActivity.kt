@@ -47,7 +47,6 @@ class RegisterActivity : AppCompatActivity() {
                 etPassReg.text.toString(),
                 etRePassReg.text.toString()
             )
-            Toast.makeText(this, "El boton registrarse funciona", Toast.LENGTH_SHORT).show()
         }
     }
 

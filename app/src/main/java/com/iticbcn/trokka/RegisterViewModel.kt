@@ -2,6 +2,7 @@ package com.iticbcn.trokka
 
 import android.util.Log
 import android.util.Patterns
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,63 +14,46 @@ class RegisterViewModel: ViewModel() {
     private val _state = MutableLiveData<Pair<Boolean, String>>()
     val state: LiveData<Pair<Boolean, String>> = _state
 
-    fun register(username: String, email: String, password: String, rePassword: String):Boolean {
+    fun register(username: String, email: String, password: String, rePassword: String){
 
         if (username.isBlank() || email.isBlank() || password.isBlank() || rePassword.isBlank()) {
             _state.value = Pair(false, "Todos los campos son obligatorios")
-            return false
+            return
         }
 
         if (!proofEmail(email)) {
             _state.value = Pair(false, "Correo electrónico no válido")
-            return false
+            return
         }
 
         val passwordResult = proofPassword(password, rePassword)
         if (!passwordResult.first) {
             _state.value = passwordResult
-            return false
+            return
         }
-        val funciona = createUser(username, email, password)
-        Log.d("REGISTER", "Entra despues de funciona?")
-        if (!funciona){
-            return false
-        }
-        Log.d("REGISTER", "Entra aqui register")
-        return true
+
+        createUser(username, email, password)
     }
 
-    private fun createUser(username: String, email: String, password: String): Boolean {
-        var funciona: Boolean = false
-
+    private fun createUser(username: String, email: String, password: String) {
         viewModelScope.launch {
 
             try {
-                Log.d("REGISTER", "Entra aqui")
-
                 val response = ClientAPI.UsuariAPI().postUsers(
                     UsuariRequest(username, email, password)
                 )
 
-                Log.d("REGISTER", "Code = ${response.code()}")
-                Log.d("REGISTER", "Body = ${response.body()}")
-                Log.e("REGISTER", "ErrorBody = ${response.errorBody()?.string()}")
-
                 if (response.isSuccessful) {
-                    Log.d("REGISTER", "Entra en succesfull")
-                    funciona = true;
-                    _state.value = Pair(true, response.body() ?: "Registro correcto")
+                    _state.value = Pair(true, response.body() ?: "Usuario creado con éxito")
                 } else {
-                    Log.d("REGISTER", "Entra en errorBody")
                     _state.value = Pair(false, response.errorBody()?.string() ?: "Error servidor")
                 }
 
             } catch (e: Exception) {
-                funciona = false
+                Log.e("Exceptions", "createUser", e)
                 _state.value = Pair(false, "Error de conexión")
             }
         }
-        return funciona
     }
 
     private fun proofEmail(email: String): Boolean {

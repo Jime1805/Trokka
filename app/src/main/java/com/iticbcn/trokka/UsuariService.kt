@@ -15,17 +15,17 @@ interface UsuariService {
     ): Response<String>
 
     @GET("/trokka/usuario")
-    suspend fun getAllUsers(): Response<List<Usuari>>
+    suspend fun getAllUsers(): Response<List<UsuariResponse>>
 
     @GET("/trokka/usuario/{id}")
     suspend fun getUserById(
         @Path("id") id: Int
-    ): Response<Usuari>
+    ): Response<UsuariResponse>
 
     @GET("/trokka/usuario/{nombre}")
     suspend fun getUserByName(
         @Path("nombre") nombre: String
-    ): Response<Usuari>
+    ): Response<UsuariResponse>
 
     @PUT("/trokka/usuario/{nombre_nuevo}/{nombre_viejo}")
     suspend fun putUserName(
