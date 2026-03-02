@@ -1,11 +1,9 @@
 package com.iticbcn.trokka
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModel
 import com.iticbcn.trokka.databinding.ActivityEditObjectBinding
 
 class EditObjectActivity : AppCompatActivity() {
@@ -19,19 +17,54 @@ class EditObjectActivity : AppCompatActivity() {
         setContentView(binding.root)
         initObservers()
         initData()
+        initListeners()
+    }
+
+    private fun initListeners() {
+        binding.imgFlechita.setOnClickListener {
+            finish()
+        }
+
+        binding.btnSubirObjeto.setOnClickListener {
+            val producte: Producte? = viewModel.item.value
+
+            val producteSend: ProducteSend = ProducteSend(
+                binding.etTitulo.text.toString(),
+                producte!!.user,
+                binding.etDescripcion.text.toString(),
+                binding.etAcanvi.text.toString(),
+                producte.fav
+            )
+
+            viewModel.saveItem(producte.id, producteSend)
+
+        }
     }
 
     private fun initObservers() {
-        viewModel.error.observe(this) { error ->
+        viewModel.errorGet.observe(this) { error ->
             if (error != null) {
                 Toast.makeText(
                     this,
                     error,
                     Toast.LENGTH_LONG
-                )
+                ).show()
 
             } else {
                 setData(viewModel.item.value ?: DataSource.producteVuit)
+            }
+        }
+
+        viewModel.errorSave.observe(this) { error ->
+            if (error != null) {
+                Toast.makeText(
+                    this,
+                    error,
+                    Toast.LENGTH_LONG
+                ).show()
+
+            } else {
+                finish()
             }
         }
     }

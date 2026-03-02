@@ -10,24 +10,44 @@ import kotlinx.coroutines.launch
 class EditObjectViewModel : ViewModel() {
     private val _item = MutableLiveData<Producte>()
     val item: LiveData<Producte> = _item
-    private val _error = MutableLiveData<String?>()
-    val error: LiveData<String?> = _error
+    private val _errorGet = MutableLiveData<String?>()
+    val errorGet: LiveData<String?> = _errorGet
+
+    private val _errorSave = MutableLiveData<String?>()
+    val errorSave: LiveData<String?> = _errorSave
 
     fun getItem(itemId: Int?) {
         viewModelScope.launch {
             if (itemId == null) {
-                _error.value = "Error, El id del producte es null."
+                _errorGet.value = "Error, El id del producte es null."
             } else {
                 val response = ClientAPI.ProducteAPI().getObjecteById(itemId)
 
                 if (response.isSuccessful) {
                     val producte = response.body() ?: DataSource.producteVuit
                     _item.value = producte
-                    _error.value = null
+                    _errorGet.value = null
                 } else {
-                    _error.value = "Error ${response.code()}: ${response.message()}"
+                    _errorGet.value = "Error ${response.code()}: ${response.message()}"
                     Log.e("EditObjectViewModel", "Error ${response.code()}: ${response.message()}")
                 }
+            }
+        }
+    }
+
+    fun saveItem(id: Int, producteSend: ProducteSend) {
+        viewModelScope.launch {
+            try {
+                val response = ClientAPI.ProducteAPI().putObjecte(id, producteSend)
+
+                if (response.isSuccessful) {
+                    _errorSave.value = null
+                } else {
+                    _errorSave.value = "Error ${response.code()}: ${response.message()}"
+                    Log.e("EditObjectViewModel", "Error ${response.code()}: ${response.message()}")
+                }
+            } catch (exception: Exception) {
+                   Log.e("CATCH", exception.toString())
             }
         }
     }

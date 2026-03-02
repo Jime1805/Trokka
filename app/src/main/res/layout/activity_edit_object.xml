@@ -205,7 +205,6 @@
 
     <!--Boton para guardar i subir objeto-->
     <androidx.cardview.widget.CardView
-        android:id="@+id/btn_subirObjeto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -215,6 +214,7 @@
         app:layout_constraintBottom_toTopOf="@id/vLinea">
 
         <TextView
+            android:id="@+id/btn_subirObjeto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
