@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         initComponents()
         initListeners()
+        observeViewModel()
     }
 
     private fun splashScreenConditions() {
@@ -90,5 +91,21 @@ class MainActivity : AppCompatActivity() {
         etPassInit = findViewById(R.id.etPassInit)
         btnIniciarSesion = findViewById(R.id.btnIniciarSesion)
         tvRegistrarse = findViewById(R.id.tvRegistrarse)
+    }
+
+    private fun observeViewModel(){
+        viewModel.state.observe(this){(esCorrecte, msg) ->
+            Toast.makeText(
+                this,
+                msg,
+                Toast.LENGTH_SHORT
+            ).show()
+
+            if(esCorrecte){
+                navigateToLoby()
+                finish()
+            }
+
+        }
     }
 }

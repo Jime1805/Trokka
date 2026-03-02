@@ -1,36 +1,52 @@
 package com.iticbcn.trokka
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import kotlin.io.path.Path
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 
 class LoginViewModel : ViewModel() {
 
     private val _state = MutableLiveData<Pair<Boolean, String>>()
     val state: LiveData<Pair<Boolean, String>> = _state
 
-    fun login(username: String, pass: String) {
-        if (username == UserLogin.username || username == UserLogin.email) {
-            _state.value = proofPassword(pass)
-        } else {
-            _state.value = Pair(false, "Nom d'usuari o email incorrectes.")
-        }
-    }
+    fun login(nombre: String, pass: String) {
 
-    private fun proofPassword(password: String): Pair<Boolean, String> {
-        if (password.length !in 6..16) {
-            return Pair(false, "La contraseña debe tener entre 6 y 16 caracteres")
+        if (nombre.isBlank() || pass.isBlank()) {
+            _state.value = Pair(false, "Todos los campos son obligatorios")
+            return
         }
 
-        val passwordPattern = Regex("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$")
-        if (!password.matches(passwordPattern)) {
-            return Pair(
-                false,
-                "La contraseña debe de tener al menos una mayúscula, una minúscula y un número"
-            )
-        }
+        viewModelScope.launch {
+            try {
+                val response = ClientAPI.UsuariAPI().getUserByName(nombre)
 
-        return Pair(true, "Inici de sessió correcte.")
+                if (response.isSuccessful) {
+
+                    val user = response.body()
+
+                    if (user != null) {
+
+                        if (user.contrasenya == pass) {
+                            _state.value = Pair(true, "Inicio de sesión correcto")
+                        } else {
+                            _state.value = Pair(false, "Contraseña incorrecta")
+                        }
+
+                    } else {
+                        _state.value = Pair(false, "Usuario no encontrado")
+                    }
+
+                } else {
+                    _state.value = Pair(false, "Usuario no encontrado")
+                }
+
+            } catch (e: Exception) {
+                Log.e("Exceptions", "login", e)
+                _state.value = Pair(false, "Error de conexión")
+            }
+        }
     }
 }
