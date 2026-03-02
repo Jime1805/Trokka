@@ -7,6 +7,8 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.cardview.widget.CardView
@@ -17,6 +19,8 @@ import com.google.android.material.navigation.NavigationView
 import com.iticbcn.trokka.Loby_Activity.Companion.PERFIL
 
 class PerfilActivity : AppCompatActivity() {
+
+    private val viewModel: PerfilViewModel by viewModels()
 
     private lateinit var tvNombreUsuario: TextView
     private lateinit var bottomNav: BottomNavigationView
@@ -44,6 +48,7 @@ class PerfilActivity : AppCompatActivity() {
         setupNavView()
         initListeners()
         initUi(perfil)
+        observeViewModel()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -77,6 +82,7 @@ class PerfilActivity : AppCompatActivity() {
             drawerLayout.closeDrawer(GravityCompat.END)
             true
         }
+        //poner viewmodel comprobar que es ahi
     }
 
     private fun setNombreUsuario(perfil: String) {
@@ -148,5 +154,15 @@ class PerfilActivity : AppCompatActivity() {
 
         bottomNav = findViewById(R.id.bottom_navigation)
         bottomNav.setBackgroundColor(Color.TRANSPARENT)
+    }
+
+    private fun observeViewModel() {
+        viewModel.state.observe(this) { pair ->
+            val (exito, mensaje) = pair
+            Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show()
+            if (exito) {
+                navigateToMain()
+            }
+        }
     }
 }
