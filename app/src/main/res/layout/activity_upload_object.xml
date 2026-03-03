@@ -212,7 +212,7 @@
         android:layout_marginBottom="15dp"
         android:backgroundTint="@color/init_session"
         app:cardCornerRadius="30dp"
-        app:layout_constraintBottom_toTopOf="@id/vLinea">
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
             android:layout_width="match_parent"
@@ -225,27 +225,5 @@
             android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
-
-    <!-- Menu de abajo para todas las activities -->
-    <View
-        android:id="@+id/vLinea"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/borde"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:itemActiveIndicatorStyle="@style/Theme.BottomNavigationView.ActiveIndicator"
-        app:itemIconGravity="top"
-        app:itemIconSize="40dp"
-        app:itemIconTint="@color/white"
-        app:labelVisibilityMode="unlabeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,7 +25,7 @@ class EditObjectActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.btnSubirObjeto.setOnClickListener {
+        binding.btnModificarObjeto.setOnClickListener {
             val producte: Producte? = viewModel.item.value
 
             val producteSend: ProducteSend = ProducteSend(
