@@ -67,22 +67,10 @@ class MainActivity : AppCompatActivity() {
             navigateToRegister()
         }
         btnIniciarSesion.setOnClickListener {
-            viewModel.state.observe(this) { estado ->
-                val (esCorrecte, msg) = estado
-
-                Toast.makeText(
-                    this,
-                    msg,
-                    Toast.LENGTH_SHORT
-                ).show()
-
-                if (esCorrecte) {
-                    navigateToLoby()
-                    finish()
-                }
-            }
-
-            viewModel.login(etNombreUsuario.text.toString(), etPassInit.text.toString())
+            viewModel.login(
+                etNombreUsuario.text.toString(),
+                etPassInit.text.toString()
+            )
         }
     }
 
@@ -94,18 +82,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun observeViewModel(){
-        viewModel.state.observe(this){(esCorrecte, msg) ->
+        viewModel.state.observe(this){(esCorrecte, msg, user) ->
             Toast.makeText(
                 this,
                 msg,
                 Toast.LENGTH_SHORT
             ).show()
 
-            if(esCorrecte){
+            if(esCorrecte && user != null){
+                val sharedPreferences = getSharedPreferences("session", MODE_PRIVATE)
+                with(sharedPreferences.edit()){
+                    putString("username", user.nombre)
+                    putString("email", user.email)
+                    putString("password", user.contrasenya)
+                    putLong("id", user.id)
+                    apply()
+                }
                 navigateToLoby()
                 finish()
             }
-
         }
     }
 }

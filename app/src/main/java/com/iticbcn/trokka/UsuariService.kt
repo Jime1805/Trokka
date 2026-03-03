@@ -19,7 +19,7 @@ interface UsuariService {
 
     @GET("/trokka/usuario/id/{id}")
     suspend fun getUserById(
-        @Path("id") id: Int
+        @Path("id") id: Long
     ): Response<UsuariResponse>
 
     @GET("/trokka/usuario/nombre/{nombre}")
@@ -39,8 +39,13 @@ interface UsuariService {
         @Path("contrasenya") contrasenya: String
     ): Response<String>
 
-    @DELETE("/trokka/usuario")
+    @DELETE("/trokka/usuario/id/{id}")
     suspend fun deleteUserById(
+        @Path("id") id: Long
+    ): Response<String>
+
+    @DELETE("/trokka/usuario")
+    suspend fun deleteUser(
         @Body usuario: UsuariRequest
     ): Response<String>
 }

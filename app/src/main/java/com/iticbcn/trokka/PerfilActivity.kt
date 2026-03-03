@@ -1,12 +1,16 @@
 package com.iticbcn.trokka
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.text.InputType
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ImageView
+import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.cardview.widget.CardView
@@ -17,6 +21,8 @@ import com.google.android.material.navigation.NavigationView
 import com.iticbcn.trokka.Loby_Activity.Companion.PERFIL
 
 class PerfilActivity : AppCompatActivity() {
+
+    private val viewModel: PerfilViewModel by viewModels()
 
     private lateinit var tvNombreUsuario: TextView
     private lateinit var bottomNav: BottomNavigationView
@@ -44,6 +50,7 @@ class PerfilActivity : AppCompatActivity() {
         setupNavView()
         initListeners()
         initUi(perfil)
+        observeViewModel()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -73,6 +80,10 @@ class PerfilActivity : AppCompatActivity() {
                 R.id.iIdioma, R.id.iTema, R.id.iPrivacidad, R.id.iAmigos -> navigateToPreferencies()
                 R.id.iInicio -> navigateToLoby()
                 R.id.nav_logout -> navigateToMain()
+                R.id.nav_delete -> {
+                    deleteDialog()
+                    true
+                }
             }
             drawerLayout.closeDrawer(GravityCompat.END)
             true
@@ -148,5 +159,48 @@ class PerfilActivity : AppCompatActivity() {
 
         bottomNav = findViewById(R.id.bottom_navigation)
         bottomNav.setBackgroundColor(Color.TRANSPARENT)
+    }
+
+    private fun observeViewModel() {
+        viewModel.state.observe(this) { pair ->
+            val (exito, mensaje) = pair
+            Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show()
+            if (exito) {
+                val sharedPreferences = getSharedPreferences("session", MODE_PRIVATE)
+                sharedPreferences.edit().clear().apply()
+                navigateToMain()
+            }
+        }
+    }
+
+    private fun deleteDialog(){
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Comfirmar eliminación")
+        builder.setMessage("Introduce tu contraseña para eliminar la cuenta")
+
+        val input = EditText(this)
+        input.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+        builder.setView(input)
+
+        builder.setPositiveButton("Eliminar") { _, _ ->
+            val password = input.text.toString()
+
+            if (password.isNotBlank()){
+                val sharedPreferences = getSharedPreferences("session", MODE_PRIVATE)
+                val id = sharedPreferences.getLong("id", -1)
+
+                if (id != 1L) {
+                    viewModel.deleteUserWithPassword(id, password)
+                }
+                else{
+                    Toast.makeText(this, "Debes de introducir la contraseña correcta", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+
+        builder.setNegativeButton("Cancelar") { dialog, _ ->
+            dialog.dismiss()
+        }
+        builder.show()
     }
 }
