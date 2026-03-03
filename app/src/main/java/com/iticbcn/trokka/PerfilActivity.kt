@@ -78,11 +78,22 @@ class PerfilActivity : AppCompatActivity() {
                 R.id.iIdioma, R.id.iTema, R.id.iPrivacidad, R.id.iAmigos -> navigateToPreferencies()
                 R.id.iInicio -> navigateToLoby()
                 R.id.nav_logout -> navigateToMain()
+                R.id.nav_delete -> {
+                    val sharedPreferences = getSharedPreferences("session", MODE_PRIVATE)
+                    val id = sharedPreferences.getLong("id", -1)
+
+                    if (id != 1L){
+                        viewModel.deleteUser(id)
+                    }
+                    else{
+                        Toast.makeText(this, "No se encontró el usuario en la base de datos", Toast.LENGTH_LONG).show()
+                    }
+
+                }
             }
             drawerLayout.closeDrawer(GravityCompat.END)
             true
         }
-        //poner viewmodel comprobar que es ahi
     }
 
     private fun setNombreUsuario(perfil: String) {
@@ -161,6 +172,8 @@ class PerfilActivity : AppCompatActivity() {
             val (exito, mensaje) = pair
             Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show()
             if (exito) {
+                val sharedPreferences = getSharedPreferences("session", MODE_PRIVATE)
+                sharedPreferences.edit().clear().apply()
                 navigateToMain()
             }
         }

@@ -18,16 +18,15 @@ class PerfilViewModel: ViewModel() {
         _nombreUsuario.value = nombre
     }
 
-    fun deleteUser(username: String, email: String, password: String) {
+    fun deleteUser(id: Long) {
         viewModelScope.launch {
             try {
-                val usuario = UsuariRequest(username, email, password)
-                val response = ClientAPI.UsuariAPI().deleteUserById(usuario)
+                val response = ClientAPI.UsuariAPI().deleteUserById(id)
 
                 if (response.isSuccessful) {
                     _state.value = Pair(true, "Cuenta eliminada correctamente")
                 } else {
-                    _state.value = Pair(false, response.errorBody()?.string() ?: "No se pudo eliminar la cuenta")
+                    _state.value = Pair(false, "No se pudo eliminar la cuenta")
                 }
             } catch (e: Exception) {
                 Log.e("Exceptions", "deleteUser", e)

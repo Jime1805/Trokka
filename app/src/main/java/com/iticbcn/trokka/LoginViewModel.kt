@@ -9,13 +9,13 @@ import kotlinx.coroutines.launch
 
 class LoginViewModel : ViewModel() {
 
-    private val _state = MutableLiveData<Pair<Boolean, String>>()
-    val state: LiveData<Pair<Boolean, String>> = _state
+    private val _state = MutableLiveData<Triple<Boolean, String, UsuariResponse?>>() // para poder guardar el usuari y hacer delete en otra activity
+    val state: LiveData<Triple<Boolean, String, UsuariResponse?>> = _state
 
     fun login(nombre: String, pass: String) {
 
         if (nombre.isBlank() || pass.isBlank()) {
-            _state.value = Pair(false, "Todos los campos son obligatorios")
+            _state.value = Triple(false, "Todos los campos son obligatorios", null)
             return
         }
 
@@ -30,22 +30,22 @@ class LoginViewModel : ViewModel() {
                     if (user != null) {
 
                         if (user.contrasenya == pass) {
-                            _state.value = Pair(true, "Inicio de sesión correcto")
+                            _state.value = Triple(true, "Inicio de sesión correcto", user)
                         } else {
-                            _state.value = Pair(false, "Contraseña incorrecta")
+                            _state.value = Triple(false, "Contraseña incorrecta", null)
                         }
 
                     } else {
-                        _state.value = Pair(false, "Usuario no encontrado")
+                        _state.value = Triple(false, "Usuario no encontrado", null)
                     }
 
                 } else {
-                    _state.value = Pair(false, "Usuario no encontrado")
+                    _state.value = Triple(false, "Usuario no encontrado", null)
                 }
 
             } catch (e: Exception) {
                 Log.e("Exceptions", "login", e)
-                _state.value = Pair(false, "Error de conexión")
+                _state.value = Triple(false, "Error de conexión", null)
             }
         }
     }
