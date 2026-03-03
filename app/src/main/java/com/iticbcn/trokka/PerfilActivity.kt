@@ -1,11 +1,13 @@
 package com.iticbcn.trokka
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.text.InputType
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ImageView
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -79,16 +81,8 @@ class PerfilActivity : AppCompatActivity() {
                 R.id.iInicio -> navigateToLoby()
                 R.id.nav_logout -> navigateToMain()
                 R.id.nav_delete -> {
-                    val sharedPreferences = getSharedPreferences("session", MODE_PRIVATE)
-                    val id = sharedPreferences.getLong("id", -1)
-
-                    if (id != 1L){
-                        viewModel.deleteUser(id)
-                    }
-                    else{
-                        Toast.makeText(this, "No se encontró el usuario en la base de datos", Toast.LENGTH_LONG).show()
-                    }
-
+                    deleteDialog()
+                    true
                 }
             }
             drawerLayout.closeDrawer(GravityCompat.END)
@@ -177,5 +171,36 @@ class PerfilActivity : AppCompatActivity() {
                 navigateToMain()
             }
         }
+    }
+
+    private fun deleteDialog(){
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Comfirmar eliminación")
+        builder.setMessage("Introduce tu contraseña para eliminar la cuenta")
+
+        val input = EditText(this)
+        input.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+        builder.setView(input)
+
+        builder.setPositiveButton("Eliminar") { _, _ ->
+            val password = input.text.toString()
+
+            if (password.isNotBlank()){
+                val sharedPreferences = getSharedPreferences("session", MODE_PRIVATE)
+                val id = sharedPreferences.getLong("id", -1)
+
+                if (id != 1L) {
+                    viewModel.deleteUserWithPassword(id, password)
+                }
+                else{
+                    Toast.makeText(this, "Debes de introducir la contraseña correcta", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+
+        builder.setNegativeButton("Cancelar") { dialog, _ ->
+            dialog.dismiss()
+        }
+        builder.show()
     }
 }

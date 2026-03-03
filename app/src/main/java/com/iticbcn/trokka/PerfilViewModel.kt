@@ -18,15 +18,24 @@ class PerfilViewModel: ViewModel() {
         _nombreUsuario.value = nombre
     }
 
-    fun deleteUser(id: Long) {
+    fun deleteUserWithPassword(id: Long, password: String) {
         viewModelScope.launch {
             try {
-                val response = ClientAPI.UsuariAPI().deleteUserById(id)
+                val responseUser = ClientAPI.UsuariAPI().getUserById(id)
 
-                if (response.isSuccessful) {
-                    _state.value = Pair(true, "Cuenta eliminada correctamente")
-                } else {
-                    _state.value = Pair(false, "No se pudo eliminar la cuenta")
+                if (responseUser.isSuccessful){
+                    val user = responseUser.body()
+
+                    if (user != null && user.contrasenya == password) {
+                        val deleteResponse = ClientAPI.UsuariAPI().deleteUserById(id)
+                        if (deleteResponse.isSuccessful) {
+                            _state.value = Pair(true, "Cuenta eliminada con éxito")
+                        } else {
+                            _state.value = Pair(false, "Error al eliminar la cuenta")
+                        }
+                    } else {
+                        _state.value = Pair(false, "Contraseña incorrecta")
+                    }
                 }
             } catch (e: Exception) {
                 Log.e("Exceptions", "deleteUser", e)
