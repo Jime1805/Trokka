@@ -46,7 +46,7 @@ class MyAdapterLoby(
                     producte.titulo.lowercase().contains(textoLower) ||
                     producte.user.lowercase().contains(textoLower) ||
                     producte.description.lowercase().contains(textoLower) ||
-                    producte.aCanvi.lowercase().contains(textoLower)
+                    producte.acanvi.lowercase().contains(textoLower)
                 ) {
                     itemsFiltrat.add(producte)
                 }

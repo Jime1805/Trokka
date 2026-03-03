@@ -22,15 +22,15 @@ class ClientAPI {
 
                 val gsondateformat = GsonBuilder()
                     .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
-                    .setStrictness(Strictness.LENIENT)
                     .create()
 
                 // Client HTTP insegur (només per desenvolupament)
                 val unsafeOkHttpClient = getUnsafeOkHttpClient()
 
                 mProducteAPI = Retrofit.Builder()
+                    .addConverterFactory(ScalarsConverterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create(gsondateformat))
-                    .baseUrl("http://10.0.2.2:8088/")
+                    .baseUrl("http://150.136.106.185:8080/")
                     .client(unsafeOkHttpClient) // Afegeix el client
                     .build()
                     .create(ProducteService::class.java)

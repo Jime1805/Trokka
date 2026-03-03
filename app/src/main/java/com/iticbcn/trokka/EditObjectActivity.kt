@@ -80,6 +80,6 @@ class EditObjectActivity : AppCompatActivity() {
     private fun setData(producte: Producte) {
         binding.etTitulo.setText(producte.titulo)
         binding.etDescripcion.setText(producte.description)
-        binding.etAcanvi.setText(producte.aCanvi)
+        binding.etAcanvi.setText(producte.acanvi)
     }
 }
