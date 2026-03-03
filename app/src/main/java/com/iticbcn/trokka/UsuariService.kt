@@ -19,7 +19,7 @@ interface UsuariService {
 
     @GET("/trokka/usuario/id/{id}")
     suspend fun getUserById(
-        @Path("id") id: Int
+        @Path("id") id: Long
     ): Response<UsuariResponse>
 
     @GET("/trokka/usuario/nombre/{nombre}")
