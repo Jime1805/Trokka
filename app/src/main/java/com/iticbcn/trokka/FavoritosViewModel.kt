@@ -57,7 +57,7 @@ class FavoritosViewModel : ViewModel() {
                         (it.titulo.lowercase().contains(textoLower) ||
                             it.user.lowercase().contains(textoLower) ||
                             it.description.lowercase().contains(textoLower) ||
-                            it.aCanvi.lowercase().contains(textoLower)
+                            it.acanvi.lowercase().contains(textoLower)
                         )
             }
         }

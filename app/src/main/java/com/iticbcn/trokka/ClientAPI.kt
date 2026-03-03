@@ -1,6 +1,7 @@
 package com.iticbcn.trokka
 
 import com.google.gson.GsonBuilder
+import com.google.gson.Strictness
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -27,6 +28,7 @@ class ClientAPI {
                 val unsafeOkHttpClient = getUnsafeOkHttpClient()
 
                 mProducteAPI = Retrofit.Builder()
+                    .addConverterFactory(ScalarsConverterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create(gsondateformat))
                     .baseUrl("http://150.136.106.185:8080/")
                     .client(unsafeOkHttpClient) // Afegeix el client

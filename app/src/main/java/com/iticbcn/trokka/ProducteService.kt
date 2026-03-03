@@ -52,7 +52,7 @@ interface ProducteService {
     @PUT("/trokka/objecte/{id}")
     suspend fun putObjecte(
         @Path("id") id: Int,
-        @Body objecte: Producte
+        @Body objecte: ProducteSend
     ): Response<String>
 
     @DELETE("/trokka/objecte/{id}")

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModel
 import com.iticbcn.trokka.databinding.ActivityEditObjectBinding
 
 class EditObjectActivity : AppCompatActivity() {
@@ -14,30 +13,73 @@ class EditObjectActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_object)
         binding = ActivityEditObjectBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        initObservers()
         initData()
+        initListeners()
     }
 
-    private fun initData() {
-        val producteId = intent.getStringExtra("productId")?.toInt()
+    private fun initListeners() {
+        binding.imgFlechita.setOnClickListener {
+            finish()
+        }
 
-        viewModel.getItem(producteId)
+        binding.btnSubirObjeto.setOnClickListener {
+            val producte: Producte? = viewModel.item.value
 
-        viewModel.error.observe(this) { error ->
+            val producteSend: ProducteSend = ProducteSend(
+                binding.etTitulo.text.toString(),
+                producte!!.user,
+                binding.etDescripcion.text.toString(),
+                binding.etAcanvi.text.toString(),
+                producte.fav
+            )
+
+            viewModel.saveItem(producte.id, producteSend)
+
+        }
+    }
+
+    private fun initObservers() {
+        viewModel.errorGet.observe(this) { error ->
             if (error != null) {
                 Toast.makeText(
                     this,
                     error,
                     Toast.LENGTH_LONG
-                )
+                ).show()
+
             } else {
                 setData(viewModel.item.value ?: DataSource.producteVuit)
             }
         }
+
+        viewModel.errorSave.observe(this) { error ->
+            if (error != null) {
+                Toast.makeText(
+                    this,
+                    error,
+                    Toast.LENGTH_LONG
+                ).show()
+
+            } else {
+                finish()
+            }
+        }
+    }
+
+    private fun initData() {
+        val producteId = intent.getIntExtra("productId", 0)
+
+        viewModel.getItem(producteId)
+
+
     }
 
     private fun setData(producte: Producte) {
         binding.etTitulo.setText(producte.titulo)
+        binding.etDescripcion.setText(producte.description)
+        binding.etAcanvi.setText(producte.acanvi)
     }
 }
