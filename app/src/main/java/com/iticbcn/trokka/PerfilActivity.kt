@@ -84,6 +84,15 @@ class PerfilActivity : AppCompatActivity() {
                     deleteDialog()
                     true
                 }
+                R.id.nav_change_name -> {
+                    changeNameDialog()
+                    true
+                }
+                R.id.nav_change_pass -> {
+                    changePasswordDialog()
+                    true
+                }
+
             }
             drawerLayout.closeDrawer(GravityCompat.END)
             true
@@ -201,6 +210,132 @@ class PerfilActivity : AppCompatActivity() {
         builder.setNegativeButton("Cancelar") { dialog, _ ->
             dialog.dismiss()
         }
+        builder.show()
+    }
+
+    private fun changeNameDialog() {
+
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Cambiar nombre de usuario")
+
+        val input = EditText(this)
+        input.hint = "Nuevo nombre"
+        builder.setView(input)
+
+        builder.setPositiveButton("Cambiar") { _, _ ->
+
+            val newName = input.text.toString()
+
+            if (newName.isNotBlank()) {
+
+                val sharedPreferences = getSharedPreferences("session", MODE_PRIVATE)
+                val oldName = sharedPreferences.getString("username", "") ?: ""
+
+                viewModel.changeUserName(oldName, newName)
+
+                with(sharedPreferences.edit()){
+                    putString("username", newName)
+                    apply()
+                }
+
+                tvNombreUsuario.text = newName
+
+            } else {
+                Toast.makeText(this, "Introduce un nombre válido", Toast.LENGTH_LONG).show()
+            }
+        }
+
+        builder.setNegativeButton("Cancelar") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        builder.show()
+    }
+
+    private fun changePasswordDialog(){
+
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Confirmar contraseña")
+        builder.setMessage("Introduce tu contraseña actual")
+
+        val input = EditText(this)
+        input.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+        builder.setView(input)
+
+        builder.setPositiveButton("Continuar") { _, _ ->
+
+            val currentPassword = input.text.toString()
+
+            val sharedPreferences = getSharedPreferences("session", MODE_PRIVATE)
+            val savedPassword = sharedPreferences.getString("password", "") ?: ""
+            val username = sharedPreferences.getString("username", "") ?: ""
+
+            if(currentPassword == savedPassword){
+
+                newPasswordDialog(username)
+
+            }else{
+
+                Toast.makeText(this, "Contraseña incorrecta", Toast.LENGTH_LONG).show()
+
+            }
+        }
+
+        builder.setNegativeButton("Cancelar") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        builder.show()
+    }
+
+    private fun newPasswordDialog(username: String){
+
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Nueva contraseña")
+        builder.setMessage("Introduce la nueva contraseña")
+
+        val input = EditText(this)
+        input.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+        builder.setView(input)
+
+        builder.setPositiveButton("Cambiar") { _, _ ->
+
+            val newPassword = input.text.toString()
+
+            if(newPassword.isNotBlank()){
+
+                if (newPassword.length !in 6..16) {
+                    Toast.makeText(this, "La contraseña debe tener entre 6 y 16 caracteres", Toast.LENGTH_LONG).show()
+                    return@setPositiveButton
+                }
+
+                val passwordPattern = Regex("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$")
+                if (!newPassword.matches(passwordPattern)) {
+                    Toast.makeText(this, "Debe tener mayúscula, minúscula y número", Toast.LENGTH_LONG).show()
+                    return@setPositiveButton
+                }
+
+                viewModel.changeUserPassword(username, newPassword)
+
+                val sharedPreferences = getSharedPreferences("session", MODE_PRIVATE)
+                with(sharedPreferences.edit()){
+                    putString("password", newPassword)
+                    apply()
+                }
+
+                Toast.makeText(this, "Contraseña cambiada con éxito", Toast.LENGTH_LONG).show()
+
+            } else {
+
+                Toast.makeText(this, "La contraseña no puede estar vacía", Toast.LENGTH_LONG).show()
+
+            }
+        }
+
+        builder.setNegativeButton("Cancelar") { dialog, _ ->
+            dialog.dismiss()
+        }
+
         builder.show()
     }
 }
