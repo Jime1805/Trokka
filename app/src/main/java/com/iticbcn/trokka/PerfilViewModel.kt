@@ -44,5 +44,43 @@ class PerfilViewModel: ViewModel() {
         }
     }
 
+    fun changeUserName(oldName: String, newName: String) {
 
+        viewModelScope.launch {
+            try {
+
+                val response = ClientAPI.UsuariAPI().putUserName(newName, oldName)
+
+                if (response.isSuccessful) {
+                    _state.value = Pair(true, "Nombre cambiado correctamente")
+                } else {
+                    _state.value = Pair(false, "Error al cambiar el nombre")
+                }
+
+            } catch (e: Exception) {
+                Log.e("Exceptions", "changeUserName", e)
+                _state.value = Pair(false, "Error de conexión")
+            }
+        }
+    }
+
+    fun changeUserPassword(nombre: String, password: String) {
+
+        viewModelScope.launch {
+            try {
+
+                val response = ClientAPI.UsuariAPI().putUserPass(nombre, password)
+
+                if (response.isSuccessful) {
+                    _state.value = Pair(true, "Contraseña cambiada correctamente")
+                } else {
+                    _state.value = Pair(false, "Error al cambiar la contraseña")
+                }
+
+            } catch (e: Exception) {
+                Log.e("Exceptions", "changeUserPassword", e)
+                _state.value = Pair(false, "Error de conexión")
+            }
+        }
+    }
 }

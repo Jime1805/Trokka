@@ -3,16 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/iIdioma"
-            android:icon="@drawable/ic_globo"
-            android:title="Idioma"
+            android:id="@+id/iInicio"
+            android:icon="@drawable/ic_casa"
+            android:title="Inicio"
             app:showAsAction="withText"/>
+        <!-- Implementar el modo oscuro-->
         <item
             android:id="@+id/iTema"
             android:icon="@drawable/ic_paleta"
             android:title="Mode obscur"
             app:showAsAction="withText"/>
-        <!-- Implementar el modo oscuro-->
+        <item
+            android:id="@+id/iIdioma"
+            android:icon="@drawable/ic_globo"
+            android:title="Idioma"
+            app:showAsAction="withText"/>
         <item
             android:id="@+id/iPrivacidad"
             android:icon="@drawable/ic_candado"
@@ -23,26 +28,39 @@
             android:icon="@drawable/ic_amigos"
             android:title="Amigos"
             app:showAsAction="withText"/>
-        <item
-            android:id="@+id/iInicio"
-            android:icon="@drawable/ic_casa"
-            android:title="Inicio"
-            app:showAsAction="withText"/>
     </group>
     <item
         android:id="@+id/nav_divider"
         android:title=""
         android:enabled="false" />
 
+    <item
+        android:id="@+id/nav_change_name"
+        android:title="Cambiar nombre de usuario"
+        android:icon="@drawable/ic_eliminar_user"
+        android:titleTextColor="@color/logout_red" /> <!-- Cambiar icono -->
+    <item
+        android:id="@+id/nav_change_pass"
+        android:title="Cambiar contraseña"
+        android:icon="@drawable/ic_eliminar_user"
+        android:titleTextColor="@color/logout_red" /> <!-- Cambiar icono -->
+    <item
+        android:id="@+id/nav_delete"
+        android:title="Eliminar cuenta"
+        android:icon="@drawable/ic_eliminar_user"
+        android:titleTextColor="@color/logout_red" />
+
+
+    <item
+        android:id="@+id/nav_divider_2"
+        android:title=""
+        android:enabled="false" />
+
+
     <!-- CERRAR SESIÓN -->
     <item
         android:id="@+id/nav_logout"
         android:title="Cerrar sesión"
         android:icon="@drawable/ic_logout"
-        android:titleTextColor="@color/logout_red" />
-    <item
-        android:id="@+id/nav_delete"
-        android:title="Eliminar cuenta"
-        android:icon="@drawable/ic_eliminar_user"
         android:titleTextColor="@color/logout_red" />
 </menu>
