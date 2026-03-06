@@ -5,68 +5,59 @@ import android.graphics.Color
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.iticbcn.trokka.databinding.ActivityUploadObjectBinding
 
 class UploadObjectActivity : AppCompatActivity() {
 
-    private lateinit var imgFlechita: ImageView
-    private lateinit var et_descripcion: EditText
-    private lateinit var et_acanvi: EditText
-    private lateinit var bottomNav: BottomNavigationView
+    private lateinit var binding: ActivityUploadObjectBinding
+    private val viewModel: UploadObjectViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_upload_object)
+        binding = ActivityUploadObjectBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        initComponents()
         initListeners()
-        /*initUi(perfil)*/
+        initObservers()
     }
 
-    /*private fun initUi(perfil: String){
-        setNombreUsuario(perfil)
-    }*/
-
-    private fun navigateToLoby(){
-        val intent = Intent(this, Loby_Activity::class.java)
-        startActivity(intent)
-    }
-
-    private fun navigateToMapa(){
-        val intent = Intent(this, MapActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun navigateToProfile(){
-        val intent = Intent(this, PerfilActivity::class.java)
-        startActivity(intent)
+    private fun initObservers() {
+        viewModel.response.observe(this) { resposta ->
+            Toast.makeText(
+                this,
+                resposta,
+                Toast.LENGTH_SHORT
+            ).show()
+            finish()
+        }
     }
 
     private fun initListeners() {
-        imgFlechita.setOnClickListener {
+        binding.imgFlechita.setOnClickListener {
             finish()
         }
-        bottomNav.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.mapa_fragment -> navigateToMapa()
-                R.id.loby_fragment -> navigateToLoby()
-                R.id.perfil_fragment -> navigateToProfile()
-            }
-            true
+
+        binding.btnSubirObjeto.setOnClickListener {
+            val titulo = binding.etTitulo.text.toString()
+            val descpcio = binding.etDescripcion.text.toString()
+            val acanvi = binding.etAcanvi.text.toString()
+
+            val producteSend = ProducteSend(
+                titulo = titulo,
+                description = descpcio,
+                user = User.username,
+                isFav = false,
+                acanvi = acanvi
+            )
+
+            viewModel.sendProducte(producteSend)
         }
-    }
-
-    private fun initComponents(){
-        imgFlechita = findViewById(R.id.imgFlechita)
-
-        et_descripcion = findViewById<EditText>(R.id.et_descripcion)
-        et_acanvi = findViewById<EditText>(R.id.et_acanvi)
-
-        bottomNav = findViewById(R.id.bottom_navigation)
-        bottomNav.setBackgroundColor(Color.TRANSPARENT)
     }
 }
