@@ -30,7 +30,7 @@ class LoginViewModel : ViewModel() {
                     if (user != null) {
 
                         if (user.contrasenya == pass) {
-                            _state.value = Triple(true, "Inicio de sesión correcto", user)
+                            _state.value = Triple(true, "Iniciando sesión...", user)
                         } else {
                             _state.value = Triple(false, "Contraseña incorrecta", null)
                         }
@@ -45,7 +45,7 @@ class LoginViewModel : ViewModel() {
 
             } catch (e: Exception) {
                 Log.e("Exceptions", "login", e)
-                _state.value = Triple(false, "Error de conexión", null)
+                _state.value = Triple(false, "Usuario no encontrado", null)
             }
         }
     }
