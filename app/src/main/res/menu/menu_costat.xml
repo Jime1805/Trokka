@@ -37,13 +37,13 @@
     <item
         android:id="@+id/nav_change_name"
         android:title="Cambiar nombre de usuario"
-        android:icon="@drawable/ic_eliminar_user"
+        android:icon="@drawable/ic_nombre_usuario"
         android:titleTextColor="@color/logout_red" /> <!-- Cambiar icono -->
     <item
         android:id="@+id/nav_change_pass"
         android:title="Cambiar contraseña"
-        android:icon="@drawable/ic_eliminar_user"
-        android:titleTextColor="@color/logout_red" /> <!-- Cambiar icono -->
+        android:icon="@drawable/ic_cambiar_contrasenya"
+        android:titleTextColor="@color/logout_red" />
     <item
         android:id="@+id/nav_delete"
         android:title="Eliminar cuenta"
