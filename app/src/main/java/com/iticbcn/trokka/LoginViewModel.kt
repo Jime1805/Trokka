@@ -31,6 +31,9 @@ class LoginViewModel : ViewModel() {
 
                         if (user.contrasenya == pass) {
                             _state.value = Triple(true, "Iniciando sesión...", user)
+                            User.id = user.id
+                            User.username = user.nombre
+                            User.email = user.email
                         } else {
                             _state.value = Triple(false, "Contraseña incorrecta", null)
                         }

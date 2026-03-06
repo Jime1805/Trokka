@@ -31,7 +31,7 @@ interface ProducteService {
 
     @POST("/trokka/objecte")
     suspend fun createObject(
-        @Body objecte: Producte
+        @Body objecte: ProducteSend
     ): Response<String>
 
     // Post de multipartfile, csv

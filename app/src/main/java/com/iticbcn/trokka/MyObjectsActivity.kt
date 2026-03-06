@@ -80,7 +80,7 @@ class MyObjectsActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         // 3. Crear llista de dades (des de DataSource o directament)
-        viewModel.getUserItems("usuario123")
+        viewModel.getUserItems(User.username)
 
         viewModel.items.observe(this) { items ->
             this.items = items
