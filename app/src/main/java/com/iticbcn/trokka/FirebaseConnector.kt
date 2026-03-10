@@ -57,4 +57,8 @@ object FirebaseConnector {
     fun addFavoritos() {
         dataInfo.countFavoritos++
     }
+
+    fun minusFavoritos() {
+        dataInfo.countFavoritos--
+    }
 }
