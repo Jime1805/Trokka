@@ -41,7 +41,8 @@ android {
 }
 
 dependencies {
-    implementation(platform(libs.firebase.bom))
+    implementation(platform(libs.firebase.bom.v3370))
+    implementation(libs.firebase.firestore)
     implementation(libs.firebase.analytics)
     //noinspection NewerVersionAvailable
     implementation(libs.converter.scalars)
@@ -62,6 +63,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.firebase.firestore.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
