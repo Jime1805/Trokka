@@ -165,7 +165,7 @@
             app:layout_constraintTop_toBottomOf="@id/llinfoUser"
             app:layout_constraintStart_toEndOf="@id/cvEditarObjetos"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/cvCanviarCompta"
+            app:layout_constraintBottom_toTopOf="@+id/cvGrafics"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="40dp"
             app:cardCornerRadius="20dp">
@@ -200,7 +200,7 @@
             android:backgroundTint="@color/info_user"
             app:layout_constraintTop_toBottomOf="@id/cvEditarObjetos"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cvCanviarCompta"
+            app:layout_constraintEnd_toStartOf="@+id/cvGrafics"
             app:layout_constraintBottom_toTopOf="@id/vLinea"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="30dp"
@@ -233,7 +233,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cvCanviarCompta"
+            android:id="@+id/cvGrafics"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:backgroundTint="@color/info_user"
@@ -256,7 +256,7 @@
                     android:contentDescription="@string/imageChangeAccount"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/ic_canvio_usuario"
+                    android:src="@drawable/ic_grafico"
                     app:tint="@color/white"/>
                 <TextView
                     android:id="@+id/tvCanvioUsuario"
@@ -266,7 +266,7 @@
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     android:gravity="center"
-                    android:text="@string/move_to_canviar_compta"/>
+                    android:text="@string/estad_sticas_de_la_aplicaci_n"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

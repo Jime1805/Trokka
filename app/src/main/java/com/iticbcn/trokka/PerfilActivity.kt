@@ -30,7 +30,7 @@ class PerfilActivity : AppCompatActivity() {
     private lateinit var cvEditarObjetos: CardView
     private lateinit var cvSubirObjetos: CardView
     private lateinit var cvFavs: CardView
-    private lateinit var cvCanviarCompta: CardView
+    private lateinit var cvGrafics: CardView
 
     private lateinit var toolbar: Toolbar
     private lateinit var navView: NavigationView
@@ -139,8 +139,12 @@ class PerfilActivity : AppCompatActivity() {
         startActivity(Intent(this, MyObjectsActivity::class.java))
     }
 
+    private fun navigateToGraphs() {
+
+    }
+
     private fun initListeners() {
-        cvCanviarCompta.setOnClickListener { navigateToMain() }
+        cvGrafics.setOnClickListener { navigateToGraphs() }
         cvSubirObjetos.setOnClickListener { navigateToUploadObject() }
         cvFavs.setOnClickListener { navigateToFavs() }
         cvEditarObjetos.setOnClickListener { navigateToMyObjects() }
@@ -160,7 +164,7 @@ class PerfilActivity : AppCompatActivity() {
         cvEditarObjetos = findViewById(R.id.cvEditarObjetos)
         cvSubirObjetos = findViewById(R.id.cvSubirObjetos)
         cvFavs = findViewById(R.id.cvFavs)
-        cvCanviarCompta = findViewById(R.id.cvCanviarCompta)
+        cvGrafics = findViewById(R.id.cvGrafics)
 
         toolbar = findViewById(R.id.cvHeader)
         navView = findViewById(R.id.navView)

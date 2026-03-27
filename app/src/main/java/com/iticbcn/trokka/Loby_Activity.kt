@@ -101,10 +101,13 @@ class Loby_Activity : AppCompatActivity() {
             onItemClick = { item ->
                 viewModel.toggleFav(item)
 
-                val mensaje = if (item.fav)
+                val mensaje = if (item.fav) {
+                    FirebaseConnector.addFavoritos()
                     "Has afegit a preferits: ${item.titulo}"
-                else
+                } else {
+                    FirebaseConnector.looseFavoritos()
                     "Has eliminat de preferits: ${item.titulo}"
+                }
 
                 Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
             }
