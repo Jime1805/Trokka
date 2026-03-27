@@ -105,7 +105,7 @@ class Loby_Activity : AppCompatActivity() {
                     FirebaseConnector.addFavoritos()
                     "Has afegit a preferits: ${item.titulo}"
                 } else {
-                    FirebaseConnector.minusFavoritos()
+                    FirebaseConnector.looseFavoritos()
                     "Has eliminat de preferits: ${item.titulo}"
                 }
 

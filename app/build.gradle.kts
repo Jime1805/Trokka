@@ -41,6 +41,8 @@ android {
 }
 
 dependencies {
+    // Per a grafics
+    implementation(libs.mpandroidchart)
     implementation(platform(libs.firebase.bom.v3370))
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.analytics)
