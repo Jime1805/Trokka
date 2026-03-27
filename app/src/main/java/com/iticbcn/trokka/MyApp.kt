@@ -26,16 +26,12 @@ class MyApp: Application() {
         }
     }
 
-    override fun onTerminate() {
-        super.onTerminate()
-        final = Timestamp(System.currentTimeMillis())
-        CoroutineScope(Dispatchers.IO).launch {
-            FirebaseConnector.addHores(calcularTempsFinal())
-            FirebaseConnector.guardarInfo(deviceId, FirebaseConnector.dataInfo)
-        }
-    }
-
     fun calcularTempsFinal(): Long {
-        return final.time - inicio.time
+        final = Timestamp(System.currentTimeMillis())
+        val tiempoTotal = final.time - inicio.time
+
+        inicio = final
+
+        return tiempoTotal
     }
 }
