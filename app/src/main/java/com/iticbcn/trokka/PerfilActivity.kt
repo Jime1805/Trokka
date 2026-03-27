@@ -19,6 +19,9 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.iticbcn.trokka.Loby_Activity.Companion.PERFIL
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class PerfilActivity : AppCompatActivity() {
 
@@ -92,11 +95,35 @@ class PerfilActivity : AppCompatActivity() {
                     changePasswordDialog()
                     true
                 }
+                R.id.nav_save_info -> saveInfo()
 
             }
             drawerLayout.closeDrawer(GravityCompat.END)
             true
         }
+    }
+
+    private fun saveInfo(){
+        val myApp = applicationContext as MyApp
+        val calcularTiempo = myApp.calcularTempsFinal()
+
+        val tempsEnMins = calcularTiempo/3600000.0
+
+        CoroutineScope(Dispatchers.IO).launch {
+            FirebaseConnector.cargarInfo("device1")
+            FirebaseConnector.addHores(tempsEnMins)
+            val resultado = FirebaseConnector.guardarInfo("device1", FirebaseConnector.dataInfo)
+
+            launch(Dispatchers.Main){
+                if (resultado.isSuccess) {
+                    Toast.makeText(this@PerfilActivity, "Datos sincronizados con Firebase", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this@PerfilActivity, "Error al guardar", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+        Toast.makeText(this, "Información guardada", Toast.LENGTH_LONG).show()
     }
 
     private fun setNombreUsuario(perfil: String) {
