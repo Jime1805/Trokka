@@ -16,6 +16,8 @@ class UploadObjectViewModel: ViewModel() {
 
             if (resposta.isSuccessful) {
                 _response.value = resposta.body()
+
+                FirebaseConnector.addCrearObjeto()
             } else {
                 _response.value = "Error en les dades."
             }
