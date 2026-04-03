@@ -140,7 +140,7 @@ class PerfilActivity : AppCompatActivity() {
     }
 
     private fun navigateToGraphs() {
-
+        startActivity(Intent(this, GraficsActivity::class.java))
     }
 
     private fun initListeners() {
