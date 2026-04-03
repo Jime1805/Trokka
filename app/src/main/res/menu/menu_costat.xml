@@ -56,6 +56,17 @@
         android:title=""
         android:enabled="false" />
 
+    <item
+        android:id="@+id/nav_save_info"
+        android:title="Guardar información"
+        android:icon="@drawable/ic_guardar_informacion"
+        android:titleTextColor="@color/logout_red" />
+
+    <item
+        android:id="@+id/nav_divider_3"
+        android:title=""
+        android:enabled="false" />
+
 
     <!-- CERRAR SESIÓN -->
     <item

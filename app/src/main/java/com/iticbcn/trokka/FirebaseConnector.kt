@@ -38,7 +38,7 @@ object FirebaseConnector {
         }
     }
 
-    fun addHores(hores: Long) {
+    fun addHores(hores: Double) {
         dataInfo.horasUso += hores
     }
 
@@ -58,6 +58,6 @@ object FirebaseConnector {
         dataInfo.countFavoritos++
     }
     fun looseFavoritos() {
-        dataInfo.countFavoritos++
+        dataInfo.countFavoritos--
     }
 }
