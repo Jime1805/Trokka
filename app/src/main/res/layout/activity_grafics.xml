@@ -61,12 +61,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cvHeader">
 
-        <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/bc_grafic"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginVertical="130dp"
-            android:layout_marginHorizontal="10dp"/>
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:paddingVertical="100dp">
+
+            <com.github.mikephil.charting.charts.RadarChart
+                android:id="@+id/rc_grafic"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.9"/>
+
+            <com.github.mikephil.charting.charts.HorizontalBarChart
+                android:id="@+id/hbc_grafic"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.1"/>
+
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
