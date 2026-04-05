@@ -12,7 +12,7 @@ class MyApp: Application() {
 
     private lateinit var inicio: Timestamp
     private lateinit var final: Timestamp
-    private val deviceId = "device1"
+    private val deviceId = "marc"
 
     override fun onCreate() {
         super.onCreate()

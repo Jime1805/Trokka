@@ -110,9 +110,9 @@ class PerfilActivity : AppCompatActivity() {
         val tempsEnMins = calcularTiempo/3600000.0
 
         CoroutineScope(Dispatchers.IO).launch {
-            FirebaseConnector.cargarInfo("device1")
+            FirebaseConnector.cargarInfo("marc")
             FirebaseConnector.addHores(tempsEnMins)
-            val resultado = FirebaseConnector.guardarInfo("device1", FirebaseConnector.dataInfo)
+            val resultado = FirebaseConnector.guardarInfo("marc", FirebaseConnector.dataInfo)
 
             launch(Dispatchers.Main){
                 if (resultado.isSuccess) {
@@ -167,7 +167,7 @@ class PerfilActivity : AppCompatActivity() {
     }
 
     private fun navigateToGraphs() {
-
+        startActivity(Intent(this, GraficsActivity::class.java))
     }
 
     private fun initListeners() {
