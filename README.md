@@ -98,3 +98,17 @@ El **Mapa**, el **Perfil** i el **Loby** disposen d'un menú inferior, amb tres
 icones, per moure's a través de l'aplicació a les diferents pàgines.
 
 <img src="./img_docu/botomMenu.png" alt="Imatge del menu inferior.">
+
+### Activitat 9
+Per als grafics s'ha fet servir la llibreria de github: https://github.com/PhilJay/MPAndroidChart.git  
+Aquesta llibreria permet una gran varietat de configuracions i d'edicio per als grafics.
+
+En aquesta practica s'ha obtat per fer un RadarChar (com.github.mikephil.charting.charts.RadarChart)
+i un HorizontalBarChar (com.github.mikephil.charting.charts.HorizontalBarChart).  
+S'han utilitzat aquests dos ja que son els que concorden mes en la presentació de dades d'aquesta app.
+
+Al tenir 4 comptadors i una dada temporal, s'ha optat per separarles en dos grafiques que mostrin
+informació diferent, tot i vaixar en nivell de detall del grafic.
+
+Per a un major nivell de detall es podria utilitzar el codi commentat de `GraficsActivity` per a
+fer un grafic de barres tradicional. S'hauria de modificar el layout per canviar de RadarChart a BarChart.
