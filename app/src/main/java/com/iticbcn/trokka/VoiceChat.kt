@@ -34,7 +34,17 @@ object VoiceChat {
                 callback?.invoke(spokenText)
             }
 
-            override fun onError(error: Int) {}
+            override fun onError(error: Int) {
+                val message = when (error) {
+                    SpeechRecognizer.ERROR_AUDIO -> "Error de audio"
+                    SpeechRecognizer.ERROR_CLIENT -> "Error del cliente"
+                    SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS -> "Faltan permisos de micro"
+                    SpeechRecognizer.ERROR_NETWORK -> "Error de red"
+                    SpeechRecognizer.ERROR_NO_MATCH -> "No se entendió nada"
+                    else -> "Error desconocido: $error"
+                }
+                println("DEBUG_VOICE: $message")
+            }
             override fun onReadyForSpeech(params: Bundle?) {}
             override fun onBeginningOfSpeech() {}
             override fun onRmsChanged(rmsdB: Float) {}

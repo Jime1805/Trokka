@@ -49,7 +49,7 @@ class FavoritosActivity : AppCompatActivity() {
     }
 
     private fun navigateToLoby(){
-        val intent = Intent(this, Loby_Activity::class.java)
+        val intent = Intent(this, LobyActivity::class.java)
         startActivity(intent)
     }
 

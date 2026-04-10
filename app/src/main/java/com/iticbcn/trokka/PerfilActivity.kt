@@ -18,7 +18,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
-import com.iticbcn.trokka.Loby_Activity.Companion.PERFIL
+import com.iticbcn.trokka.LobyActivity.Companion.PERFIL
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -135,7 +135,7 @@ class PerfilActivity : AppCompatActivity() {
     }
 
     private fun navigateToLoby() {
-        startActivity(Intent(this, Loby_Activity::class.java))
+        startActivity(Intent(this, LobyActivity::class.java))
     }
 
     private fun navigateToMapa() {

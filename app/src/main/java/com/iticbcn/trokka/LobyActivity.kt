@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.iticbcn.trokka.MainActivity.Companion.LOBY
 
-class Loby_Activity : AppCompatActivity() {
+class LobyActivity : AppCompatActivity() {
 
     private lateinit var bottomNav: BottomNavigationView
     private lateinit var recyclerView: RecyclerView

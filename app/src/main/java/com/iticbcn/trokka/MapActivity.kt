@@ -4,10 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.ImageView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MapActivity : AppCompatActivity() {
@@ -32,7 +29,7 @@ class MapActivity : AppCompatActivity() {
     }
 
     private fun navigateToLoby() {
-        val intent = Intent(this, Loby_Activity::class.java)
+        val intent = Intent(this, LobyActivity::class.java)
         startActivity(intent)
     }
 
