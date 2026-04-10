@@ -1,6 +1,7 @@
 package com.iticbcn.trokka
 
 import android.app.Application
+import android.content.Intent
 import com.google.firebase.FirebaseApp
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -16,6 +17,12 @@ class MyApp: Application() {
 
     override fun onCreate() {
         super.onCreate()
+        VoiceChat.initObjects(this)
+
+        VoiceChat.initiListeners{command ->
+            handleVoiceCommand(command)
+        }
+
         FirebaseApp.initializeApp(this)
         inicio = Timestamp(System.currentTimeMillis())
 
@@ -33,5 +40,26 @@ class MyApp: Application() {
         inicio = final
 
         return tiempoTotal
+    }
+
+    private fun handleVoiceCommand(command: String?) {
+        when {
+            command?.contains("abrir mapa") == true -> {
+                val intent = Intent(this, MapActivity::class.java)
+                startActivity(intent)
+            }
+            command?.contains("abrir inicio") == true -> {
+                val intent = Intent(this, Loby_Activity::class.java)
+                startActivity(intent)
+            }
+            command?.contains("abrir perfil") == true -> {
+                val intent = Intent(this, PerfilActivity::class.java)
+                startActivity(intent)
+            }
+            command?.contains("cambiar cuenta") == true -> {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+        }
     }
 }
