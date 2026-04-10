@@ -4,7 +4,6 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -41,7 +40,7 @@ class MyObjectsActivity : AppCompatActivity() {
     }
 
     private fun navigateToLoby() {
-        val intent = Intent(this, Loby_Activity::class.java)
+        val intent = Intent(this, LobyActivity::class.java)
         startActivity(intent)
     }
 
