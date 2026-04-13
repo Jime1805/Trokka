@@ -20,9 +20,9 @@ class MyApp: Application() {
         super.onCreate()
         VoiceChat.initObjects(this)
 
-        VoiceChat.initiListeners{command ->
+       /* VoiceChat.initiListeners{command ->
             handleVoiceCommand(command)
-        }
+        }*/
 
         FirebaseApp.initializeApp(this)
         inicio = Timestamp(System.currentTimeMillis())
@@ -42,7 +42,7 @@ class MyApp: Application() {
 
         return tiempoTotal
     }
-
+/*
     private fun handleVoiceCommand(command: String?) {
         Log.d("DEBUG_VOICE", command.toString())
         when {
@@ -84,5 +84,5 @@ class MyApp: Application() {
                 System.exit(0)
             }
         }
-    }
+    }*/
 }

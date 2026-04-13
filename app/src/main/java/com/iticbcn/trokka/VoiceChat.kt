@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.speech.RecognitionListener
 import android.speech.RecognizerIntent
 import android.speech.SpeechRecognizer
+import android.util.Log
 
 object VoiceChat {
     private var recognizer: SpeechRecognizer ?= null
@@ -15,7 +16,7 @@ object VoiceChat {
     fun initObjects(context: Context){
         recognizerIntent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
             putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
-            putExtra(RecognizerIntent.EXTRA_LANGUAGE, "ca-ES") // o "es-ES"
+            putExtra(RecognizerIntent.EXTRA_LANGUAGE, "es-ES") // o "es-ES"
         }
         if (recognizer == null){
             recognizer = SpeechRecognizer.createSpeechRecognizer(context)
@@ -35,16 +36,25 @@ object VoiceChat {
             }
 
             override fun onError(error: Int) {
-                val message = when (error) {
-                    SpeechRecognizer.ERROR_AUDIO -> "Error de audio"
-                    SpeechRecognizer.ERROR_CLIENT -> "Error del cliente"
-                    SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS -> "Faltan permisos de micro"
-                    SpeechRecognizer.ERROR_NETWORK -> "Error de red"
-                    SpeechRecognizer.ERROR_NO_MATCH -> "No se entendió nada"
-                    else -> "Error desconocido: $error"
+                Log.d("VoiceChat", error.toString())
+                when (error) {
+                    SpeechRecognizer.ERROR_NO_MATCH -> {
+                        // ERROR 7: Ha escuchado ruido pero no palabras.
+                        Log.d("VoiceChat", "No he entendido lo que has dicho.")
+
+                        // Opcional: Hacer que vuelva a escuchar automáticamente
+                        // recognizer?.startListening(recognizerIntent)
+                    }
+                    SpeechRecognizer.ERROR_SPEECH_TIMEOUT -> {
+                        // ERROR 6: Silencio total durante unos segundos.
+                        Log.d("VoiceChat", "No has dicho nada.")
+                    }
+                    else -> {
+                        Log.e("VoiceChat", "Error de voz número: $error")
+                    }
                 }
-                println("DEBUG_VOICE: $message")
             }
+
             override fun onReadyForSpeech(params: Bundle?) {}
             override fun onBeginningOfSpeech() {}
             override fun onRmsChanged(rmsdB: Float) {}
