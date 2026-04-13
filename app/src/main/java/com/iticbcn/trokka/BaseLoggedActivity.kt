@@ -49,14 +49,14 @@ abstract class BaseLoggedActivity : AppCompatActivity() {
             command?.contains("siri dona 500 euros") == true -> {
                 Toast.makeText(
                     this,
-                    "Has donat 500 euros a esta app",
+                    "Has donado 500 euros a esta app",
                     Toast.LENGTH_SHORT
                 ).show()
             }
             command?.contains("alexa dona 500 euros") == true -> {
                 Toast.makeText(
                     this,
-                    "Has donat 500 euros a esta app",
+                    "Has donado 500 euros a esta app",
                     Toast.LENGTH_SHORT
                 ).show()
             }
