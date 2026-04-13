@@ -5,13 +5,8 @@ import android.graphics.Color
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.iticbcn.trokka.Loby_Activity.Companion.PERFIL
-import com.iticbcn.trokka.MainActivity.Companion.LOBY
 
 class ObjectActivity : AppCompatActivity() {
 
@@ -49,7 +44,7 @@ class ObjectActivity : AppCompatActivity() {
         startActivity(intent)
     }
     private fun navigateToLoby(){
-        val intent = Intent(this, Loby_Activity::class.java)
+        val intent = Intent(this, LobyActivity::class.java)
         /*intent.putExtra(PERFIL, usuario)*/
         startActivity(intent)
     }

@@ -2,36 +2,30 @@ package com.iticbcn.trokka
 
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
 import android.speech.RecognitionListener
 import android.speech.RecognizerIntent
 import android.speech.SpeechRecognizer
 import android.util.Log
 
-
 object VoiceChat {
-    private var recognizer: SpeechRecognizer? = null
+    private var recognizer: SpeechRecognizer ?= null
     private lateinit var recognizerIntent: Intent
-    private var callback: ((String) -> Unit)? = null
+    private var callback: ((String) -> Unit) ?= null
 
-    fun initObjects(context: Context) {
+    fun initObjects(context: Context){
         recognizerIntent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
-            putExtra(
-                RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
-            )
-            putExtra(RecognizerIntent.EXTRA_LANGUAGE, "es-ES") // o "es-ES"
+            putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+            putExtra(RecognizerIntent.EXTRA_LANGUAGE, "ca-ES") // o "es-ES"
         }
-        if (recognizer == null) {
+        if (recognizer == null){
             recognizer = SpeechRecognizer.createSpeechRecognizer(context)
 
         }
     }
 
-    fun initiListeners(onResult: (String?) -> Unit) {
-        this.callback = onResult
+    fun initiListeners(onResult: (String?) -> Unit){
+        this.callback =  onResult
         recognizer?.setRecognitionListener(object : RecognitionListener {
             override fun onResults(results: Bundle?) {
                 val spokenText: String = results

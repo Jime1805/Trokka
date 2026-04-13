@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun navigateToLoby() {
-        val intent = Intent(this, Loby_Activity::class.java)
+        val intent = Intent(this, LobyActivity::class.java)
         intent.putExtra(LOBY, etNombreUsuario.text.toString())
         startActivity(intent)
     }
@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
         tvRegistrarse = findViewById(R.id.tvRegistrarse)
     }
 
-    private fun observeViewModel(){
+        private fun observeViewModel(){
         viewModel.state.observe(this){(esCorrecte, msg, user) ->
             Toast.makeText(
                 this,
