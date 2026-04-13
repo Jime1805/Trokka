@@ -60,9 +60,6 @@ abstract class BaseLoggedActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
-            command?.contains("votare a pedro sanchez") == true -> {
-                System.exit(0)
-            }
         }
     }
 }
