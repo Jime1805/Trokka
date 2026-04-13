@@ -16,7 +16,7 @@ object VoiceChat {
     fun initObjects(context: Context){
         recognizerIntent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
             putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
-            putExtra(RecognizerIntent.EXTRA_LANGUAGE, "ca-ES") // o "es-ES"
+            putExtra(RecognizerIntent.EXTRA_LANGUAGE, "es-ES") // o "es-ES"
         }
         if (recognizer == null){
             recognizer = SpeechRecognizer.createSpeechRecognizer(context)
