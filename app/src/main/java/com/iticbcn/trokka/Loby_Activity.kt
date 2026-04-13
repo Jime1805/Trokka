@@ -1,18 +1,22 @@
 package com.iticbcn.trokka
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.SearchView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.iticbcn.trokka.MainActivity.Companion.LOBY
 
-class Loby_Activity : AppCompatActivity() {
+class Loby_Activity : BaseLoggedActivity() {
 
     private lateinit var bottomNav: BottomNavigationView
     private lateinit var recyclerView: RecyclerView
@@ -23,6 +27,16 @@ class Loby_Activity : AppCompatActivity() {
 
     companion object {
         const val PERFIL = "perfil"
+    }
+
+    private val requestPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted ->
+        if (isGranted) {
+            iniciarEscuchaVoz()
+        } else {
+            Toast.makeText(this, "Funcions de veu desactivades", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +51,7 @@ class Loby_Activity : AppCompatActivity() {
         initRecycler()
         observeViewModel()
         initListeners(usuario)
+        comprobarPermisoMicro()
     }
 
     private fun observeViewModel() {
@@ -114,5 +129,14 @@ class Loby_Activity : AppCompatActivity() {
         )
 
         recyclerView.adapter = adapter
+    }
+
+    private fun comprobarPermisoMicro() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            // Si NO lo tiene, se lo pedimos
+            requestPermissionLauncher.launch(Manifest.permission.RECORD_AUDIO)
+        }
+        // Nota: Si YA lo tiene, no hacemos nada aquí, porque onResume() de la clase Base
+        // se ejecutará justo después de onCreate() y lo encenderá automáticamente.
     }
 }

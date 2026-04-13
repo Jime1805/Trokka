@@ -19,9 +19,9 @@ class MyApp: Application() {
         super.onCreate()
         VoiceChat.initObjects(this)
 
-        VoiceChat.initiListeners{command ->
+       /* VoiceChat.initiListeners{command ->
             handleVoiceCommand(command)
-        }
+        }*/
 
         FirebaseApp.initializeApp(this)
         inicio = Timestamp(System.currentTimeMillis())
@@ -41,7 +41,7 @@ class MyApp: Application() {
 
         return tiempoTotal
     }
-
+/*
     private fun handleVoiceCommand(command: String?) {
         when {
             command?.contains("abrir mapa") == true -> {
@@ -61,5 +61,5 @@ class MyApp: Application() {
                 startActivity(intent)
             }
         }
-    }
+    }*/
 }
