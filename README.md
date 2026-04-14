@@ -112,3 +112,9 @@ informació diferent, tot i vaixar en nivell de detall del grafic.
 
 Per a un major nivell de detall es podria utilitzar el codi commentat de `GraficsActivity` per a
 fer un grafic de barres tradicional. S'hauria de modificar el layout per canviar de RadarChart a BarChart.
+
+### Activitat 10
+Per al SpeachRecorder s'ha creat un objecte, perquè sigui funcional en tota l'app.
+Aquest objecte es fa servir des de les Activities principals (Mapa, Loby i Perfil).
+S'ha creat una classe d'activity base per a compartir les funcionalitats amb les Activities
+que han d'accedir al VoiceChat i el VoiceChat s'inicia al començat l'app.

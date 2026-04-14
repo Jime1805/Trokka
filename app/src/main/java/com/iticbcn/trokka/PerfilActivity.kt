@@ -14,6 +14,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -23,7 +24,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class PerfilActivity : AppCompatActivity() {
+class PerfilActivity : BaseLoggedActivity() {
 
     private val viewModel: PerfilViewModel by viewModels()
 
@@ -34,6 +35,7 @@ class PerfilActivity : AppCompatActivity() {
     private lateinit var cvSubirObjetos: CardView
     private lateinit var cvFavs: CardView
     private lateinit var cvGrafics: CardView
+    private lateinit var btnSpeak: ConstraintLayout
 
     private lateinit var toolbar: Toolbar
     private lateinit var navView: NavigationView
@@ -183,6 +185,10 @@ class PerfilActivity : AppCompatActivity() {
             }
             true
         }
+
+        btnSpeak.setOnClickListener {
+            iniciarEscuchaVoz()
+        }
     }
 
     private fun initComponents() {
@@ -199,6 +205,8 @@ class PerfilActivity : AppCompatActivity() {
 
         bottomNav = findViewById(R.id.bottom_navigation)
         bottomNav.setBackgroundColor(Color.TRANSPARENT)
+
+        btnSpeak = findViewById(R.id.btn_speak)
     }
 
     private fun observeViewModel() {
