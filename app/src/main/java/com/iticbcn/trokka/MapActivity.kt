@@ -5,13 +5,15 @@ import android.graphics.Color
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class MapActivity : AppCompatActivity() {
+class MapActivity : BaseLoggedActivity() {
 
     private lateinit var imgFlechita: ImageView
     private lateinit var btn_puntTrobada: ImageView
     private lateinit var bottomNav: BottomNavigationView
+    private lateinit var btnSpeak: ConstraintLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +59,10 @@ class MapActivity : AppCompatActivity() {
             }
             true
         }
+
+        btnSpeak.setOnClickListener {
+            iniciarEscuchaVoz()
+        }
     }
 
     private fun initComponents() {
@@ -64,5 +70,6 @@ class MapActivity : AppCompatActivity() {
         btn_puntTrobada = findViewById(R.id.btn_puntTrobada)
         bottomNav = findViewById(R.id.bottom_navigation)
         bottomNav.setBackgroundColor(Color.TRANSPARENT)
+        btnSpeak = findViewById(R.id.btn_speak)
     }
 }

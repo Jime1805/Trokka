@@ -79,6 +79,26 @@
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/red" />
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/init_session"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintBottom_toTopOf="@id/vLinea"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btn_speak"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/white"
+            android:background="@drawable/ic_micro" />
+
+    </androidx.cardview.widget.CardView>
+
     <!-- Menu de abajo para todas las activities -->
     <View
         android:id="@+id/vLinea"

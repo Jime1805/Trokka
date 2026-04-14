@@ -9,6 +9,7 @@ import android.widget.SearchView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,6 +23,7 @@ class LobyActivity : BaseLoggedActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: MyAdapterLoby
     private lateinit var svSerch: SearchView
+    private lateinit var btnSpeak: ConstraintLayout
 
     private lateinit var viewModel: LobyViewModel
 
@@ -87,6 +89,10 @@ class LobyActivity : BaseLoggedActivity() {
                 return true
             }
         })
+
+        btnSpeak.setOnClickListener {
+            iniciarEscuchaVoz()
+        }
     }
 
     private fun navigateToProfile(usuario: String) {
@@ -105,6 +111,7 @@ class LobyActivity : BaseLoggedActivity() {
         bottomNav = findViewById(R.id.bottom_navigation)
         bottomNav.setBackgroundColor(Color.TRANSPARENT)
         svSerch = findViewById(R.id.sv_serch)
+        btnSpeak = findViewById(R.id.btn_speak)
     }
 
     private fun initRecycler() {
