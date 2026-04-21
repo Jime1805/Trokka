@@ -1,8 +1,6 @@
-package com.iticbcn.trokkaimport
+package com.iticbcn.trokka
 
-import com.iticbcn.trokka.RegisterViewModel
 import org.junit.Assert
-
 import org.junit.Before
 import org.junit.Test
 
